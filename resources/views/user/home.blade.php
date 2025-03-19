@@ -110,7 +110,7 @@
                 <h2 class="text-3xl font-raleway font-bold leading-tight text-gray-50 xsm:text-4xl xl:text-5xl mb-6">Kenapa
                     kamu harus pilih EZ Coliving?</h2>
                 <p class="mb-4">EZ Coliving adalah kost yang memiliki pelayanan yang sangat baik dan memiliki lingkungan
-                    yang kondusif serta banyak kelebihan lainnya yang sudah di detailkan dibawah. haloooo</p>
+                    yang kondusif serta banyak kelebihan lainnya yang sudah di detailkan dibawah.</p>
 
             </div>
 
