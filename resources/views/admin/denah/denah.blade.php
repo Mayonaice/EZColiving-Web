@@ -22,7 +22,7 @@
         </div>
         
         <!-- Denah Container -->
-        <div class="relative w-full border-2 border-gray-300 rounded-lg overflow-hidden bg-gray-800" style="height: 600px;">
+        <div class="relative w-full border-2 border-gray-300 rounded-lg overflow-hidden bg-gray-800" style="height: 700px;">
             <div class="absolute left-0 top-0 bottom-0 w-12 flex items-center justify-center">
                 <h2 class="text-6xl font-bold text-white transform -rotate-0"></h2>
             </div>
@@ -36,58 +36,59 @@
                         Lorong
                     </div>
                     
-                    <!-- Kamar Atas -->
-                    <div class="absolute grid grid-cols-5 gap-3" style="top: 2%; left: 2%; width: 96%; height: 38%;">
-                        <div class="room-item bg-gray-100 border-2 border-gray-300 rounded-lg flex flex-col items-center justify-center p-2 cursor-pointer aspect-[3/2]"
+                    <!-- Kamar Atas Lantai 1 -->
+                    <div class="absolute grid grid-cols-5 gap-4" 
+                         style="top: 2%; left: 2%; width: 96%; height: 38%;">
+                        <div class="room-item bg-gray-100 border-2 border-gray-300 rounded-lg flex flex-col items-center justify-center p-2 cursor-pointer w-[180px] h-[135px]"
                              data-room="1BE">
-                            <span class="font-bold">1BE</span>
-                            <span class="text-xs">(Superior)</span>
+                            <span class="font-bold text-lg">1BE</span>
+                            <span class="text-sm mt-1">(Superior)</span>
                         </div>
-                        <div class="room-item bg-gray-100 border-2 border-gray-300 rounded-lg flex flex-col items-center justify-center p-2 cursor-pointer aspect-[3/2]"
+                        <div class="room-item bg-gray-100 border-2 border-gray-300 rounded-lg flex flex-col items-center justify-center p-2 cursor-pointer w-[180px] h-[135px]"
                              data-room="1BD">
-                            <span class="font-bold">1BD</span>
-                            <span class="text-xs">(Superior)</span>
+                            <span class="font-bold text-lg">1BD</span>
+                            <span class="text-sm mt-1">(Superior)</span>
                         </div>
-                        <div class="room-item bg-gray-100 border-2 border-gray-300 rounded-lg flex flex-col items-center justify-center p-2 cursor-pointer aspect-[3/2]"
+                        <div class="room-item bg-gray-100 border-2 border-gray-300 rounded-lg flex flex-col items-center justify-center p-2 cursor-pointer w-[180px] h-[135px]"
                              data-room="1BC">
-                            <span class="font-bold">1BC</span>
-                            <span class="text-xs">(Superior)</span>
+                            <span class="font-bold text-lg">1BC</span>
+                            <span class="text-sm mt-1">(Superior)</span>
                         </div>
-                        <div class="room-item bg-gray-100 border-2 border-gray-300 rounded-lg flex flex-col items-center justify-center p-2 cursor-pointer aspect-[3/2]"
+                        <div class="room-item bg-gray-100 border-2 border-gray-300 rounded-lg flex flex-col items-center justify-center p-2 cursor-pointer w-[180px] h-[135px]"
                              data-room="1BB">
-                            <span class="font-bold">1BB</span>
-                            <span class="text-xs">(Superior)</span>
+                            <span class="font-bold text-lg">1BB</span>
+                            <span class="text-sm mt-1">(Superior)</span>
                         </div>
-                        <div class="room-item bg-gray-100 border-2 border-gray-300 rounded-lg flex flex-col items-center justify-center p-2 cursor-pointer aspect-[3/2]"
+                        <div class="room-item bg-gray-100 border-2 border-gray-300 rounded-lg flex flex-col items-center justify-center p-2 cursor-pointer w-[180px] h-[135px]"
                              data-room="1BA">
-                            <span class="font-bold">1BA</span>
-                            <span class="text-xs">(Superior)</span>
+                            <span class="font-bold text-lg">1BA</span>
+                            <span class="text-sm mt-1">(Superior)</span>
                         </div>
                     </div>
                     
-                    <!-- Kamar Bawah -->
-                    <div class="absolute grid grid-cols-6 gap-3" style="bottom: 2%; left: 2%; width: 96%; height: 38%;">
-                        <div class="col-span-1"></div>
-                        <div class="room-item bg-gray-100 border-2 border-gray-300 rounded-lg flex flex-col items-center justify-center p-2 cursor-pointer aspect-[3/2]"
+                    <!-- Kamar Bawah Lantai 1 -->
+                    <div class="absolute flex flex-wrap" 
+                         style="bottom: 2%; left: 2%; width: 96%; height: 38%;">
+                        <div class="room-item bg-gray-100 border-2 border-gray-300 rounded-lg flex flex-col items-center justify-center p-2 cursor-pointer w-[180px] h-[135px] mr-4"
                              data-room="1AC">
-                            <span class="font-bold">1AC</span>
-                            <span class="text-xs">(Superior)</span>
+                            <span class="font-bold text-lg">1AC</span>
+                            <span class="text-sm mt-1">(Superior)</span>
                         </div>
-                        <div class="bg-gray-400 rounded-lg flex items-center justify-center p-2 aspect-[3/2]">
-                            <span class="text-white text-sm">Gudang</span>
+                        <div class="bg-gray-400 rounded-lg flex items-center justify-center p-2 w-[180px] h-[135px] mr-4">
+                            <span class="text-white text-base">Gudang</span>
                         </div>
-                        <div class="bg-gray-400 rounded-lg flex items-center justify-center p-2 aspect-[3/2]">
-                            <span class="text-white text-sm">Stair</span>
+                        <div class="bg-gray-400 rounded-lg flex items-center justify-center p-2 w-[92px] h-[135px] mr-4">
+                            <span class="text-white text-base">Stair</span>
                         </div>
-                        <div class="room-item bg-gray-100 border-2 border-gray-300 rounded-lg flex flex-col items-center justify-center p-2 cursor-pointer aspect-[3/2]"
+                        <div class="room-item bg-gray-100 border-2 border-gray-300 rounded-lg flex flex-col items-center justify-center p-2 cursor-pointer w-[180px] h-[135px] mr-4"
                              data-room="1AB">
-                            <span class="font-bold">1AB</span>
-                            <span class="text-xs">(Deluxe)</span>
+                            <span class="font-bold text-lg">1AB</span>
+                            <span class="text-sm mt-1">(Deluxe)</span>
                         </div>
-                        <div class="room-item bg-gray-100 border-2 border-gray-300 rounded-lg flex flex-col items-center justify-center p-2 cursor-pointer aspect-[3/2]"
+                        <div class="room-item bg-gray-100 border-2 border-gray-300 rounded-lg flex flex-col items-center justify-center p-2 cursor-pointer w-[180px] h-[135px]"
                              data-room="1AA">
-                            <span class="font-bold">1AA</span>
-                            <span class="text-xs">(Deluxe)</span>
+                            <span class="font-bold text-lg">1AA</span>
+                            <span class="text-sm mt-1">(Deluxe)</span>
                         </div>
                     </div>
                 </div>
@@ -105,49 +106,51 @@
                         Lorong
                     </div>
                     
-                    <!-- Kamar Atas -->
-                    <div class="absolute grid grid-cols-5 gap-3" style="top: 2%; left: 2%; width: 96%; height: 38%;">
-                        <div class="room-item bg-gray-100 border-2 border-gray-300 rounded-lg flex flex-col items-center justify-center p-2 cursor-pointer aspect-[3/2]"
+                    <!-- Kamar Atas Lantai 2 -->
+                    <div class="absolute grid grid-cols-5 gap-4" 
+                         style="top: 2%; left: 2%; width: 96%; height: 38%;">
+                        <div class="room-item bg-gray-100 border-2 border-gray-300 rounded-lg flex flex-col items-center justify-center p-2 cursor-pointer w-[180px] h-[135px]"
                              data-room="2BE">
-                            <span class="font-bold">2BE</span>
-                            <span class="text-xs">(Superior)</span>
+                            <span class="font-bold text-lg">2BE</span>
+                            <span class="text-sm mt-1">(Superior)</span>
                         </div>
-                        <div class="room-item bg-gray-100 border-2 border-gray-300 rounded-lg flex flex-col items-center justify-center p-2 cursor-pointer aspect-[3/2]"
+                        <div class="room-item bg-gray-100 border-2 border-gray-300 rounded-lg flex flex-col items-center justify-center p-2 cursor-pointer w-[180px] h-[135px]"
                              data-room="2BD">
-                            <span class="font-bold">2BD</span>
-                            <span class="text-xs">(Superior)</span>
+                            <span class="font-bold text-lg">2BD</span>
+                            <span class="text-sm mt-1">(Superior)</span>
                         </div>
-                        <div class="room-item bg-gray-100 border-2 border-gray-300 rounded-lg flex flex-col items-center justify-center p-2 cursor-pointer aspect-[3/2]"
+                        <div class="room-item bg-gray-100 border-2 border-gray-300 rounded-lg flex flex-col items-center justify-center p-2 cursor-pointer w-[180px] h-[135px]"
                              data-room="2BC">
-                            <span class="font-bold">2BC</span>
-                            <span class="text-xs">(Superior)</span>
+                            <span class="font-bold text-lg">2BC</span>
+                            <span class="text-sm mt-1">(Superior)</span>
                         </div>
-                        <div class="room-item bg-gray-100 border-2 border-gray-300 rounded-lg flex flex-col items-center justify-center p-2 cursor-pointer aspect-[3/2]"
+                        <div class="room-item bg-gray-100 border-2 border-gray-300 rounded-lg flex flex-col items-center justify-center p-2 cursor-pointer w-[180px] h-[135px]"
                              data-room="2BB">
-                            <span class="font-bold">2BB</span>
-                            <span class="text-xs">(Superior)</span>
+                            <span class="font-bold text-lg">2BB</span>
+                            <span class="text-sm mt-1">(Superior)</span>
                         </div>
-                        <div class="room-item bg-gray-100 border-2 border-gray-300 rounded-lg flex flex-col items-center justify-center p-2 cursor-pointer aspect-[3/2]"
+                        <div class="room-item bg-gray-100 border-2 border-gray-300 rounded-lg flex flex-col items-center justify-center p-2 cursor-pointer w-[180px] h-[135px]"
                              data-room="2BA">
-                            <span class="font-bold">2BA</span>
-                            <span class="text-xs">(Suite)</span>
+                            <span class="font-bold text-lg">2BA</span>
+                            <span class="text-sm mt-1">(Suite)</span>
                         </div>
                     </div>
                     
-                    <!-- Kamar Bawah -->
-                    <div class="absolute grid grid-cols-5 gap-3" style="bottom: 2%; left: 2%; width: 96%; height: 38%;">
-                        <div class="bg-gray-400 col-span-2 rounded-lg flex items-center justify-center p-2" style="aspect-ratio: 2/1;">
-                            <span class="text-white text-sm">Pantry</span>
+                    <!-- Kamar Bawah Lantai 2 -->
+                    <div class="absolute grid grid-cols-5 gap-4" 
+                         style="bottom: 2%; left: 2%; width: 96%; height: 38%;">
+                        <div class="bg-gray-400 col-span-2 rounded-lg flex items-center justify-center p-2 w-[380px] h-[135px]">
+                            <span class="text-white text-base">Pantry</span>
                         </div>
-                        <div class="room-item bg-gray-100 border-2 border-gray-300 rounded-lg flex flex-col items-center justify-center p-2 cursor-pointer aspect-[3/2]"
+                        <div class="room-item bg-gray-100 border-2 border-gray-300 rounded-lg flex flex-col items-center justify-center p-2 cursor-pointer w-[180px] h-[135px]"
                              data-room="2AB">
-                            <span class="font-bold">2AB</span>
-                            <span class="text-xs">(Deluxe)</span>
+                            <span class="font-bold text-lg">2AB</span>
+                            <span class="text-sm mt-1">(Deluxe)</span>
                         </div>
-                        <div class="room-item bg-gray-100 border-2 border-gray-300 rounded-lg flex flex-col items-center justify-center p-2 cursor-pointer aspect-[3/2]"
+                        <div class="room-item bg-gray-100 border-2 border-gray-300 rounded-lg flex flex-col items-center justify-center p-2 cursor-pointer w-[180px] h-[135px]"
                              data-room="2AA">
-                            <span class="font-bold">2AA</span>
-                            <span class="text-xs">(Suite)</span>
+                            <span class="font-bold text-lg">2AA</span>
+                            <span class="text-sm mt-1">(Suite)</span>
                         </div>
                     </div>
                 </div>
@@ -155,9 +158,6 @@
 
             <!-- Floor 3 -->
             <div class="floor-content hidden" data-floor="3">
-                <div class="absolute left-0 top-0 bottom-0 w-24 flex items-center justify-center">
-                    <h2 class="text-6xl font-bold text-white transform -rotate-0"></h2>
-                </div>
                 <div class="absolute inset-0 p-4">
                     <!-- Lorong -->
                     <div class="absolute bg-gray-700 text-center py-2 text-white font-medium"
@@ -165,64 +165,66 @@
                         Lorong
                     </div>
                     
-                    <!-- Kamar Atas -->
-                    <div class="absolute grid grid-cols-6 gap-3" style="top: 2%; left: 2%; width: 96%; height: 38%;">
-                        <div class="room-item bg-gray-100 border-2 border-gray-300 rounded-lg flex flex-col items-center justify-center p-2 cursor-pointer aspect-[3/2]"
+                    <!-- Kamar Atas Lantai 3 -->
+                    <div class="absolute flex flex-wrap" 
+                         style="top: 2%; left: 2%; width: 96%; height: 38%;">
+                        <div class="room-item bg-gray-100 border-2 border-gray-300 rounded-lg flex flex-col items-center justify-center p-2 cursor-pointer w-[180px] h-[135px] mr-4"
                              data-room="3BE">
-                            <span class="font-bold">3BE</span>
-                            <span class="text-xs">(Superior)</span>
+                            <span class="font-bold text-lg">3BE</span>
+                            <span class="text-sm mt-1">(Superior)</span>
                         </div>
-                        <div class="room-item bg-gray-100 border-2 border-gray-300 rounded-lg flex flex-col items-center justify-center p-2 cursor-pointer aspect-[3/2]"
+                        <div class="room-item bg-gray-100 border-2 border-gray-300 rounded-lg flex flex-col items-center justify-center p-2 cursor-pointer w-[180px] h-[135px] mr-4"
                              data-room="3BD">
-                            <span class="font-bold">3BD</span>
-                            <span class="text-xs">(Superior)</span>
+                            <span class="font-bold text-lg">3BD</span>
+                            <span class="text-sm mt-1">(Superior)</span>
                         </div>
-                        <div class="room-item bg-gray-100 border-2 border-gray-300 rounded-lg flex flex-col items-center justify-center p-2 cursor-pointer aspect-[3/2]"
+                        <div class="room-item bg-gray-100 border-2 border-gray-300 rounded-lg flex flex-col items-center justify-center p-2 cursor-pointer w-[180px] h-[135px] mr-4"
                              data-room="3BC">
-                            <span class="font-bold">3BC</span>
-                            <span class="text-xs">(Superior)</span>
+                            <span class="font-bold text-lg">3BC</span>
+                            <span class="text-sm mt-1">(Superior)</span>
                         </div>
-                        <div class="bg-gray-400 rounded-lg flex items-center justify-center p-2 aspect-[3/2]">
-                            <span class="text-white text-sm">Stair</span>
+                        <div class="bg-gray-400 rounded-lg flex items-center justify-center p-2 w-[92px] h-[135px] mr-4">
+                            <span class="text-white text-base">Stair</span>
                         </div>
-                        <div class="room-item bg-gray-100 border-2 border-gray-300 rounded-lg flex flex-col items-center justify-center p-2 cursor-pointer aspect-[3/2]"
+                        <div class="room-item bg-gray-100 border-2 border-gray-300 rounded-lg flex flex-col items-center justify-center p-2 cursor-pointer w-[180px] h-[135px] mr-4"
                              data-room="3BB">
-                            <span class="font-bold">3BB</span>
-                            <span class="text-xs">(Superior)</span>
+                            <span class="font-bold text-lg">3BB</span>
+                            <span class="text-sm mt-1">(Superior)</span>
                         </div>
-                        <div class="room-item bg-gray-100 border-2 border-gray-300 rounded-lg flex flex-col items-center justify-center p-2 cursor-pointer aspect-[3/2]"
+                        <div class="room-item bg-gray-100 border-2 border-gray-300 rounded-lg flex flex-col items-center justify-center p-2 cursor-pointer w-[180px] h-[135px]"
                              data-room="3BA">
-                            <span class="font-bold">3BA</span>
-                            <span class="text-xs">(Suite)</span>
+                            <span class="font-bold text-lg">3BA</span>
+                            <span class="text-sm mt-1">(Suite)</span>
                         </div>
                     </div>
                     
                     <!-- Kamar Bawah -->
-                    <div class="absolute grid grid-cols-5 gap-3" style="bottom: 2%; left: 2%; width: 96%; height: 38%;">
-                        <div class="room-item bg-gray-100 border-2 border-gray-300 rounded-lg flex flex-col items-center justify-center p-2 cursor-pointer aspect-[3/2]"
+                    <div class="absolute grid grid-cols-5 gap-4" 
+                         style="bottom: 2%; left: 2%; width: 96%; height: 38%;">
+                        <div class="room-item bg-gray-100 border-2 border-gray-300 rounded-lg flex flex-col items-center justify-center p-2 cursor-pointer w-48 aspect-[4/3]"
                              data-room="3AE">
-                            <span class="font-bold">3AE</span>
-                            <span class="text-xs">(Mezzanine)</span>
+                            <span class="font-bold text-lg">3AE</span>
+                            <span class="text-sm mt-1">(Mezzanine)</span>
                         </div>
-                        <div class="room-item bg-gray-100 border-2 border-gray-300 rounded-lg flex flex-col items-center justify-center p-2 cursor-pointer aspect-[3/2]"
+                        <div class="room-item bg-gray-100 border-2 border-gray-300 rounded-lg flex flex-col items-center justify-center p-2 cursor-pointer w-48 aspect-[4/3]"
                              data-room="3AD">
-                            <span class="font-bold">3AD</span>
-                            <span class="text-xs">(Mezzanine)</span>
+                            <span class="font-bold text-lg">3AD</span>
+                            <span class="text-sm mt-1">(Mezzanine)</span>
                         </div>
-                        <div class="room-item bg-gray-100 border-2 border-gray-300 rounded-lg flex flex-col items-center justify-center p-2 cursor-pointer aspect-[3/2]"
+                        <div class="room-item bg-gray-100 border-2 border-gray-300 rounded-lg flex flex-col items-center justify-center p-2 cursor-pointer w-48 aspect-[4/3]"
                              data-room="3AB">
-                            <span class="font-bold">3AB</span>
-                            <span class="text-xs">(Deluxe)</span>
+                            <span class="font-bold text-lg">3AB</span>
+                            <span class="text-sm mt-1">(Deluxe)</span>
                         </div>
-                        <div class="room-item bg-gray-100 border-2 border-gray-300 rounded-lg flex flex-col items-center justify-center p-2 cursor-pointer aspect-[3/2]"
+                        <div class="room-item bg-gray-100 border-2 border-gray-300 rounded-lg flex flex-col items-center justify-center p-2 cursor-pointer w-48 aspect-[4/3]"
                              data-room="3AB">
-                            <span class="font-bold">3AB</span>
-                            <span class="text-xs">(Deluxe)</span>
+                            <span class="font-bold text-lg">3AB</span>
+                            <span class="text-sm mt-1">(Deluxe)</span>
                         </div>
-                        <div class="room-item bg-gray-100 border-2 border-gray-300 rounded-lg flex flex-col items-center justify-center p-2 cursor-pointer aspect-[3/2]"
+                        <div class="room-item bg-gray-100 border-2 border-gray-300 rounded-lg flex flex-col items-center justify-center p-2 cursor-pointer w-48 aspect-[4/3]"
                              data-room="3AA">
-                            <span class="font-bold">3AA</span>
-                            <span class="text-xs">(Suite)</span>
+                            <span class="font-bold text-lg">3AA</span>
+                            <span class="text-sm mt-1">(Suite)</span>
                         </div>
                     </div>
                 </div>
@@ -230,9 +232,6 @@
 
             <!-- Floor 4 -->
             <div class="floor-content hidden" data-floor="4">
-                <div class="absolute left-0 top-0 bottom-0 w-24 flex items-center justify-center">
-                    <h2 class="text-6xl font-bold text-white transform -rotate-0"></h2>
-                </div>
                 <div class="absolute inset-0 p-4">
                     <!-- Lorong -->
                     <div class="absolute bg-gray-700 text-center py-2 text-white font-medium"
@@ -240,64 +239,66 @@
                         Lorong
                     </div>
                     
-                    <!-- Kamar Atas -->
-                    <div class="absolute grid grid-cols-6 gap-3" style="top: 2%; left: 2%; width: 96%; height: 38%;">
-                        <div class="room-item bg-gray-100 border-2 border-gray-300 rounded-lg flex flex-col items-center justify-center p-2 cursor-pointer aspect-[3/2]"
+                    <!-- Kamar Atas Lantai 4 -->
+                    <div class="absolute flex flex-wrap" 
+                         style="top: 2%; left: 2%; width: 96%; height: 38%;">
+                        <div class="room-item bg-gray-100 border-2 border-gray-300 rounded-lg flex flex-col items-center justify-center p-2 cursor-pointer w-[180px] h-[135px] mr-4"
                              data-room="4BE">
-                            <span class="font-bold">4BE</span>
-                            <span class="text-xs">(Superior)</span>
+                            <span class="font-bold text-lg">4BE</span>
+                            <span class="text-sm mt-1">(Superior)</span>
                         </div>
-                        <div class="room-item bg-gray-100 border-2 border-gray-300 rounded-lg flex flex-col items-center justify-center p-2 cursor-pointer aspect-[3/2]"
+                        <div class="room-item bg-gray-100 border-2 border-gray-300 rounded-lg flex flex-col items-center justify-center p-2 cursor-pointer w-[180px] h-[135px] mr-4"
                              data-room="4BD">
-                            <span class="font-bold">4BD</span>
-                            <span class="text-xs">(Superior)</span>
+                            <span class="font-bold text-lg">4BD</span>
+                            <span class="text-sm mt-1">(Superior)</span>
                         </div>
-                        <div class="room-item bg-gray-100 border-2 border-gray-300 rounded-lg flex flex-col items-center justify-center p-2 cursor-pointer aspect-[3/2]"
+                        <div class="room-item bg-gray-100 border-2 border-gray-300 rounded-lg flex flex-col items-center justify-center p-2 cursor-pointer w-[180px] h-[135px] mr-4"
                              data-room="4BC">
-                            <span class="font-bold">4BC</span>
-                            <span class="text-xs">(Superior)</span>
+                            <span class="font-bold text-lg">4BC</span>
+                            <span class="text-sm mt-1">(Superior)</span>
                         </div>
-                        <div class="bg-gray-400 rounded-lg flex items-center justify-center p-2 aspect-[3/2]">
-                            <span class="text-white text-sm">Stair</span>
+                        <div class="bg-gray-400 rounded-lg flex items-center justify-center p-2 w-[92px] h-[135px] mr-4">
+                            <span class="text-white text-base">Stair</span>
                         </div>
-                        <div class="room-item bg-gray-100 border-2 border-gray-300 rounded-lg flex flex-col items-center justify-center p-2 cursor-pointer aspect-[3/2]"
+                        <div class="room-item bg-gray-100 border-2 border-gray-300 rounded-lg flex flex-col items-center justify-center p-2 cursor-pointer w-[180px] h-[135px] mr-4"
                              data-room="4BB">
-                            <span class="font-bold">4BB</span>
-                            <span class="text-xs">(Superior)</span>
+                            <span class="font-bold text-lg">4BB</span>
+                            <span class="text-sm mt-1">(Superior)</span>
                         </div>
-                        <div class="room-item bg-gray-100 border-2 border-gray-300 rounded-lg flex flex-col items-center justify-center p-2 cursor-pointer aspect-[3/2]"
+                        <div class="room-item bg-gray-100 border-2 border-gray-300 rounded-lg flex flex-col items-center justify-center p-2 cursor-pointer w-[180px] h-[135px]"
                              data-room="4BA">
-                            <span class="font-bold">4BA</span>
-                            <span class="text-xs">(Suite)</span>
+                            <span class="font-bold text-lg">4BA</span>
+                            <span class="text-sm mt-1">(Suite)</span>
                         </div>
                     </div>
                     
                     <!-- Kamar Bawah -->
-                    <div class="absolute grid grid-cols-5 gap-3" style="bottom: 2%; left: 2%; width: 96%; height: 38%;">
-                        <div class="room-item bg-gray-100 border-2 border-gray-300 rounded-lg flex flex-col items-center justify-center p-2 cursor-pointer aspect-[3/2]"
+                    <div class="absolute grid grid-cols-5 gap-4" 
+                         style="bottom: 2%; left: 2%; width: 96%; height: 38%;">
+                        <div class="room-item bg-gray-100 border-2 border-gray-300 rounded-lg flex flex-col items-center justify-center p-2 cursor-pointer w-48 aspect-[4/3]"
                              data-room="4AE">
-                            <span class="font-bold">4AE</span>
-                            <span class="text-xs">(Mezzanine)</span>
+                            <span class="font-bold text-lg">4AE</span>
+                            <span class="text-sm mt-1">(Mezzanine)</span>
                         </div>
-                        <div class="room-item bg-gray-100 border-2 border-gray-300 rounded-lg flex flex-col items-center justify-center p-2 cursor-pointer aspect-[3/2]"
+                        <div class="room-item bg-gray-100 border-2 border-gray-300 rounded-lg flex flex-col items-center justify-center p-2 cursor-pointer w-48 aspect-[4/3]"
                              data-room="4AD">
-                            <span class="font-bold">4AD</span>
-                            <span class="text-xs">(Mezzanine)</span>
+                            <span class="font-bold text-lg">4AD</span>
+                            <span class="text-sm mt-1">(Mezzanine)</span>
                         </div>
-                        <div class="room-item bg-gray-100 border-2 border-gray-300 rounded-lg flex flex-col items-center justify-center p-2 cursor-pointer aspect-[3/2]"
+                        <div class="room-item bg-gray-100 border-2 border-gray-300 rounded-lg flex flex-col items-center justify-center p-2 cursor-pointer w-48 aspect-[4/3]"
                              data-room="4AB">
-                            <span class="font-bold">4AB</span>
-                            <span class="text-xs">(Deluxe)</span>
+                            <span class="font-bold text-lg">4AB</span>
+                            <span class="text-sm mt-1">(Deluxe)</span>
                         </div>
-                        <div class="room-item bg-gray-100 border-2 border-gray-300 rounded-lg flex flex-col items-center justify-center p-2 cursor-pointer aspect-[3/2]"
+                        <div class="room-item bg-gray-100 border-2 border-gray-300 rounded-lg flex flex-col items-center justify-center p-2 cursor-pointer w-48 aspect-[4/3]"
                              data-room="4AB">
-                            <span class="font-bold">4AB</span>
-                            <span class="text-xs">(Deluxe)</span>
+                            <span class="font-bold text-lg">4AB</span>
+                            <span class="text-sm mt-1">(Deluxe)</span>
                         </div>
-                        <div class="room-item bg-gray-100 border-2 border-gray-300 rounded-lg flex flex-col items-center justify-center p-2 cursor-pointer aspect-[3/2]"
+                        <div class="room-item bg-gray-100 border-2 border-gray-300 rounded-lg flex flex-col items-center justify-center p-2 cursor-pointer w-48 aspect-[4/3]"
                              data-room="4AA">
-                            <span class="font-bold">4AA</span>
-                            <span class="text-xs">(Suite)</span>
+                            <span class="font-bold text-lg">4AA</span>
+                            <span class="text-sm mt-1">(Suite)</span>
                         </div>
                     </div>
                 </div>
