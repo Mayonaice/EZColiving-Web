@@ -33,6 +33,7 @@ Route::prefix('admin')->name('admin.')->group(function () {
             Route::get('home', [AdminController::class, 'home'])->name('home');
             Route::resource('rooms', RoomController::class);
             Route::resource('masterpayments', MasterPaymentController::class);
+            Route::get('denah', [AdminController::class, 'denah'])->name('denah');
         });
     });
 });
