@@ -13,7 +13,7 @@
             </button>
         </div>
         
-        <!-- Floor Selector -->
+        <!-- Pemilihan Lantai -->
         <div class="flex space-x-4 mb-6">
             <button class="floor-btn w-12 h-12 rounded-lg bg-green-600 text-white font-semibold active" data-floor="1"></button>
             <button class="floor-btn w-12 h-12 rounded-lg bg-gray-200 text-gray-700 font-semibold" data-floor="2"></button>
@@ -23,7 +23,6 @@
         
         <!-- Denah Container -->
         <div class="relative w-full border-2 border-gray-300 rounded-lg overflow-hidden bg-gray-800" style="height: 600px;">
-            <!-- Floor Label -->
             <div class="absolute left-0 top-0 bottom-0 w-12 flex items-center justify-center">
                 <h2 class="text-6xl font-bold text-white transform -rotate-0"></h2>
             </div>
@@ -332,11 +331,11 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            // Data kamar dari database
+            // Ambil dari DB
             const roomDataRaw = {!! json_encode($rooms) !!};
             console.log('Data mentah dari controller:', roomDataRaw);
             
-            // Konversi data ke format yang sesuai
+            // Konversi ke format yang sesuai
             let roomData = [];
             if (Array.isArray(roomDataRaw)) {
                 roomData = roomDataRaw;
@@ -346,18 +345,18 @@
             
             console.log('Data kamar setelah konversi:', roomData);
             
-            // Floor switching
+            // Ganti lantai
             const floorButtons = document.querySelectorAll('.floor-btn');
             const floorContents = document.querySelectorAll('.floor-content');
             
-            // Debug: Tampilkan semua nomor kamar yang tersedia
+            // Debug
             console.log('Daftar nomor kamar yang tersedia:', roomData.map(r => r.room_number));
             
             floorButtons.forEach(button => {
                 button.addEventListener('click', () => {
                     const floor = button.getAttribute('data-floor');
                     
-                    // Update buttons
+                    // Update button
                     floorButtons.forEach(btn => {
                         btn.classList.remove('bg-green-600', 'text-white');
                         btn.classList.add('bg-gray-200', 'text-gray-700');
@@ -375,7 +374,7 @@
                 });
             });
             
-            // Modal functionality
+            // Modal function
             const modal = document.getElementById('roomModal');
             const closeModalBtn = document.getElementById('closeModal');
             const roomTitle = document.getElementById('roomTitle');
