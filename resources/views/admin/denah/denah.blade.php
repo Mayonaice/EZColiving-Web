@@ -152,7 +152,7 @@
                             <span class="font-bold text-lg">2AB</span>
                             <span class="text-sm mt-1">(Deluxe)</span>
                         </div>
-                        <div class="room-item bg-gray-100 border-2 border-gray-300 rounded-lg flex flex-col items-center justify-center p-2 cursor-pointer w-[180px] h-[135px]
+                        <div class="room-item bg-gray-100 border-2 border-gray-300 rounded-lg flex flex-col items-center justify-center p-2 cursor-pointer w-[180px] h-[135px]"
                              data-room="2AA">
                             <span class="font-bold text-lg">2AA</span>
                             <span class="text-sm mt-1">(Suite)</span>
