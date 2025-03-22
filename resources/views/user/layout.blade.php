@@ -9,6 +9,7 @@
 
     <style>
         /* Style untuk mendukung responsif layar kecil */
+
         @media (max-width: 320px) {
             html, body {
                 overflow-x: hidden;
@@ -36,85 +37,77 @@
     <div class="h-screen w-full bg-white relative flex overflow-hidden">
 
         <aside
-            class="h-full xsm:w-10 xl:w-14 flex flex-col space-y-10 items-center justify-center fixed z-[1000] bg-green-600 text-white">
+            class="h-full xsm:w-10 xl:w-14 flex flex-col space-y-10 items-center justify-center fixed z-[999] bg-gray-200/40 backdrop-blur-md text-gray-700">
 
             <div
-                class="relative group xsm:h-10 xsm:w-10 xl:h-14 xl:w-14 flex items-center justify-center rounded-lg cursor-pointer hover:text-green-600 hover:bg-white hover:duration-300 hover:ease-linear focus:bg-white">
+                class="relative group xsm:h-10 xsm:w-10 xl:h-14 xl:w-14 flex items-center justify-center rounded-lg cursor-pointer hover:text-white hover:bg-gray-500 hover:duration-300 hover:ease-linear focus:bg-gray-500">
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                     stroke="currentColor" class="size-6">
                     <path stroke-linecap="round" stroke-linejoin="round"
                         d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
                 </svg>
                 <span
-                    class="absolute xsm:left-12 xl:left-16 bg-white text-green-600 px-2 py-1 text-sm rounded-lg opacity-0 transform -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300">Home</span>
+                    class="absolute xsm:left-12 xl:left-16 bg-gray-500 text-white px-2 py-1 text-sm rounded-lg opacity-0 transform -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300">Home</span>
             </div>
 
             <div
-                class="relative group xsm:h-10 xsm:w-10 xl:h-14 xl:w-14 flex items-center justify-center rounded-lg cursor-pointer hover:text-green-600 hover:bg-white hover:duration-300 hover:ease-linear focus:bg-white">
+                class="relative group xsm:h-10 xsm:w-10 xl:h-14 xl:w-14 flex items-center justify-center rounded-lg cursor-pointer hover:text-white hover:bg-gray-500 hover:duration-300 hover:ease-linear focus:bg-gray-500">
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                     stroke="currentColor" class="size-6">
                     <path stroke-linecap="round" stroke-linejoin="round"
                         d="M15.75 5.25a3 3 0 0 1 3 3m3 0a6 6 0 0 1-7.029 5.912c-.563-.097-1.159.026-1.563.43L10.5 17.25H8.25v2.25H6v2.25H2.25v-2.818c0-.597.237-1.17.659-1.591l6.499-6.499c.404-.404.527-1 .43-1.563A6 6 0 1 1 21.75 8.25Z" />
                 </svg>
                 <span
-                    class="absolute xsm:left-12 xl:left-16 bg-white text-green-600 px-2 py-1 text-sm rounded-lg opacity-0 transform -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300">Kamar</span>
+                    class="absolute xsm:left-12 xl:left-16 bg-gray-500 text-white px-2 py-1 text-sm rounded-lg opacity-0 transform -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300">Kamar</span>
             </div>
 
             <div
-                class="relative group xsm:h-10 xsm:w-10 xl:h-14 xl:w-14 flex items-center justify-center rounded-lg cursor-pointer hover:text-green-600 hover:bg-white hover:duration-300 hover:ease-linear focus:bg-white">
+                class="relative group xsm:h-10 xsm:w-10 xl:h-14 xl:w-14 flex items-center justify-center rounded-lg cursor-pointer hover:text-white hover:bg-gray-500 hover:duration-300 hover:ease-linear focus:bg-gray-500">
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                     stroke="currentColor" class="size-6">
                     <path stroke-linecap="round" stroke-linejoin="round"
                         d="M12 7.5h1.5m-1.5 3h1.5m-7.5 3h7.5m-7.5 3h7.5m3-9h3.375c.621 0 1.125.504 1.125 1.125V18a2.25 2.25 0 0 1-2.25 2.25M16.5 7.5V18a2.25 2.25 0 0 0 2.25 2.25M16.5 7.5V4.875c0-.621-.504-1.125-1.125-1.125H4.125C3.504 3.75 3 4.254 3 4.875V18a2.25 2.25 0 0 0 2.25 2.25h13.5M6 7.5h3v3H6v-3Z" />
                 </svg>
                 <span
-                    class="absolute xsm:left-12 xl:left-16 bg-white text-green-600 px-2 py-1 text-sm rounded-lg opacity-0 transform -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300">Lainnya</span>
+                    class="absolute xsm:left-12 xl:left-16 bg-gray-500 text-white px-2 py-1 text-sm rounded-lg opacity-0 transform -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300">Lainnya</span>
             </div>
 
             <div
-                class="relative group xsm:h-10 xsm:w-10 xl:h-14 xl:w-14 flex items-center justify-center rounded-lg cursor-pointer hover:text-green-600 hover:bg-white hover:duration-300 hover:ease-linear focus:bg-white">
+                class="relative group xsm:h-10 xsm:w-10 xl:h-14 xl:w-14 flex items-center justify-center rounded-lg cursor-pointer hover:text-white hover:bg-gray-500 hover:duration-300 hover:ease-linear focus:bg-gray-500">
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                     stroke="currentColor" class="size-6">
                     <path stroke-linecap="round" stroke-linejoin="round"
                         d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 0 0 2.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 0 1-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 0 0-1.091-.852H4.5A2.25 2.25 0 0 0 2.25 4.5v2.25Z" />
                 </svg>
                 <span
-                    class="absolute xsm:left-12 xl:left-16 bg-white text-green-600 px-2 py-1 text-sm rounded-lg opacity-0 transform -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300">Contact</span>
+                    class="absolute xsm:left-12 xl:left-16 bg-gray-500 text-white px-2 py-1 text-sm rounded-lg opacity-0 transform -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300">Contact</span>
             </div>
         </aside>
 
-
-
-
-        <div class="w-full h-full flex flex-col justify-between ml-10 z-">
-
+        <div class="h-full flex-1 flex flex-col">
             <nav
-                class="h-16 w-full flex items-center relative justify-between xsm:px-4 xl:px-16 space-x-10 bg-green-600 backdrop-filter backdrop-blur-lg">
+                class="h-16 w-full flex items-center justify-between fixed top-0 right-0 left-0 z-[1000] bg-gray-200/40 backdrop-blur-md border-b border-gray-200/50 pl-[2.5rem] pr-2 xsm:pr-4 xl:pr-16 xl:pl-14">
 
-                <div class="flex flex-shrink-0 items-center space-x-2 xsm:mr-12  text-white">
-                    <div class="text-xl">Ez Coliving.</div>
+                <div class="flex flex-shrink-0 items-center">
+                    <div class="text-xl font-semibold text-gray-700">Ez Coliving.</div>
                 </div>
 
-                <div class="xsm:pr-8 xl:pr-0 flex flex-shrink-0 items-center space-x-4 text-white">
+                <div class="flex flex-shrink-0 items-center">
                     <a href="{{ route('login') }}">
-                    <div
-                        class="h-10 w-10 flex justify-center rounded-full cursor-pointer bg-green-600 border-2 border-green-600 text-white hover:duration-300 hover:ease-linear hover:text-green-400 hover:bg-white">
-                        <svg class="h-9" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                            stroke-width="1.5" stroke="currentColor" class="size-6">
-                            <path stroke-linecap="round" stroke-linejoin="round"
-                                d="M17.982 18.725A7.488 7.488 0 0 0 12 15.75a7.488 7.488 0 0 0-5.982 2.975m11.963 0a9 9 0 1 0-11.963 0m11.963 0A8.966 8.966 0 0 1 12 21a8.966 8.966 0 0 1-5.982-2.275M15 9.75a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
-                        </svg>
-                    </div>
-                </a>
+                        <div
+                            class="h-10 w-10 flex justify-center items-center rounded-full cursor-pointer bg-gray-200/40 border-2 border-gray-300 text-gray-700 hover:duration-300 hover:ease-linear hover:text-white hover:bg-gray-500">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                                <path stroke-linecap="round" stroke-linejoin="round"
+                                    d="M17.982 18.725A7.488 7.488 0 0 0 12 15.75a7.488 7.488 0 0 0-5.982 2.975m11.963 0a9 9 0 1 0-11.963 0m11.963 0A8.966 8.966 0 0 1 12 21a8.966 8.966 0 0 1-5.982-2.275M15 9.75a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
+                            </svg>
+                        </div>
+                    </a>
                 </div>
             </nav>
 
-
-            <main class=" max-w-[100vw] w-full overflow-x-hidden h-full flex relative overflow-y-hidden">
-
-                <div
-                    class="h-full w-full flex flex-wrap items-start rounded-tl grid-flow-col auto-cols-max gap-4 overflow-y-scroll">
-
+            <main class="flex-1 w-full overflow-x-hidden overflow-y-auto z-[998]">
+                <div class="min-h-full w-full flex flex-wrap items-start rounded-tl grid-flow-col auto-cols-max gap-4">
                     @yield('content')
 
                     <div class="xsm:mt-12 xl:mt-28 bg-gray-200 px-4 pt-16 mx-auto w-full md:px-24 lg:px-8">
@@ -224,18 +217,8 @@
                         </div>
                     </div>
                 </div>
-
-
             </main>
-
-
         </div>
-
-
-
-
-
-
     </div>
 </body>
 

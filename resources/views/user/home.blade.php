@@ -73,30 +73,33 @@
 
     <div id="top" class="">
         <div style="background-image: url('/banner/ezco-banner.png')" class="bg-cover bg-center border-r-0 w-full h-screen">
+            <div class="pt-16">
 
-            <div class="flex justify-center">
-                <h1
-                    class="xsm:text-3xl xsm:font-semibold xsm:pr-0 font-raleway mt-[120px] text-white xl:p-0 xl:text-7xl xl:font-bold">
-                    Selamat Datang di EZ Coliving</h1>
-            </div>
+                <div class="flex justify-center">
+                    <h1
+                        class="xsm:text-3xl xsm:font-semibold xsm:pr-0 font-raleway mt-[120px] text-white xl:p-0 xl:text-7xl xl:font-bold">
+                        Selamat Datang di EZ Coliving</h1>
+                </div>
 
-            <div class="xsm:mx-[0px] xsm:pr-14 xsm:pl-12 xl:mx-[480px] xl:px-[0px] flex justify-center text-center">
-                <p
-                    class="xsm:text-[12px] xsm:font-sans xsm:font-[80] xl:font-poppins mt-4 text-white lg:text-[20px] lg:font-extralight">
-                    Ez Coliving adalah tempat yang sangat
-                    nyaman sebagai tempat tinggal sementara anda, EZ Coliving menawarkan banyak kelebihan yang kenyamanan
-                    untuk anda. memiliki pelayanan yang diatas rata rata kost pada umumnya, kami menunggu anda.</p>
-            </div>
+                <div class="xsm:mx-[0px] xsm:pr-14 xsm:pl-12 xl:mx-[480px] xl:px-[0px] flex justify-center text-center">
+                    <p
+                        class="xsm:text-[12px] xsm:font-sans xsm:font-[80] xl:font-poppins mt-4 text-white lg:text-[20px] lg:font-extralight">
+                        Ez Coliving adalah tempat yang sangat
+                        nyaman sebagai tempat tinggal sementara anda, EZ Coliving menawarkan banyak kelebihan yang
+                        kenyamanan
+                        untuk anda. memiliki pelayanan yang diatas rata rata kost pada umumnya, kami menunggu anda.</p>
+                </div>
 
-            <div class="flex justify-center xsm:pr-2 xl:pr-24 mt-6 xl:mx-[480px] text-center">
-                <a href="#advantages"
-                    class="relative inline-flex items-center justify-center p-8 px-10 py-4 overflow-hidden font-medium text-teal-700 transition duration-300 ease-out rounded-full shadow-xl group hover:ring-1 hover:ring-emerald-500">
-                    <span
-                        class="absolute inset-0 w-full h-full bg-gradient-to-br from-teal-700 via-emerald-600 to-green-700"></span>
-                    <span
-                        class="absolute bottom-0 right-0 block w-[282px] h-[284px] mb-32 mr-4 transition duration-500 origin-bottom-left transform rotate-45 translate-x-24 bg-green-500 rounded-full opacity-30 group-hover:rotate-[110deg] ease"></span>
-                    <span class="relative text-white">Pelajari Lebih Lanjut</span>
-                </a>
+                <div class="flex justify-center xsm:pr-2 xl:pr-24 mt-6 xl:mx-[480px] text-center">
+                    <a href="#advantages"
+                        class="relative inline-flex items-center justify-center p-8 px-10 py-4 overflow-hidden font-medium text-teal-700 transition duration-300 ease-out rounded-full shadow-xl group hover:ring-1 hover:ring-emerald-500">
+                        <span
+                            class="absolute inset-0 w-full h-full bg-gradient-to-br from-teal-700 via-emerald-600 to-green-700"></span>
+                        <span
+                            class="absolute bottom-0 right-0 block w-[282px] h-[284px] mb-32 mr-4 transition duration-500 origin-bottom-left transform rotate-45 translate-x-24 bg-green-500 rounded-full opacity-30 group-hover:rotate-[110deg] ease"></span>
+                        <span class="relative text-white">Pelajari Lebih Lanjut</span>
+                    </a>
+                </div>
             </div>
 
         </div>
@@ -104,7 +107,7 @@
 
     <section id="advantages"
         class="py-12 bg-gradient-to-tl from-orange-100 to-[#d3c8b8] text-gray-100 xsm:py-8 lg:py-16 w-full mt-[-16px]">
-        
+
         <div class="px-4 mx-auto max-w-7xl xsm:px-6 lg:px-8">
             <div class="max-w-xl mx-auto text-center xl:max-w-2xl">
                 <h2 class="text-3xl font-raleway font-bold leading-tight text-gray-50 xsm:text-4xl xl:text-5xl mb-6">Kenapa
