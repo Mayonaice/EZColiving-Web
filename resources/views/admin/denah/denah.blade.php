@@ -37,54 +37,32 @@
                     </div>
                     
                     <!-- Kamar Atas Lantai 1 -->
-<<<<<<< HEAD
-                    <div class="absolute grid grid-cols-5 gap-4" 
-                         style="top: 2%; left: 2%; width: 96%; height: 38%;">
-                        <div class="room-item bg-gray-100 border-2 border-gray-300 rounded-lg flex flex-col items-center justify-center p-2 cursor-pointer w-[180px] h-[135px]"
-=======
                     <div class="absolute flex flex-wrap" 
                          style="top: 20.5%; left: 2%; width: 96%; height: 38%;">
                          <div class="bg-gray-400 rounded-lg flex items-center justify-center p-2 w-[74px] h-[135px] mr-4">
                             <span class="text-white text-base text-center">Rak paket</span>
                         </div>
                         <div class="room-item bg-gray-100 border-2 border-gray-300 rounded-lg flex flex-col items-center justify-center p-2 cursor-pointer w-[180px] h-[135px] mr-4"
->>>>>>> d8bf342b2e725d9aa19b2304ede76025e5da7fc5
                              data-room="1BE">
                             <span class="font-bold text-lg">1BE</span>
                             <span class="text-sm mt-1">(Superior)</span>
                         </div>
-<<<<<<< HEAD
-                        <div class="room-item bg-gray-100 border-2 border-gray-300 rounded-lg flex flex-col items-center justify-center p-2 cursor-pointer w-[180px] h-[135px]"
-=======
                         <div class="room-item bg-gray-100 border-2 border-gray-300 rounded-lg flex flex-col items-center justify-center p-2 cursor-pointer w-[180px] h-[135px] mr-4"
->>>>>>> d8bf342b2e725d9aa19b2304ede76025e5da7fc5
                              data-room="1BD">
                             <span class="font-bold text-lg">1BD</span>
                             <span class="text-sm mt-1">(Superior)</span>
                         </div>
-<<<<<<< HEAD
-                        <div class="room-item bg-gray-100 border-2 border-gray-300 rounded-lg flex flex-col items-center justify-center p-2 cursor-pointer w-[180px] h-[135px]"
-=======
                         <div class="room-item bg-gray-100 border-2 border-gray-300 rounded-lg flex flex-col items-center justify-center p-2 cursor-pointer w-[180px] h-[135px] mr-4"
->>>>>>> d8bf342b2e725d9aa19b2304ede76025e5da7fc5
                              data-room="1BC">
                             <span class="font-bold text-lg">1BC</span>
                             <span class="text-sm mt-1">(Superior)</span>
                         </div>
-<<<<<<< HEAD
-                        <div class="room-item bg-gray-100 border-2 border-gray-300 rounded-lg flex flex-col items-center justify-center p-2 cursor-pointer w-[180px] h-[135px]"
-=======
                         <div class="room-item bg-gray-100 border-2 border-gray-300 rounded-lg flex flex-col items-center justify-center p-2 cursor-pointer w-[180px] h-[135px] mr-4"
->>>>>>> d8bf342b2e725d9aa19b2304ede76025e5da7fc5
                              data-room="1BB">
                             <span class="font-bold text-lg">1BB</span>
                             <span class="text-sm mt-1">(Superior)</span>
                         </div>
-<<<<<<< HEAD
-                        <div class="room-item bg-gray-100 border-2 border-gray-300 rounded-lg flex flex-col items-center justify-center p-2 cursor-pointer w-[180px] h-[135px]"
-=======
                         <div class="room-item bg-gray-100 border-2 border-gray-300 rounded-lg flex flex-col items-center justify-center p-2 cursor-pointer w-[180px] h-[135px] mr-4"
->>>>>>> d8bf342b2e725d9aa19b2304ede76025e5da7fc5
                              data-room="1BA">
                             <span class="font-bold text-lg">1BA</span>
                             <span class="text-sm mt-1">(Superior)</span>
@@ -94,12 +72,9 @@
                     <!-- Kamar Bawah Lantai 1 -->
                     <div class="absolute flex flex-wrap" 
                          style="bottom: 2%; left: 2%; width: 96%; height: 38%;">
-<<<<<<< HEAD
-=======
                          <div class="room-item bg-gray-100 border-2 border-gray-300 rounded-lg flex flex-col items-center justify-center p-2 cursor-pointer w-[120px] h-[135px] mr-4">
                             <span class="font-bold text-base text-center">Kamar Manager</span>
                         </div>
->>>>>>> d8bf342b2e725d9aa19b2304ede76025e5da7fc5
                         <div class="room-item bg-gray-100 border-2 border-gray-300 rounded-lg flex flex-col items-center justify-center p-2 cursor-pointer w-[180px] h-[135px] mr-4"
                              data-room="1AC">
                             <span class="font-bold text-lg">1AC</span>
@@ -116,11 +91,7 @@
                             <span class="font-bold text-lg">1AB</span>
                             <span class="text-sm mt-1">(Deluxe)</span>
                         </div>
-<<<<<<< HEAD
-                        <div class="room-item bg-gray-100 border-2 border-gray-300 rounded-lg flex flex-col items-center justify-center p-2 cursor-pointer w-[180px] h-[135px]"
-=======
                         <div class="room-item bg-gray-100 border-2 border-gray-300 rounded-lg flex flex-col items-center justify-center p-2 cursor-pointer w-[180px] h-[135px] mr-4"
->>>>>>> d8bf342b2e725d9aa19b2304ede76025e5da7fc5
                              data-room="1AA">
                             <span class="font-bold text-lg">1AA</span>
                             <span class="text-sm mt-1">(Deluxe)</span>
@@ -142,52 +113,30 @@
                     </div>
                     
                     <!-- Kamar Atas Lantai 2 -->
-<<<<<<< HEAD
-                    <div class="absolute grid grid-cols-5 gap-4" 
-                         style="top: 2%; left: 2%; width: 96%; height: 38%;">
-                        <div class="room-item bg-gray-100 border-2 border-gray-300 rounded-lg flex flex-col items-center justify-center p-2 cursor-pointer w-[180px] h-[135px]"
-=======
                     <div class="absolute flex flex-wrap" 
                          style="top: 20.5%; left: 2%; width: 96%; height: 38%;">
 
                         <div class="room-item bg-gray-100 border-2 border-gray-300 rounded-lg flex flex-col items-center justify-center p-2 cursor-pointer w-[180px] h-[135px] mr-4"
->>>>>>> d8bf342b2e725d9aa19b2304ede76025e5da7fc5
                              data-room="2BE">
                             <span class="font-bold text-lg">2BE</span>
                             <span class="text-sm mt-1">(Superior)</span>
                         </div>
-<<<<<<< HEAD
-                        <div class="room-item bg-gray-100 border-2 border-gray-300 rounded-lg flex flex-col items-center justify-center p-2 cursor-pointer w-[180px] h-[135px]"
-=======
                         <div class="room-item bg-gray-100 border-2 border-gray-300 rounded-lg flex flex-col items-center justify-center p-2 cursor-pointer w-[180px] h-[135px] mr-4"
->>>>>>> d8bf342b2e725d9aa19b2304ede76025e5da7fc5
                              data-room="2BD">
                             <span class="font-bold text-lg">2BD</span>
                             <span class="text-sm mt-1">(Superior)</span>
                         </div>
-<<<<<<< HEAD
-                        <div class="room-item bg-gray-100 border-2 border-gray-300 rounded-lg flex flex-col items-center justify-center p-2 cursor-pointer w-[180px] h-[135px]"
-=======
                         <div class="room-item bg-gray-100 border-2 border-gray-300 rounded-lg flex flex-col items-center justify-center p-2 cursor-pointer w-[180px] h-[135px] mr-4"
->>>>>>> d8bf342b2e725d9aa19b2304ede76025e5da7fc5
                              data-room="2BC">
                             <span class="font-bold text-lg">2BC</span>
                             <span class="text-sm mt-1">(Superior)</span>
                         </div>
-<<<<<<< HEAD
-                        <div class="room-item bg-gray-100 border-2 border-gray-300 rounded-lg flex flex-col items-center justify-center p-2 cursor-pointer w-[180px] h-[135px]"
-=======
                         <div class="room-item bg-gray-100 border-2 border-gray-300 rounded-lg flex flex-col items-center justify-center p-2 cursor-pointer w-[180px] h-[135px] mr-4"
->>>>>>> d8bf342b2e725d9aa19b2304ede76025e5da7fc5
                              data-room="2BB">
                             <span class="font-bold text-lg">2BB</span>
                             <span class="text-sm mt-1">(Superior)</span>
                         </div>
-<<<<<<< HEAD
-                        <div class="room-item bg-gray-100 border-2 border-gray-300 rounded-lg flex flex-col items-center justify-center p-2 cursor-pointer w-[180px] h-[135px]"
-=======
                         <div class="room-item bg-gray-100 border-2 border-gray-300 rounded-lg flex flex-col items-center justify-center p-2 cursor-pointer w-[210px] h-[135px]"
->>>>>>> d8bf342b2e725d9aa19b2304ede76025e5da7fc5
                              data-room="2BA">
                             <span class="font-bold text-lg">2BA</span>
                             <span class="text-sm mt-1">(Suite)</span>
@@ -195,14 +144,6 @@
                     </div>
                     
                     <!-- Kamar Bawah Lantai 2 -->
-<<<<<<< HEAD
-                    <div class="absolute grid grid-cols-5 gap-4" 
-                         style="bottom: 2%; left: 2%; width: 96%; height: 38%;">
-                        <div class="bg-gray-400 col-span-2 rounded-lg flex items-center justify-center p-2 w-[380px] h-[135px]">
-                            <span class="text-white text-base">Pantry</span>
-                        </div>
-                        <div class="room-item bg-gray-100 border-2 border-gray-300 rounded-lg flex flex-col items-center justify-center p-2 cursor-pointer w-[180px] h-[135px]"
-=======
                     <div class="absolute flex flex-wrap" 
                          style="bottom: 2%; left: 2%; width: 96%; height: 38%;">
                         <div class="bg-gray-400 col-span-2 rounded-lg flex items-center justify-center p-2 w-[380px] h-[135px] mr-4">
@@ -214,16 +155,11 @@
                             <span class="text-sm mt-1">(Deluxe)</span>
                         </div>
                         <div class="room-item bg-gray-100 border-2 border-gray-300 rounded-lg flex flex-col items-center justify-center p-2 cursor-pointer w-[180px] h-[135px] mr-4"
->>>>>>> d8bf342b2e725d9aa19b2304ede76025e5da7fc5
                              data-room="2AB">
                             <span class="font-bold text-lg">2AB</span>
                             <span class="text-sm mt-1">(Deluxe)</span>
                         </div>
-<<<<<<< HEAD
-                        <div class="room-item bg-gray-100 border-2 border-gray-300 rounded-lg flex flex-col items-center justify-center p-2 cursor-pointer w-[180px] h-[135px]"
-=======
                         <div class="room-item bg-gray-100 border-2 border-gray-300 rounded-lg flex flex-col items-center justify-center p-2 cursor-pointer w-[210px] h-[135px]"
->>>>>>> d8bf342b2e725d9aa19b2304ede76025e5da7fc5
                              data-room="2AA">
                             <span class="font-bold text-lg">2AA</span>
                             <span class="text-sm mt-1">(Suite)</span>
@@ -243,11 +179,7 @@
                     
                     <!-- Kamar Atas Lantai 3 -->
                     <div class="absolute flex flex-wrap" 
-<<<<<<< HEAD
-                         style="top: 2%; left: 2%; width: 96%; height: 38%;">
-=======
                          style="top: 20.5%; left: 2%; width: 96%; height: 38%;">
->>>>>>> d8bf342b2e725d9aa19b2304ede76025e5da7fc5
                         <div class="room-item bg-gray-100 border-2 border-gray-300 rounded-lg flex flex-col items-center justify-center p-2 cursor-pointer w-[180px] h-[135px] mr-4"
                              data-room="3BE">
                             <span class="font-bold text-lg">3BE</span>
@@ -263,23 +195,12 @@
                             <span class="font-bold text-lg">3BC</span>
                             <span class="text-sm mt-1">(Superior)</span>
                         </div>
-<<<<<<< HEAD
-                        <div class="bg-gray-400 rounded-lg flex items-center justify-center p-2 w-[92px] h-[135px] mr-4">
-                            <span class="text-white text-base">Stair</span>
-                        </div>
-=======
-
->>>>>>> d8bf342b2e725d9aa19b2304ede76025e5da7fc5
                         <div class="room-item bg-gray-100 border-2 border-gray-300 rounded-lg flex flex-col items-center justify-center p-2 cursor-pointer w-[180px] h-[135px] mr-4"
                              data-room="3BB">
                             <span class="font-bold text-lg">3BB</span>
                             <span class="text-sm mt-1">(Superior)</span>
                         </div>
-<<<<<<< HEAD
-                        <div class="room-item bg-gray-100 border-2 border-gray-300 rounded-lg flex flex-col items-center justify-center p-2 cursor-pointer w-[180px] h-[135px]"
-=======
                         <div class="room-item bg-gray-100 border-2 border-gray-300 rounded-lg flex flex-col items-center justify-center p-2 cursor-pointer w-[210px] h-[135px] mr-4"
->>>>>>> d8bf342b2e725d9aa19b2304ede76025e5da7fc5
                              data-room="3BA">
                             <span class="font-bold text-lg">3BA</span>
                             <span class="text-sm mt-1">(Suite)</span>
@@ -287,54 +208,32 @@
                     </div>
                     
                     <!-- Kamar Bawah -->
-<<<<<<< HEAD
-                    <div class="absolute grid grid-cols-5 gap-4" 
-                         style="bottom: 2%; left: 2%; width: 96%; height: 38%;">
-                        <div class="room-item bg-gray-100 border-2 border-gray-300 rounded-lg flex flex-col items-center justify-center p-2 cursor-pointer w-48 aspect-[4/3]"
-=======
                     <div class="absolute flex flex-wrap" 
                          style="bottom: 2%; left: 2%; width: 96%; height: 38%;">
                         <div class="room-item bg-gray-100 border-2 border-gray-300 rounded-lg flex flex-col items-center justify-center p-2 cursor-pointer w-[180px] h-[135px] mr-4"
->>>>>>> d8bf342b2e725d9aa19b2304ede76025e5da7fc5
                              data-room="3AE">
                             <span class="font-bold text-lg">3AE</span>
                             <span class="text-sm mt-1">(Mezzanine)</span>
                         </div>
-<<<<<<< HEAD
-                        <div class="room-item bg-gray-100 border-2 border-gray-300 rounded-lg flex flex-col items-center justify-center p-2 cursor-pointer w-48 aspect-[4/3]"
-=======
                         <div class="room-item bg-gray-100 border-2 border-gray-300 rounded-lg flex flex-col items-center justify-center p-2 cursor-pointer w-[180px] h-[135px] mr-4"
->>>>>>> d8bf342b2e725d9aa19b2304ede76025e5da7fc5
                              data-room="3AD">
                             <span class="font-bold text-lg">3AD</span>
                             <span class="text-sm mt-1">(Mezzanine)</span>
                         </div>
-<<<<<<< HEAD
-                        <div class="room-item bg-gray-100 border-2 border-gray-300 rounded-lg flex flex-col items-center justify-center p-2 cursor-pointer w-48 aspect-[4/3]"
-=======
                         <div class="bg-gray-400 rounded-lg flex items-center justify-center p-2 w-[92px] h-[135px] mr-4">
                             <span class="text-white text-base">Stair</span>
                         </div>
                         <div class="room-item bg-gray-100 border-2 border-gray-300 rounded-lg flex flex-col items-center justify-center p-2 cursor-pointer w-[180px] h-[135px] mr-4"
->>>>>>> d8bf342b2e725d9aa19b2304ede76025e5da7fc5
                              data-room="3AB">
                             <span class="font-bold text-lg">3AB</span>
                             <span class="text-sm mt-1">(Deluxe)</span>
                         </div>
-<<<<<<< HEAD
-                        <div class="room-item bg-gray-100 border-2 border-gray-300 rounded-lg flex flex-col items-center justify-center p-2 cursor-pointer w-48 aspect-[4/3]"
-=======
                         <div class="room-item bg-gray-100 border-2 border-gray-300 rounded-lg flex flex-col items-center justify-center p-2 cursor-pointer w-[180px] h-[135px] mr-4"
->>>>>>> d8bf342b2e725d9aa19b2304ede76025e5da7fc5
                              data-room="3AB">
                             <span class="font-bold text-lg">3AB</span>
                             <span class="text-sm mt-1">(Deluxe)</span>
                         </div>
-<<<<<<< HEAD
-                        <div class="room-item bg-gray-100 border-2 border-gray-300 rounded-lg flex flex-col items-center justify-center p-2 cursor-pointer w-48 aspect-[4/3]"
-=======
                         <div class="room-item bg-gray-100 border-2 border-gray-300 rounded-lg flex flex-col items-center justify-center p-2 cursor-pointer w-[210px] h-[135px] mr-4"
->>>>>>> d8bf342b2e725d9aa19b2304ede76025e5da7fc5
                              data-room="3AA">
                             <span class="font-bold text-lg">3AA</span>
                             <span class="text-sm mt-1">(Suite)</span>
@@ -354,11 +253,7 @@
                     
                     <!-- Kamar Atas Lantai 4 -->
                     <div class="absolute flex flex-wrap" 
-<<<<<<< HEAD
-                         style="top: 2%; left: 2%; width: 96%; height: 38%;">
-=======
                          style="top: 20.5%; left: 2%; width: 96%; height: 38%;">
->>>>>>> d8bf342b2e725d9aa19b2304ede76025e5da7fc5
                         <div class="room-item bg-gray-100 border-2 border-gray-300 rounded-lg flex flex-col items-center justify-center p-2 cursor-pointer w-[180px] h-[135px] mr-4"
                              data-room="4BE">
                             <span class="font-bold text-lg">4BE</span>
@@ -374,23 +269,13 @@
                             <span class="font-bold text-lg">4BC</span>
                             <span class="text-sm mt-1">(Superior)</span>
                         </div>
-<<<<<<< HEAD
-                        <div class="bg-gray-400 rounded-lg flex items-center justify-center p-2 w-[92px] h-[135px] mr-4">
-                            <span class="text-white text-base">Stair</span>
-                        </div>
-=======
                         
->>>>>>> d8bf342b2e725d9aa19b2304ede76025e5da7fc5
                         <div class="room-item bg-gray-100 border-2 border-gray-300 rounded-lg flex flex-col items-center justify-center p-2 cursor-pointer w-[180px] h-[135px] mr-4"
                              data-room="4BB">
                             <span class="font-bold text-lg">4BB</span>
                             <span class="text-sm mt-1">(Superior)</span>
                         </div>
-<<<<<<< HEAD
-                        <div class="room-item bg-gray-100 border-2 border-gray-300 rounded-lg flex flex-col items-center justify-center p-2 cursor-pointer w-[180px] h-[135px]"
-=======
                         <div class="room-item bg-gray-100 border-2 border-gray-300 rounded-lg flex flex-col items-center justify-center p-2 cursor-pointer w-[210px] h-[135px] mr-4"
->>>>>>> d8bf342b2e725d9aa19b2304ede76025e5da7fc5
                              data-room="4BA">
                             <span class="font-bold text-lg">4BA</span>
                             <span class="text-sm mt-1">(Suite)</span>
@@ -398,54 +283,32 @@
                     </div>
                     
                     <!-- Kamar Bawah -->
-<<<<<<< HEAD
-                    <div class="absolute grid grid-cols-5 gap-4" 
-                         style="bottom: 2%; left: 2%; width: 96%; height: 38%;">
-                        <div class="room-item bg-gray-100 border-2 border-gray-300 rounded-lg flex flex-col items-center justify-center p-2 cursor-pointer w-48 aspect-[4/3]"
-=======
                     <div class="absolute flex flex-wrap" 
                          style="bottom: 2%; left: 2%; width: 96%; height: 38%;">
                         <div class="room-item bg-gray-100 border-2 border-gray-300 rounded-lg flex flex-col items-center justify-center p-2 cursor-pointer w-[180px] h-[135px] mr-4"
->>>>>>> d8bf342b2e725d9aa19b2304ede76025e5da7fc5
                              data-room="4AE">
                             <span class="font-bold text-lg">4AE</span>
                             <span class="text-sm mt-1">(Mezzanine)</span>
                         </div>
-<<<<<<< HEAD
-                        <div class="room-item bg-gray-100 border-2 border-gray-300 rounded-lg flex flex-col items-center justify-center p-2 cursor-pointer w-48 aspect-[4/3]"
-=======
                         <div class="room-item bg-gray-100 border-2 border-gray-300 rounded-lg flex flex-col items-center justify-center p-2 cursor-pointer w-[180px] h-[135px] mr-4"
->>>>>>> d8bf342b2e725d9aa19b2304ede76025e5da7fc5
                              data-room="4AD">
                             <span class="font-bold text-lg">4AD</span>
                             <span class="text-sm mt-1">(Mezzanine)</span>
                         </div>
-<<<<<<< HEAD
-                        <div class="room-item bg-gray-100 border-2 border-gray-300 rounded-lg flex flex-col items-center justify-center p-2 cursor-pointer w-48 aspect-[4/3]"
-=======
                         <div class="bg-gray-400 rounded-lg flex items-center justify-center p-2 w-[92px] h-[135px] mr-4">
                             <span class="text-white text-base">Stair</span>
                         </div>
                         <div class="room-item bg-gray-100 border-2 border-gray-300 rounded-lg flex flex-col items-center justify-center p-2 cursor-pointer w-[180px] h-[135px] mr-4"
->>>>>>> d8bf342b2e725d9aa19b2304ede76025e5da7fc5
                              data-room="4AB">
                             <span class="font-bold text-lg">4AB</span>
                             <span class="text-sm mt-1">(Deluxe)</span>
                         </div>
-<<<<<<< HEAD
-                        <div class="room-item bg-gray-100 border-2 border-gray-300 rounded-lg flex flex-col items-center justify-center p-2 cursor-pointer w-48 aspect-[4/3]"
-=======
                         <div class="room-item bg-gray-100 border-2 border-gray-300 rounded-lg flex flex-col items-center justify-center p-2 cursor-pointer w-[180px] h-[135px] mr-4"
->>>>>>> d8bf342b2e725d9aa19b2304ede76025e5da7fc5
                              data-room="4AB">
                             <span class="font-bold text-lg">4AB</span>
                             <span class="text-sm mt-1">(Deluxe)</span>
                         </div>
-<<<<<<< HEAD
-                        <div class="room-item bg-gray-100 border-2 border-gray-300 rounded-lg flex flex-col items-center justify-center p-2 cursor-pointer w-48 aspect-[4/3]"
-=======
                         <div class="room-item bg-gray-100 border-2 border-gray-300 rounded-lg flex flex-col items-center justify-center p-2 cursor-pointer w-[210px] h-[135px] "
->>>>>>> d8bf342b2e725d9aa19b2304ede76025e5da7fc5
                              data-room="4AA">
                             <span class="font-bold text-lg">4AA</span>
                             <span class="text-sm mt-1">(Suite)</span>
