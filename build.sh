@@ -3,6 +3,14 @@ set -e
 
 echo "Starting build process..."
 
+# Wait for database to be ready
+echo "Waiting for database to be ready..."
+while ! php artisan db:monitor --timeout=1; do
+    echo "Database is not ready yet..."
+    sleep 2
+done
+echo "Database is ready!"
+
 # Install dependencies
 echo "Installing PHP dependencies..."
 composer install --no-interaction --no-dev --optimize-autoloader
