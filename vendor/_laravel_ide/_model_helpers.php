@@ -5,6 +5,22 @@ namespace App\Models {
     /**
      * App\Models\GuestUser
      *
+     * @property \Illuminate\Support\Carbon|null $updated_at
+     * @property \Illuminate\Support\Carbon|null $created_at
+     * @property array|null $booking_history
+     * @property array|null $cart_data
+     * @property string|null $last_activity
+     * @property string|null $device_info
+     * @property string $ip_address
+     * @property int $id
+     * @method static \Illuminate\Database\Eloquent\Builder<GuestUser>|GuestUser whereId($value)
+     * @method static \Illuminate\Database\Eloquent\Builder<GuestUser>|GuestUser whereIpAddress($value)
+     * @method static \Illuminate\Database\Eloquent\Builder<GuestUser>|GuestUser whereDeviceInfo($value)
+     * @method static \Illuminate\Database\Eloquent\Builder<GuestUser>|GuestUser whereLastActivity($value)
+     * @method static \Illuminate\Database\Eloquent\Builder<GuestUser>|GuestUser whereCartData($value)
+     * @method static \Illuminate\Database\Eloquent\Builder<GuestUser>|GuestUser whereBookingHistory($value)
+     * @method static \Illuminate\Database\Eloquent\Builder<GuestUser>|GuestUser whereCreatedAt($value)
+     * @method static \Illuminate\Database\Eloquent\Builder<GuestUser>|GuestUser whereUpdatedAt($value)
      * @method static \Illuminate\Database\Eloquent\Builder<GuestUser>|GuestUser newModelQuery()
      * @method static \Illuminate\Database\Eloquent\Builder<GuestUser>|GuestUser newQuery()
      * @method static \Illuminate\Database\Eloquent\Builder<GuestUser>|GuestUser query()
