@@ -4,7 +4,7 @@
 composer install --no-interaction --no-dev --optimize-autoloader
 
 # Install npm dependencies
-npm install
+npm ci
 
 # Build assets
 npm run build
