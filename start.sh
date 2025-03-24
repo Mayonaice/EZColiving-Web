@@ -1,20 +1,36 @@
 #!/bin/bash
 
-# Exit on error
-set -e
+# Install dependencies
+composer install --no-interaction --no-dev --optimize-autoloader
 
-echo "Checking database connection..."
-while ! php artisan db:monitor --timeout=1; do
-    echo "Database is not ready yet..."
-    sleep 2
-done
-echo "Database is ready!"
+# Install npm dependencies
+npm install
 
-echo "Checking build directory..."
-if [ ! -d "public/build" ]; then
-    echo "Build directory not found! Running build process..."
-    bash build.sh
-fi
+# Build assets
+npm run build
 
-echo "Starting Laravel server..."
-exec php artisan serve --host=0.0.0.0 --port=$PORT
+# Generate application key
+php artisan key:generate
+
+# Clear cache
+php artisan config:clear
+php artisan cache:clear
+php artisan route:clear
+php artisan view:clear
+
+# Optimize
+php artisan config:cache
+php artisan route:cache
+php artisan view:cache
+
+# Run migrations
+php artisan migrate --force
+
+# Create storage link
+php artisan storage:link --force
+
+# Set permissions
+chmod -R 775 storage bootstrap/cache
+
+# Start the application
+php artisan serve --host=0.0.0.0 --port=$PORT
