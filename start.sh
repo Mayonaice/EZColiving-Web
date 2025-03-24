@@ -5,19 +5,20 @@ echo "Starting deployment process..."
 
 # Install dependencies
 echo "Installing PHP dependencies..."
-composer install --no-interaction --no-dev --optimize-autoloader
+composer install --no-dev --optimize-autoloader
 
-# Install npm dependencies
 echo "Installing Node.js dependencies..."
 npm install
 
-# Build assets
 echo "Building assets..."
 npm run build
 
-# Generate application key
-echo "Generating application key..."
-php artisan key:generate
+# Generate application key if not exists
+if [ ! -f .env ]; then
+    echo "Creating .env file..."
+    cp .env.example .env
+    php artisan key:generate
+fi
 
 # Clear cache
 echo "Clearing cache..."
@@ -42,8 +43,8 @@ php artisan storage:link --force
 
 # Set permissions
 echo "Setting permissions..."
-chmod -R 775 storage bootstrap/cache
+chown -R www-data:www-data storage bootstrap/cache
 
-# Start the application
-echo "Starting application..."
-php artisan serve --host=0.0.0.0 --port=$PORT
+# Start supervisor
+echo "Starting supervisor..."
+exec /usr/bin/supervisord -n -c /etc/supervisor/conf.d/supervisord.conf

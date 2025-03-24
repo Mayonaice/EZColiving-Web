@@ -9,7 +9,8 @@ RUN apt-get update && apt-get install -y \
     libxml2-dev \
     zip \
     unzip \
-    nginx
+    nginx \
+    supervisor
 
 # Clear cache
 RUN apt-get clean && rm -rf /var/lib/apt/lists/*
@@ -42,8 +43,11 @@ RUN chown -R www-data:www-data /app/storage /app/bootstrap/cache
 # Copy nginx configuration
 COPY nginx.conf /etc/nginx/conf.d/default.conf
 
+# Copy supervisor configuration
+COPY supervisord.conf /etc/supervisor/conf.d/supervisord.conf
+
 # Expose port
 EXPOSE 8000
 
-# Start Nginx & PHP-FPM
-CMD service nginx start && php-fpm 
+# Start supervisor
+CMD ["/usr/bin/supervisord", "-n", "-c", "/etc/supervisor/conf.d/supervisord.conf"] 
