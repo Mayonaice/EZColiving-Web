@@ -4,7 +4,10 @@
 composer install --no-interaction --no-dev --optimize-autoloader
 
 # Install npm dependencies
-npm ci
+npm ci --omit=dev
+
+# Set permissions for node_modules
+chmod -R 755 node_modules
 
 # Build assets
 npm run build
