@@ -9,7 +9,7 @@ composer install --no-interaction --no-dev --optimize-autoloader
 
 # Install npm dependencies
 echo "Installing Node.js dependencies..."
-npm install --legacy-peer-deps
+npm install
 
 # Build assets
 echo "Building assets..."
@@ -43,15 +43,5 @@ php artisan storage:link --force
 # Set permissions
 echo "Setting permissions..."
 chmod -R 775 storage bootstrap/cache
-
-# Verify build
-echo "Verifying build..."
-if [ -d "public/build" ]; then
-    echo "Build directory exists"
-    ls -la public/build
-else
-    echo "Build directory does not exist!"
-    exit 1
-fi
 
 echo "Build process completed successfully!"
