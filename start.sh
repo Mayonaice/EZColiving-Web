@@ -4,13 +4,10 @@
 composer install --no-interaction --no-dev --optimize-autoloader
 
 # Install npm dependencies
-npm ci --omit=dev
-
-# Set permissions for node_modules
-chmod -R 755 node_modules
+npm install --production=false
 
 # Build assets
-npm run build
+NODE_ENV=production npm run build
 
 # Generate application key
 php artisan key:generate
