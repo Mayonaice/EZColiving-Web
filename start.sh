@@ -3,6 +3,12 @@
 # Install dependencies
 composer install --no-interaction --no-dev --optimize-autoloader
 
+# Install npm dependencies
+npm install
+
+# Build assets
+npm run build
+
 # Generate application key
 php artisan key:generate
 
@@ -19,6 +25,9 @@ php artisan view:cache
 
 # Run migrations
 php artisan migrate --force
+
+# Create storage link
+php artisan storage:link --force
 
 # Set permissions
 chmod -R 775 storage bootstrap/cache
