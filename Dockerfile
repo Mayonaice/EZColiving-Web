@@ -8,7 +8,8 @@ RUN apt-get update && apt-get install -y \
     libonig-dev \
     libxml2-dev \
     zip \
-    unzip
+    unzip \
+    nginx
 
 # Clear cache
 RUN apt-get clean && rm -rf /var/lib/apt/lists/*
@@ -38,8 +39,11 @@ RUN npm run build
 # Set permissions
 RUN chown -R www-data:www-data /app/storage /app/bootstrap/cache
 
+# Copy nginx configuration
+COPY nginx.conf /etc/nginx/conf.d/default.conf
+
 # Expose port
 EXPOSE 8000
 
-# Start PHP-FPM
-CMD ["php-fpm"] 
+# Start Nginx & PHP-FPM
+CMD service nginx start && php-fpm 

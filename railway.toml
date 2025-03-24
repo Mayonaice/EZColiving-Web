@@ -5,7 +5,7 @@ buildCommand = "composer install --no-dev --optimize-autoloader && npm install &
 [deploy]
 startCommand = "bash start.sh"
 healthcheckPath = "/"
-healthcheckTimeout = 100
+healthcheckTimeout = 300
 restartPolicyType = "on_failure"
 restartPolicyMaxRetries = 10
 
