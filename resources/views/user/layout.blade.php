@@ -3,7 +3,8 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
     <title>Ez Coliving</title>
     @vite(['resources/css/app.css', 'resources/css/tiny-screen.css', 'resources/js/app.js', 'resources/js/responsive-helpers.js', 'resources/js/tiny-screen-slider.js'])
 
@@ -11,20 +12,22 @@
         /* Style untuk mendukung responsif layar kecil */
 
         @media (max-width: 320px) {
-            html, body {
+
+            html,
+            body {
                 overflow-x: hidden;
                 width: 100%;
                 min-width: 280px;
             }
-            
+
             .xsm-text-center {
                 text-align: center;
             }
-            
+
             .xs-p-1 {
                 padding: 0.25rem !important;
             }
-            
+
             .xs-mx-1 {
                 margin-left: 0.25rem !important;
                 margin-right: 0.25rem !important;
@@ -39,48 +42,52 @@
         <aside
             class="h-full xsm:w-10 xl:w-14 flex flex-col space-y-10 items-center justify-center fixed z-[999] bg-gray-200/40 backdrop-blur-md text-gray-700">
 
-            <div
-                class="relative group xsm:h-10 xsm:w-10 xl:h-14 xl:w-14 flex items-center justify-center rounded-lg cursor-pointer hover:text-white hover:bg-gray-500 hover:duration-300 hover:ease-linear focus:bg-gray-500">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                    stroke="currentColor" class="size-6">
-                    <path stroke-linecap="round" stroke-linejoin="round"
-                        d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
-                </svg>
-                <span
-                    class="absolute xsm:left-12 xl:left-16 bg-gray-500 text-white px-2 py-1 text-sm rounded-lg opacity-0 transform -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300">Home</span>
-            </div>
+            <a href="{{ route('userhome') }}">
+                <div
+                    class="relative group xsm:h-10 xsm:w-10 xl:h-14 xl:w-14 flex items-center justify-center rounded-lg cursor-pointer hover:text-white hover:bg-green-700 hover:duration-300 hover:ease-linear focus:bg-gray-500 {{ request()->routeIs('userhome') ? 'bg-green-700 text-white' : 'text-gray-700' }}">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                        stroke="currentColor" class="size-6">
+                        <path stroke-linecap="round" stroke-linejoin="round"
+                            d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+                    </svg>
+                    <span
+                        class="absolute xsm:left-12 xl:left-16 bg-green-700 text-white px-2 py-1 text-sm rounded-lg opacity-0 transform -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300">Home</span>
+                </div>
+            </a>
+
+            <a href="{{ route('user.rooms.index') }}">
+                <div
+                    class="relative group xsm:h-10 xsm:w-10 xl:h-14 xl:w-14 flex items-center justify-center rounded-lg cursor-pointer hover:text-white hover:bg-green-700 hover:duration-300 hover:ease-linear focus:bg-gray-500 {{ request()->routeIs('user.rooms.*') ? 'bg-green-700 text-white' : 'text-gray-700' }}">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                        stroke="currentColor" class="size-6">
+                        <path stroke-linecap="round" stroke-linejoin="round"
+                            d="M15.75 5.25a3 3 0 0 1 3 3m3 0a6 6 0 0 1-7.029 5.912c-.563-.097-1.159.026-1.563.43L10.5 17.25H8.25v2.25H6v2.25H2.25v-2.818c0-.597.237-1.17.659-1.591l6.499-6.499c.404-.404.527-1 .43-1.563A6 6 0 1 1 21.75 8.25Z" />
+                    </svg>
+                    <span
+                        class="absolute xsm:left-12 xl:left-16 bg-green-700 text-white px-2 py-1 text-sm rounded-lg opacity-0 transform -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300">Kamar</span>
+                </div>
+            </a>
 
             <div
-                class="relative group xsm:h-10 xsm:w-10 xl:h-14 xl:w-14 flex items-center justify-center rounded-lg cursor-pointer hover:text-white hover:bg-gray-500 hover:duration-300 hover:ease-linear focus:bg-gray-500">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                    stroke="currentColor" class="size-6">
-                    <path stroke-linecap="round" stroke-linejoin="round"
-                        d="M15.75 5.25a3 3 0 0 1 3 3m3 0a6 6 0 0 1-7.029 5.912c-.563-.097-1.159.026-1.563.43L10.5 17.25H8.25v2.25H6v2.25H2.25v-2.818c0-.597.237-1.17.659-1.591l6.499-6.499c.404-.404.527-1 .43-1.563A6 6 0 1 1 21.75 8.25Z" />
-                </svg>
-                <span
-                    class="absolute xsm:left-12 xl:left-16 bg-gray-500 text-white px-2 py-1 text-sm rounded-lg opacity-0 transform -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300">Kamar</span>
-            </div>
-
-            <div
-                class="relative group xsm:h-10 xsm:w-10 xl:h-14 xl:w-14 flex items-center justify-center rounded-lg cursor-pointer hover:text-white hover:bg-gray-500 hover:duration-300 hover:ease-linear focus:bg-gray-500">
+                class="relative group xsm:h-10 xsm:w-10 xl:h-14 xl:w-14 flex items-center justify-center rounded-lg cursor-pointer hover:text-white hover:bg-green-700 hover:duration-300 hover:ease-linear focus:bg-gray-500">
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                     stroke="currentColor" class="size-6">
                     <path stroke-linecap="round" stroke-linejoin="round"
                         d="M12 7.5h1.5m-1.5 3h1.5m-7.5 3h7.5m-7.5 3h7.5m3-9h3.375c.621 0 1.125.504 1.125 1.125V18a2.25 2.25 0 0 1-2.25 2.25M16.5 7.5V18a2.25 2.25 0 0 0 2.25 2.25M16.5 7.5V4.875c0-.621-.504-1.125-1.125-1.125H4.125C3.504 3.75 3 4.254 3 4.875V18a2.25 2.25 0 0 0 2.25 2.25h13.5M6 7.5h3v3H6v-3Z" />
                 </svg>
                 <span
-                    class="absolute xsm:left-12 xl:left-16 bg-gray-500 text-white px-2 py-1 text-sm rounded-lg opacity-0 transform -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300">Lainnya</span>
+                    class="absolute xsm:left-12 xl:left-16 bg-green-700 text-white px-2 py-1 text-sm rounded-lg opacity-0 transform -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300">Lainnya</span>
             </div>
 
             <div
-                class="relative group xsm:h-10 xsm:w-10 xl:h-14 xl:w-14 flex items-center justify-center rounded-lg cursor-pointer hover:text-white hover:bg-gray-500 hover:duration-300 hover:ease-linear focus:bg-gray-500">
+                class="relative group xsm:h-10 xsm:w-10 xl:h-14 xl:w-14 flex items-center justify-center rounded-lg cursor-pointer hover:text-white hover:bg-green-700 hover:duration-300 hover:ease-linear focus:bg-gray-500">
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                     stroke="currentColor" class="size-6">
                     <path stroke-linecap="round" stroke-linejoin="round"
                         d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 0 0 2.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 0 1-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 0 0-1.091-.852H4.5A2.25 2.25 0 0 0 2.25 4.5v2.25Z" />
                 </svg>
                 <span
-                    class="absolute xsm:left-12 xl:left-16 bg-gray-500 text-white px-2 py-1 text-sm rounded-lg opacity-0 transform -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300">Contact</span>
+                    class="absolute xsm:left-12 xl:left-16 bg-green-700 text-white px-2 py-1 text-sm rounded-lg opacity-0 transform -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300">Contact</span>
             </div>
         </aside>
 
@@ -95,7 +102,7 @@
                 <div class="flex flex-shrink-0 items-center">
                     <a href="{{ route('login') }}">
                         <div
-                            class="h-10 w-10 flex justify-center items-center rounded-full cursor-pointer bg-gray-200/40 border-2 border-gray-300 text-gray-700 hover:duration-300 hover:ease-linear hover:text-white hover:bg-gray-500">
+                            class="h-10 w-10 flex justify-center items-center rounded-full cursor-pointer bg-gray-200/40 border-2 border-gray-300 text-gray-700 hover:duration-300 hover:ease-linear hover:text-white hover:bg-green-700">
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                                 stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
                                 <path stroke-linecap="round" stroke-linejoin="round"
@@ -110,8 +117,8 @@
                 <div class="min-h-full w-full flex flex-wrap items-start rounded-tl grid-flow-col auto-cols-max gap-4">
                     @yield('content')
 
-                    <div class="xsm:mt-12 xl:mt-28 bg-gray-200 px-4 pt-16 mx-auto w-full md:px-24 lg:px-8">
-                        <div class="grid gap-10 row-gap-6 mb-8 xsm:grid-cols-2 lg:grid-cols-4">
+                    <div class="xsm:mt-12 xl:mt-28 bg-gray-200 px-4 pt-16 mx-auto w-full md:px-24 lg:px-8 ">
+                        <div class="pl-12 grid gap-10 row-gap-6 mb-8 xsm:grid-cols-2 lg:grid-cols-4">
                             <div class="xsm:col-span-2">
                                 <a href="/" aria-label="Go home" title="Company" class="inline-flex items-center">
                                     <svg class="w-8 text-deep-purple-accent-400" viewBox="0 0 24 24"

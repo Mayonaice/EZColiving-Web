@@ -10,6 +10,7 @@ use Symfony\Component\HttpFoundation\Response;
 use App\Http\Controllers\Admin\MasterPaymentController;
 use App\Http\Controllers\BookingController;
 use App\Models\GuestUser;
+use App\Http\Middleware\CheckGuestIp;
 
 // Redirect dari root ke userhome
 Route::get('/', function () {
@@ -96,6 +97,12 @@ Route::get('/force-guest', function() {
             'trace' => $e->getTraceAsString()
         ]);
     }
+});
+
+// User Routes dengan validasi IP
+Route::middleware(['web', CheckGuestIp::class])->group(function () {
+    Route::get('/rooms', [App\Http\Controllers\User\RoomController::class, 'index'])->name('user.rooms.index');
+    Route::get('/rooms/{id}', [App\Http\Controllers\User\RoomController::class, 'show'])->name('user.rooms.show');
 });
 
 require __DIR__.'/auth.php';
