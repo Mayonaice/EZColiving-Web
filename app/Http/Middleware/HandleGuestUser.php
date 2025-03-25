@@ -47,37 +47,39 @@ class HandleGuestUser
             $deviceInfo = [
                 'device' => $agent->device() ?? 'unknown',
                 'platform' => $agent->platform() ?? 'unknown',
-                'browser' => $agent->browser() ?? 'unknown',
-                'version' => $agent->version($agent->browser()) ?? 'unknown',
                 'is_mobile' => $agent->isMobile(),
                 'is_tablet' => $agent->isTablet(),
                 'is_desktop' => $agent->isDesktop(),
+                'ip_address' => $ipAddress
             ];
 
+            // Gunakan kombinasi device + platform + IP untuk device name yang lebih konsisten
+            $deviceName = md5($deviceInfo['device'] . $deviceInfo['platform'] . $deviceInfo['ip_address']);
+            
             // Selalu coba buat atau update guest user
             try {
-                $guestUser = GuestUser::updateOrCreate(
-                    ['ip_address' => $ipAddress],
+                $guestUser = GuestUser::firstOrCreate(
+                    ['device_name' => $deviceName],
                     [
-                        'device_info' => json_encode($deviceInfo),
+                        'device_info' => $deviceInfo,
                         'last_activity' => now(),
-                        'cart_data' => json_encode([]),
-                        'booking_history' => json_encode([])
+                        'cart_data' => [],
+                        'booking_history' => []
                     ]
                 );
 
                 // Set session
-                session(['guest_user' => $guestUser]);
+                session(['guest_user' => $guestUser->id]);
                 Log::info('Guest user operation successful', [
                     'id' => $guestUser->id,
-                    'ip' => $guestUser->ip_address,
+                    'device_name' => $deviceName,
                     'route' => $currentRoute
                 ]);
 
             } catch (\Exception $e) {
                 Log::error('Error handling guest user', [
                     'error' => $e->getMessage(),
-                    'ip' => $ipAddress
+                    'device_name' => $deviceName
                 ]);
             }
 

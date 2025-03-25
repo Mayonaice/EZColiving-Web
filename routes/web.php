@@ -51,12 +51,20 @@ Route::get('/booking/history', [BookingController::class, 'getBookingHistory']);
 // Routes untuk testing guest user
 Route::get('/check-guest', function() {
     try {
-        $ipAddress = request()->ip();
-        $existingGuest = GuestUser::where('ip_address', $ipAddress)->first();
+        $deviceInfo = [
+            'user_agent' => request()->userAgent(),
+            'platform' => request()->header('sec-ch-ua-platform'),
+            'mobile' => request()->header('sec-ch-ua-mobile'),
+            'device' => request()->header('sec-ch-ua-device')
+        ];
+        
+        $deviceName = md5(json_encode($deviceInfo));
+        $existingGuest = GuestUser::where('device_name', $deviceName)->first();
         
         return response()->json([
             'success' => true,
-            'ip_address' => $ipAddress,
+            'device_info' => $deviceInfo,
+            'device_name' => $deviceName,
             'existing_guest' => $existingGuest,
             'session_guest' => session('guest_user'),
             'all_guests' => GuestUser::all(),
@@ -74,11 +82,18 @@ Route::get('/check-guest', function() {
 // Route untuk memaksa membuat guest user
 Route::get('/force-guest', function() {
     try {
-        $ipAddress = request()->ip();
+        $deviceInfo = [
+            'user_agent' => request()->userAgent(),
+            'platform' => request()->header('sec-ch-ua-platform'),
+            'mobile' => request()->header('sec-ch-ua-mobile'),
+            'device' => request()->header('sec-ch-ua-device')
+        ];
+        
+        $deviceName = md5(json_encode($deviceInfo));
         $guestUser = GuestUser::firstOrCreate(
-            ['ip_address' => $ipAddress],
+            ['device_name' => $deviceName],
             [
-                'device_info' => json_encode(['test' => 'device']),
+                'device_info' => json_encode($deviceInfo),
                 'last_activity' => now(),
                 'cart_data' => json_encode([]),
                 'booking_history' => json_encode([])

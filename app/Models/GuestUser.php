@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class GuestUser extends Model
 {
     protected $fillable = [
-        'ip_address',
+        'device_name',
         'device_info',
         'last_activity',
         'cart_data',
@@ -15,7 +15,9 @@ class GuestUser extends Model
     ];
 
     protected $casts = [
+        'device_info' => 'array',
         'cart_data' => 'array',
-        'booking_history' => 'array'
+        'booking_history' => 'array',
+        'last_activity' => 'datetime'
     ];
 } 

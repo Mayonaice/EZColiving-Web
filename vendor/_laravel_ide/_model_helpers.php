@@ -9,8 +9,8 @@ namespace App\Models {
      * @property \Illuminate\Support\Carbon|null $created_at
      * @property array|null $booking_history
      * @property array|null $cart_data
-     * @property string|null $last_activity
-     * @property string|null $device_info
+     * @property \Illuminate\Support\Carbon|null $last_activity
+     * @property array|null $device_info
      * @property string $ip_address
      * @property int $id
      * @method static \Illuminate\Database\Eloquent\Builder<GuestUser>|GuestUser whereId($value)

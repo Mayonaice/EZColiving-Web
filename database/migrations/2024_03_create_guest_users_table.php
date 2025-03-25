@@ -10,9 +10,9 @@ return new class extends Migration
     {
         Schema::create('guest_users', function (Blueprint $table) {
             $table->id();
-            $table->string('ip_address')->unique();
-            $table->string('device_info')->nullable();
-            $table->string('last_activity')->nullable();
+            $table->string('device_name')->unique();
+            $table->json('device_info');
+            $table->timestamp('last_activity');
             $table->json('cart_data')->nullable();
             $table->json('booking_history')->nullable();
             $table->timestamps();
