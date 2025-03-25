@@ -1,4 +1,4 @@
-.env
+# .env
 .env.backup
 config/app.php
 config/session.php
