@@ -1,15 +1,15 @@
-# .env
+.env
 .env.backup
-# config/app.php
-# config/session.php
-# config/database.php
-# config/mail.php
-# config/queue.php
-# config/services.php
-# config/auth.php
-# config/logging.php
-# config/cache.php
-# config/filesystems.php
-# config/hashing.php
-# config/sanctum.php
+config/app.php
+config/session.php
+config/database.php
+config/mail.php
+config/queue.php
+config/services.php
+config/auth.php
+config/logging.php
+config/cache.php
+config/filesystems.php
+config/hashing.php
+config/sanctum.php
 
