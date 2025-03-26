@@ -53,8 +53,8 @@ class HandleGuestUser
                 'ip_address' => $ipAddress
             ];
 
-            // Gunakan kombinasi device + platform + IP untuk device name yang lebih konsisten
-            $deviceName = md5($deviceInfo['device'] . $deviceInfo['platform'] . $deviceInfo['ip_address']);
+            // Gunakan hanya device dan platform untuk device name
+            $deviceName = md5($deviceInfo['device'] . $deviceInfo['platform']);
             
             // Selalu coba buat atau update guest user
             try {
