@@ -121,7 +121,20 @@
 
                     @if($room->name_booking)
                     <div class="mt-6 p-4 bg-blue-50 rounded-lg">
-                        <h4 class="text-sm font-medium text-blue-800 mb-2">Informasi Booking</h4>
+                        <div class="flex justify-between items-center mb-3">
+                            <h4 class="text-sm font-medium text-blue-800">Informasi Booking</h4>
+                            <div class="flex space-x-2">
+                                <a href="{{ route('admin.rooms.edit-booking-info', $room) }}" class="bg-blue-500 hover:bg-blue-600 text-white px-2 py-1 text-xs rounded">
+                                    Edit Info Booking
+                                </a>
+                                <form action="{{ route('admin.rooms.reset-status', $room) }}" method="POST" class="inline" onsubmit="return confirm('Apakah Anda yakin ingin mengosongkan kamar ini?');">
+                                    @csrf
+                                    <button type="submit" class="bg-red-500 hover:bg-red-600 text-white px-2 py-1 text-xs rounded">
+                                        Kosongkan Kamar
+                                    </button>
+                                </form>
+                            </div>
+                        </div>
                         <div class="grid grid-cols-2 gap-4">
                             <div>
                                 <h5 class="text-xs font-medium text-gray-500">Nama Pemesan</h5>
@@ -174,6 +187,16 @@
                                 </p>
                             </div>
                         </div>
+                    </div>
+                    @else
+                    <div class="mt-6 p-4 bg-gray-50 rounded-lg">
+                        <div class="flex justify-between items-center mb-3">
+                            <h4 class="text-sm font-medium text-gray-700">Kamar Tersedia</h4>
+                            <a href="{{ route('admin.rooms.edit-booking-info', $room) }}" class="bg-green-500 hover:bg-green-600 text-white px-2 py-1 text-xs rounded">
+                                + Tambah Booking
+                            </a>
+                        </div>
+                        <p class="text-sm text-gray-600">Kamar ini tersedia dan belum ada booking. Anda dapat menambahkan informasi booking secara manual.</p>
                     </div>
                     @endif
                 </div>

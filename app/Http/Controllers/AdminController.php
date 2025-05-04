@@ -13,6 +13,12 @@ class AdminController extends Controller
         return view('admin.home', compact('listadmin'));
     }
     
+    public function dashboard() {
+        // Hanya menampilkan view admin.home default
+        $listadmin = User::where('role', 'admin')->get();
+        return view('admin.home', compact('listadmin'));
+    }
+    
     public function denah() {
         // Mengambil semua data kamar
         $rooms = Room::all()->map(function($room) {

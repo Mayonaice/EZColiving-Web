@@ -19,6 +19,10 @@
                     <h2 class="text-2xl font-bold text-gray-800 mb-2">
                         Rp {{ number_format($room->room_price, 0, ',', '.') }}<span class="text-base font-normal text-gray-600">/bulan</span>
                     </h2>
+                    @if($room->daily_price)
+                    <p class="text-gray-600 mb-1">Harga Harian: Rp {{ number_format($room->daily_price, 0, ',', '.') }}/hari</p>
+                    @endif
+                    <p class="text-gray-600">Deposit: Rp {{ number_format($room->deposit_price, 0, ',', '.') }}</p>
                 </div>
 
                 <div class="mb-8">
@@ -37,9 +41,14 @@
                             </span>
                         </a>
                         @if($room->room_status === 'Available')
-                            <button class="bg-green-600 text-white px-6 py-3 rounded-lg hover:bg-green-700 transition-colors">
-                                Pesan Kamar
-                            </button>
+                            <a href="{{ route('user.checkout.index', $room->id) }}" 
+                               class="bg-green-600 text-white px-6 py-3 rounded-lg hover:bg-green-700 transition-colors">
+                                Pesan Sekarang
+                            </a>
+                        @else
+                            <div class="bg-yellow-50 border border-yellow-200 rounded-lg p-4">
+                                <p class="text-yellow-700">Maaf, kamar ini sudah tidak tersedia untuk dipesan.</p>
+                            </div>
                         @endif
                     </div>
                 </div>

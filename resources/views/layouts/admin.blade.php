@@ -38,12 +38,27 @@
                         </div>
                         <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
                             <a href="{{ route('admin.masterpayments.index') }}" class="inline-flex items-center px-1 pt-1 border-b-2 {{ request()->routeIs('admin.masterpayments.*') ? 'border-green-700' : 'border-green-400' }} text-sm font-medium leading-5 text-gray-900 focus:outline-none focus:border-green-700 transition duration-150 ease-in-out">
-                                Metode Pembayaran
+                                Payment Method
                             </a>
                         </div>
                         <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
                             <a href="{{ route('admin.denah') }}" class="inline-flex items-center px-1 pt-1 border-b-2 {{ request()->routeIs('admin.denah') ? 'border-green-700' : 'border-green-400' }} text-sm font-medium leading-5 text-gray-900 focus:outline-none focus:border-green-700 transition duration-150 ease-in-out">
-                                Denah Kamar
+                                Denah
+                            </a>
+                        </div>
+                        <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                            <a href="{{ route('admin.payments.index') }}" class="inline-flex items-center px-1 pt-1 border-b-2 {{ request()->routeIs('admin.payments.*') ? 'border-green-700' : 'border-green-400' }} text-sm font-medium leading-5 text-gray-900 focus:outline-none focus:border-green-700 transition duration-150 ease-in-out">
+                                Confirm Payment
+                            </a>
+                        </div>
+                        <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                            <a href="{{ route('admin.bookings.index') }}" class="inline-flex items-center px-1 pt-1 border-b-2 {{ request()->routeIs('admin.bookings.*') ? 'border-green-700' : 'border-green-400' }} text-sm font-medium leading-5 text-gray-900 focus:outline-none focus:border-green-700 transition duration-150 ease-in-out">
+                                History
+                            </a>
+                        </div>
+                        <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                            <a href="{{ route('admin.settings.whatsapp') }}" class="inline-flex items-center px-1 pt-1 border-b-2 {{ request()->routeIs('admin.settings.whatsapp') ? 'border-green-700' : 'border-green-400' }} text-sm font-medium leading-5 text-gray-900 focus:outline-none focus:border-green-700 transition duration-150 ease-in-out">
+                                WhatsApp Settings
                             </a>
                         </div>
                     </div>
@@ -83,6 +98,12 @@
                     </a>
                     <a href="{{ route('admin.denah') }}" class="block pl-3 pr-4 py-2 border-l-4 {{ request()->routeIs('admin.denah') ? 'border-green-700 text-green-700 bg-green-50' : 'border-transparent text-gray-600 hover:bg-gray-50 hover:border-gray-300' }} text-base font-medium focus:outline-none focus:text-green-800 focus:bg-green-100 focus:border-green-700 transition duration-150 ease-in-out">
                         Denah Kamar
+                    </a>
+                    <a href="{{ route('admin.payments.index') }}" class="block pl-3 pr-4 py-2 border-l-4 {{ request()->routeIs('admin.payments.*') ? 'border-green-700 text-green-700 bg-green-50' : 'border-transparent text-gray-600 hover:bg-gray-50 hover:border-gray-300' }} text-base font-medium focus:outline-none focus:text-green-800 focus:bg-green-100 focus:border-green-700 transition duration-150 ease-in-out">
+                        Confirm Pembayaran
+                    </a>
+                    <a href="{{ route('admin.bookings.index') }}" class="block pl-3 pr-4 py-2 border-l-4 {{ request()->routeIs('admin.bookings.*') ? 'border-green-700 text-green-700 bg-green-50' : 'border-transparent text-gray-600 hover:bg-gray-50 hover:border-gray-300' }} text-base font-medium focus:outline-none focus:text-green-800 focus:bg-green-100 focus:border-green-700 transition duration-150 ease-in-out">
+                        Riwayat Pemesanan
                     </a>
                     <form method="POST" action="{{ route('logout') }}" class="block pl-3 pr-4 py-2">
                         @csrf

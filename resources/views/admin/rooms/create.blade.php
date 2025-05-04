@@ -46,6 +46,14 @@
             </div>
 
             <div>
+                <label for="daily_price" class="block text-sm font-medium text-gray-700">Harga Harian (Rp)</label>
+                <input type="text" name="daily_price" id="daily_price" value="{{ old('daily_price') }}" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-green-500 focus:ring focus:ring-green-200 focus:ring-opacity-50">
+                @error('daily_price')
+                    <p class="mt-1 text-sm text-red-600">{{ $message }}</p>
+                @enderror
+            </div>
+
+            <div>
                 <label for="deposit_price" class="block text-sm font-medium text-gray-700">Deposit (Rp)</label>
                 <input type="text" name="deposit_price" id="deposit_price" value="{{ old('deposit_price') }}" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-green-500 focus:ring focus:ring-green-200 focus:ring-opacity-50">
                 @error('deposit_price')

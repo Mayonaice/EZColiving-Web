@@ -18,6 +18,12 @@ return [
         'token' => env('POSTMARK_TOKEN'),
     ],
 
+    'whatsapp' => [
+        'api_url' => env('WHATSAPP_API_URL', 'https://api.whatsapp.com/v1/messages'),
+        'token' => env('WHATSAPP_TOKEN'),
+        'sender_number' => env('WHATSAPP_SENDER_NUMBER'),
+    ],
+
     'ses' => [
         'key' => env('AWS_ACCESS_KEY_ID'),
         'secret' => env('AWS_SECRET_ACCESS_KEY'),

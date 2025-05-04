@@ -457,7 +457,7 @@
 
                     roomDetails.innerHTML = `
                         <div class="flex items-center mb-3">
-                            <span class="inline-block px-2 py-1 text-xs font-semibold rounded-full ${room.room_status === 'Tersedia' ? 'bg-green-100 text-green-800' : 'bg-red-100 text-red-800'}">
+                            <span class="inline-block px-2 py-1 text-xs font-semibold rounded-full ${room.room_status === 'Available' ? 'bg-green-100 text-green-800' : 'bg-red-100 text-red-800'}">
                                 ${room.room_status || 'Tidak diketahui'}
                             </span>
                         </div>
@@ -510,10 +510,10 @@
 
                 // Update warna kamar berdasarkan status
                 if (roomInfo) {
-                    if (roomInfo.room_status === 'Terisi') {
+                    if (roomInfo.room_status === 'Booked') {
                         room.classList.remove('bg-gray-100', 'border-gray-300');
                         room.classList.add('bg-red-100', 'border-red-300');
-                    } else if (roomInfo.room_status === 'Tersedia') {
+                    } else if (roomInfo.room_status === 'Available') {
                         room.classList.remove('bg-gray-100', 'border-gray-300');
                         room.classList.add('bg-green-100', 'border-green-300');
                     }

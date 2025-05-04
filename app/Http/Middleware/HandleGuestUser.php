@@ -55,7 +55,7 @@ class HandleGuestUser
 
             // Gunakan hanya device dan platform untuk device name
             $deviceName = md5($deviceInfo['device'] . $deviceInfo['platform']);
-            
+
             // Selalu coba buat atau update guest user
             try {
                 $guestUser = GuestUser::firstOrCreate(

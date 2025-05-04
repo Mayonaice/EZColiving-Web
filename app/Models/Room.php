@@ -19,6 +19,7 @@ class Room extends Model
         'room_number',
         'room_type',
         'room_price',
+        'daily_price',
         'room_description',
         'room_status',
         'deposit_price',

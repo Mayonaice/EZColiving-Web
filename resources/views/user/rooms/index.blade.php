@@ -10,8 +10,65 @@
         </div>
     @endif
 
+    <!-- Filter Section -->
+    <div class="bg-white p-6 rounded-lg shadow-md mb-8">
+        <form action="{{ route('user.rooms.index') }}" method="GET" class="space-y-4">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                <!-- Search Input -->
+                <div>
+                    <label for="search" class="block text-sm font-medium text-gray-700 mb-1">Cari Kamar</label>
+                    <input type="text" name="search" id="search" value="{{ request('search') }}" 
+                           class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500"
+                           placeholder="Nomor kamar atau tipe kamar...">
+                </div>
+
+                <!-- Room Type Filter -->
+                <div>
+                    <label for="room_type" class="block text-sm font-medium text-gray-700 mb-1">Tipe Kamar</label>
+                    <select name="room_type" id="room_type" 
+                            class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500">
+                        <option value="">Semua Tipe</option>
+                        @foreach($roomTypes as $type)
+                            <option value="{{ $type }}" {{ request('room_type') == $type ? 'selected' : '' }}>
+                                {{ $type }}
+                            </option>
+                        @endforeach
+                    </select>
+                </div>
+
+                <!-- Price Range Filter -->
+                <div>
+                    <label for="price_range" class="block text-sm font-medium text-gray-700 mb-1">Range Harga</label>
+                    <select name="price_range" id="price_range" 
+                            class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500">
+                        <option value="2000000-3000000" {{ request('price_range') == '2000000-3000000' ? 'selected' : '' }}>
+                            2 Juta - 3 Juta
+                        </option>
+                        <option value="3000000-4000000" {{ request('price_range') == '3000000-4000000' ? 'selected' : '' }}>
+                            3 Juta - 4 Juta
+                        </option>
+                        <option value="4000000-5000000" {{ request('price_range') == '4000000-5000000' ? 'selected' : '' }}>
+                            4 Juta - 5 Juta
+                        </option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="flex justify-end space-x-4">
+                <a href="{{ route('user.rooms.index') }}" 
+                   class="px-4 py-2 border border-gray-300 rounded-md text-gray-700 hover:bg-gray-50">
+                    Reset
+                </a>
+                <button type="submit" 
+                        class="px-4 py-2 bg-green-600 text-white rounded-md hover:bg-green-700">
+                    Filter
+                </button>
+            </div>
+        </form>
+    </div>
+
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        @foreach($rooms as $room)
+        @forelse($rooms as $room)
             <div class="bg-white rounded-lg shadow-md overflow-hidden">
                 <div class="p-6">
                     <div class="flex justify-between items-start mb-4">
@@ -41,7 +98,11 @@
                     </div>
                 </div>
             </div>
-        @endforeach
+        @empty
+            <div class="col-span-full text-center py-8">
+                <p class="text-gray-500">Tidak ada kamar yang tersedia dengan filter yang dipilih.</p>
+            </div>
+        @endforelse
     </div>
 </div>
 @endsection 
