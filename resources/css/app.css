@@ -212,3 +212,19 @@
         left: auto !important;
     }
 }
+
+/* Animasi fade-in untuk halaman About Us */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.motion-safe\:animate-fadeIn {
+    animation: fadeIn 0.5s ease-in-out forwards;
+}

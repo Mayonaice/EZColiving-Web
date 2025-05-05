@@ -162,6 +162,11 @@ Route::middleware(['web', CheckGuestIp::class])->group(function () {
     Route::get('/rooms', [UserRoomController::class, 'index'])->name('user.rooms.index');
     Route::get('/rooms/{id}', [UserRoomController::class, 'show'])->name('user.rooms.show');
     
+    // About Us Route dengan template khusus
+    Route::get('/about', function() {
+        return view('user.about');
+    })->name('user.about');
+    
     // Checkout Routes
     Route::get('/checkout/{roomId}', [CheckoutController::class, 'index'])->name('user.checkout.index');
     Route::post('/checkout/{roomId}', [CheckoutController::class, 'store'])->name('user.checkout.store');
