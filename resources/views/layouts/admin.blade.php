@@ -13,6 +13,54 @@
 
     <!-- Scripts -->
     @vite(['resources/css/app.css', 'resources/js/app.js'])
+
+    <style>
+        /* Reset button styling */
+        button {
+            background: none;
+            border: none;
+            font: inherit;
+            margin: 0;
+            padding: 0;
+            align-items: center;
+            height: 100%;
+            display: inline-flex;
+        }
+        
+        /* Dropdown button styling */
+        .nav-dropdown-btn {
+            padding-top: 0.25rem;
+            padding-bottom: 0.25rem;
+            border-bottom-width: 2px;
+            line-height: 1.25rem;
+            display: inline-flex;
+            align-items: center;
+            height: 100%;
+            border-bottom-style: solid;
+        }
+
+        /* Dropdown menu styling */
+        .dropdown-menu {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            z-index: 50;
+            min-width: 12rem;
+            padding: 0.5rem 0;
+            margin-top: 0.125rem;
+            background-color: white;
+            border-radius: 0.375rem;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            opacity: 0;
+            visibility: hidden;
+            transition: all 200ms ease-in-out;
+        }
+
+        .group:hover .dropdown-menu {
+            opacity: 1;
+            visibility: visible;
+        }
+    </style>
 </head>
 <body class="font-sans antialiased">
     <div class="min-h-screen bg-gray-100">
@@ -31,31 +79,76 @@
                                 Dashboard
                             </a>
                         </div>
-                        <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                            <a href="{{ route('admin.rooms.index') }}" class="inline-flex items-center px-1 pt-1 border-b-2 {{ request()->routeIs('admin.rooms.*') ? 'border-green-700' : 'border-green-400' }} text-sm font-medium leading-5 text-gray-900 focus:outline-none focus:border-green-700 transition duration-150 ease-in-out">
-                                Kamar
-                            </a>
+                        
+                        <!-- Master Data Dropdown -->
+                        <div class="hidden sm:flex sm:-my-px sm:ml-10 relative group">
+                            <button type="button" class="nav-dropdown-btn px-1 border-b-2 {{ request()->routeIs('admin.rooms.*') || request()->routeIs('admin.masterpayments.*') ? 'border-green-700' : 'border-green-400' }} text-sm font-medium text-gray-900 focus:outline-none focus:border-green-700 transition duration-150 ease-in-out">
+                                Master Data
+                                <svg class="ml-2 h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                                </svg>
+                            </button>
+                            <div class="dropdown-menu">
+                                <div class="py-1">
+                                    <a href="{{ route('admin.rooms.index') }}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-green-50 hover:text-green-700 {{ request()->routeIs('admin.rooms.*') ? 'bg-green-50 text-green-700' : '' }}">
+                                        Kamar
+                                    </a>
+                                    <a href="{{ route('admin.masterpayments.index') }}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-green-50 hover:text-green-700 {{ request()->routeIs('admin.masterpayments.*') ? 'bg-green-50 text-green-700' : '' }}">
+                                        Payment Method
+                                    </a>
+                                </div>
+                            </div>
                         </div>
-                        <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                            <a href="{{ route('admin.masterpayments.index') }}" class="inline-flex items-center px-1 pt-1 border-b-2 {{ request()->routeIs('admin.masterpayments.*') ? 'border-green-700' : 'border-green-400' }} text-sm font-medium leading-5 text-gray-900 focus:outline-none focus:border-green-700 transition duration-150 ease-in-out">
-                                Payment Method
-                            </a>
-                        </div>
+
                         <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
                             <a href="{{ route('admin.denah') }}" class="inline-flex items-center px-1 pt-1 border-b-2 {{ request()->routeIs('admin.denah') ? 'border-green-700' : 'border-green-400' }} text-sm font-medium leading-5 text-gray-900 focus:outline-none focus:border-green-700 transition duration-150 ease-in-out">
                                 Denah
                             </a>
                         </div>
-                        <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                            <a href="{{ route('admin.payments.index') }}" class="inline-flex items-center px-1 pt-1 border-b-2 {{ request()->routeIs('admin.payments.*') ? 'border-green-700' : 'border-green-400' }} text-sm font-medium leading-5 text-gray-900 focus:outline-none focus:border-green-700 transition duration-150 ease-in-out">
-                                Confirm Payment
-                            </a>
+
+                        <!-- Booking Data Dropdown -->
+                        <div class="hidden sm:flex sm:-my-px sm:ml-10 relative group">
+                            <button type="button" class="nav-dropdown-btn px-1 border-b-2 {{ request()->routeIs('admin.payments.*') || request()->routeIs('admin.bookings.*') ? 'border-green-700' : 'border-green-400' }} text-sm font-medium text-gray-900 focus:outline-none focus:border-green-700 transition duration-150 ease-in-out">
+                                Booking Data
+                                <svg class="ml-2 h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                                </svg>
+                            </button>
+                            <div class="dropdown-menu">
+                                <div class="py-1">
+                                    <a href="{{ route('admin.payments.index') }}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-green-50 hover:text-green-700 {{ request()->routeIs('admin.payments.*') ? 'bg-green-50 text-green-700' : '' }}">
+                                        Confirm Payment
+                                    </a>
+                                    <a href="{{ route('admin.bookings.index') }}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-green-50 hover:text-green-700 {{ request()->routeIs('admin.bookings.*') ? 'bg-green-50 text-green-700' : '' }}">
+                                        History
+                                    </a>
+                                </div>
+                            </div>
                         </div>
-                        <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                            <a href="{{ route('admin.bookings.index') }}" class="inline-flex items-center px-1 pt-1 border-b-2 {{ request()->routeIs('admin.bookings.*') ? 'border-green-700' : 'border-green-400' }} text-sm font-medium leading-5 text-gray-900 focus:outline-none focus:border-green-700 transition duration-150 ease-in-out">
-                                History
-                            </a>
+
+                        <!-- Finance Dropdown -->
+                        <div class="hidden sm:flex sm:-my-px sm:ml-10 relative group">
+                            <button type="button" class="nav-dropdown-btn px-1 border-b-2 {{ request()->routeIs('admin.expenses.*') || request()->routeIs('admin.reports.*') ? 'border-green-700' : 'border-green-400' }} text-sm font-medium text-gray-900 focus:outline-none focus:border-green-700 transition duration-150 ease-in-out">
+                                Finance
+                                <svg class="ml-2 h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                                </svg>
+                            </button>
+                            <div class="dropdown-menu">
+                                <div class="py-1">
+                                    <a href="{{ route('admin.expenses.index') }}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-green-50 hover:text-green-700 {{ request()->routeIs('admin.expenses.*') ? 'bg-green-50 text-green-700' : '' }}">
+                                        Pengeluaran
+                                    </a>
+                                    <a href="{{ route('admin.expense-categories.index') }}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-green-50 hover:text-green-700 {{ request()->routeIs('admin.expense-categories.*') ? 'bg-green-50 text-green-700' : '' }}">
+                                        Kategori Pengeluaran
+                                    </a>
+                                    <a href="{{ route('admin.reports.index') }}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-green-50 hover:text-green-700 {{ request()->routeIs('admin.reports.*') ? 'bg-green-50 text-green-700' : '' }}">
+                                        Laporan
+                                    </a>
+                                </div>
+                            </div>
                         </div>
+
                         <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
                             <a href="{{ route('admin.settings.whatsapp') }}" class="inline-flex items-center px-1 pt-1 border-b-2 {{ request()->routeIs('admin.settings.whatsapp') ? 'border-green-700' : 'border-green-400' }} text-sm font-medium leading-5 text-gray-900 focus:outline-none focus:border-green-700 transition duration-150 ease-in-out">
                                 WhatsApp Settings
@@ -90,21 +183,53 @@
                     <a href="{{ route('admin.home') }}" class="block pl-3 pr-4 py-2 border-l-4 {{ request()->routeIs('admin.home') ? 'border-green-700 text-green-700 bg-green-50' : 'border-transparent text-gray-600 hover:bg-gray-50 hover:border-gray-300' }} text-base font-medium focus:outline-none focus:text-green-800 focus:bg-green-100 focus:border-green-700 transition duration-150 ease-in-out">
                         Dashboard
                     </a>
-                    <a href="{{ route('admin.rooms.index') }}" class="block pl-3 pr-4 py-2 border-l-4 {{ request()->routeIs('admin.rooms.*') ? 'border-green-700 text-green-700 bg-green-50' : 'border-transparent text-gray-600 hover:bg-gray-50 hover:border-gray-300' }} text-base font-medium focus:outline-none focus:text-green-800 focus:bg-green-100 focus:border-green-700 transition duration-150 ease-in-out">
-                        Kamar
+                    
+                    <!-- Mobile Master Data Menu -->
+                    <div class="space-y-1">
+                        <div class="block pl-3 pr-4 py-2 border-l-4 {{ request()->routeIs('admin.rooms.*') || request()->routeIs('admin.masterpayments.*') ? 'border-green-700 text-green-700 bg-green-50' : 'border-transparent text-gray-600' }} text-base font-medium">
+                            Master Data
+                        </div>
+                        <a href="{{ route('admin.rooms.index') }}" class="block pl-6 pr-4 py-2 text-sm text-gray-600 hover:bg-gray-50 hover:text-gray-900">
+                            Kamar
+                        </a>
+                        <a href="{{ route('admin.masterpayments.index') }}" class="block pl-6 pr-4 py-2 text-sm text-gray-600 hover:bg-gray-50 hover:text-gray-900">
+                            Payment Method
+                        </a>
+                    </div>
+
+                    <!-- Mobile Booking Data Menu -->
+                    <div class="space-y-1">
+                        <div class="block pl-3 pr-4 py-2 border-l-4 {{ request()->routeIs('admin.payments.*') || request()->routeIs('admin.bookings.*') ? 'border-green-700 text-green-700 bg-green-50' : 'border-transparent text-gray-600' }} text-base font-medium">
+                            Booking Data
+                        </div>
+                        <a href="{{ route('admin.payments.index') }}" class="block pl-6 pr-4 py-2 text-sm text-gray-600 hover:bg-gray-50 hover:text-gray-900">
+                            Confirm Payment
+                        </a>
+                        <a href="{{ route('admin.bookings.index') }}" class="block pl-6 pr-4 py-2 text-sm text-gray-600 hover:bg-gray-50 hover:text-gray-900">
+                            History
+                        </a>
+                    </div>
+
+                    <!-- Mobile Finance Menu -->
+                    <div class="space-y-1">
+                        <div class="block pl-3 pr-4 py-2 border-l-4 {{ request()->routeIs('admin.expenses.*') || request()->routeIs('admin.reports.*') ? 'border-green-700 text-green-700 bg-green-50' : 'border-transparent text-gray-600' }} text-base font-medium">
+                            Finance
+                        </div>
+                        <a href="{{ route('admin.expenses.index') }}" class="block pl-6 pr-4 py-2 text-sm text-gray-600 hover:bg-gray-50 hover:text-gray-900">
+                            Pengeluaran
+                        </a>
+                        <a href="{{ route('admin.expense-categories.index') }}" class="block pl-6 pr-4 py-2 text-sm text-gray-600 hover:bg-gray-50 hover:text-gray-900">
+                            Kategori Pengeluaran
+                        </a>
+                        <a href="{{ route('admin.reports.index') }}" class="block pl-6 pr-4 py-2 text-sm text-gray-600 hover:bg-gray-50 hover:text-gray-900">
+                            Laporan
+                        </a>
+                    </div>
+
+                    <a href="{{ route('admin.settings.whatsapp') }}" class="block pl-3 pr-4 py-2 border-l-4 {{ request()->routeIs('admin.settings.whatsapp') ? 'border-green-700 text-green-700 bg-green-50' : 'border-transparent text-gray-600 hover:bg-gray-50 hover:border-gray-300' }} text-base font-medium focus:outline-none focus:text-green-800 focus:bg-green-100 focus:border-green-700 transition duration-150 ease-in-out">
+                        WhatsApp Settings
                     </a>
-                    <a href="{{ route('admin.masterpayments.index') }}" class="block pl-3 pr-4 py-2 border-l-4 {{ request()->routeIs('admin.masterpayments.*') ? 'border-green-700 text-green-700 bg-green-50' : 'border-transparent text-gray-600 hover:bg-gray-50 hover:border-gray-300' }} text-base font-medium focus:outline-none focus:text-green-800 focus:bg-green-100 focus:border-green-700 transition duration-150 ease-in-out">
-                        Metode Pembayaran
-                    </a>
-                    <a href="{{ route('admin.denah') }}" class="block pl-3 pr-4 py-2 border-l-4 {{ request()->routeIs('admin.denah') ? 'border-green-700 text-green-700 bg-green-50' : 'border-transparent text-gray-600 hover:bg-gray-50 hover:border-gray-300' }} text-base font-medium focus:outline-none focus:text-green-800 focus:bg-green-100 focus:border-green-700 transition duration-150 ease-in-out">
-                        Denah Kamar
-                    </a>
-                    <a href="{{ route('admin.payments.index') }}" class="block pl-3 pr-4 py-2 border-l-4 {{ request()->routeIs('admin.payments.*') ? 'border-green-700 text-green-700 bg-green-50' : 'border-transparent text-gray-600 hover:bg-gray-50 hover:border-gray-300' }} text-base font-medium focus:outline-none focus:text-green-800 focus:bg-green-100 focus:border-green-700 transition duration-150 ease-in-out">
-                        Confirm Pembayaran
-                    </a>
-                    <a href="{{ route('admin.bookings.index') }}" class="block pl-3 pr-4 py-2 border-l-4 {{ request()->routeIs('admin.bookings.*') ? 'border-green-700 text-green-700 bg-green-50' : 'border-transparent text-gray-600 hover:bg-gray-50 hover:border-gray-300' }} text-base font-medium focus:outline-none focus:text-green-800 focus:bg-green-100 focus:border-green-700 transition duration-150 ease-in-out">
-                        Riwayat Pemesanan
-                    </a>
+
                     <form method="POST" action="{{ route('logout') }}" class="block pl-3 pr-4 py-2">
                         @csrf
                         <button type="submit" class="text-gray-600 hover:text-gray-800 font-medium">
@@ -166,5 +291,7 @@
             });
         });
     </script>
+    
+    @stack('scripts')
 </body>
 </html> 

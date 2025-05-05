@@ -158,32 +158,70 @@
                             </div>
                             <div>
                                 <h5 class="text-xs font-medium text-gray-500">Status Check-in</h5>
-                                <p class="text-sm">
+                                <p class="text-sm flex items-center mt-1">
                                     @if($room->is_check_in == 'Y')
-                                        <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">Sudah Check-in</span>
+                                        <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800 mr-2">Sudah Check-in</span>
                                     @else
-                                        <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-gray-100 text-gray-800">Belum Check-in</span>
+                                        <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-gray-100 text-gray-800 mr-2">Belum Check-in</span>
                                     @endif
+                                    <form action="{{ route('admin.rooms.toggle-status', $room) }}" method="POST" class="inline-block">
+                                        @csrf
+                                        <input type="hidden" name="field" value="is_check_in">
+                                        <button type="submit" class="bg-blue-500 hover:bg-blue-600 text-white text-xs px-2 py-1 rounded">
+                                            {{ $room->is_check_in == 'Y' ? 'Batalkan' : 'Check-in' }}
+                                        </button>
+                                    </form>
                                 </p>
                             </div>
                             <div>
                                 <h5 class="text-xs font-medium text-gray-500">Status Check-out</h5>
-                                <p class="text-sm">
+                                <p class="text-sm flex items-center mt-1">
                                     @if($room->is_check_out == 'Y')
-                                        <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">Sudah Check-out</span>
+                                        <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800 mr-2">Sudah Check-out</span>
                                     @else
-                                        <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-gray-100 text-gray-800">Belum Check-out</span>
+                                        <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-gray-100 text-gray-800 mr-2">Belum Check-out</span>
                                     @endif
+                                    <form action="{{ route('admin.rooms.toggle-status', $room) }}" method="POST" class="inline-block">
+                                        @csrf
+                                        <input type="hidden" name="field" value="is_check_out">
+                                        <button type="submit" class="bg-blue-500 hover:bg-blue-600 text-white text-xs px-2 py-1 rounded">
+                                            {{ $room->is_check_out == 'Y' ? 'Batalkan' : 'Check-out' }}
+                                        </button>
+                                    </form>
                                 </p>
                             </div>
                             <div>
-                                <h5 class="text-xs font-medium text-gray-500">Status Deposit</h5>
-                                <p class="text-sm">
+                                <h5 class="text-xs font-medium text-gray-500">Status Deposit Masuk</h5>
+                                <p class="text-sm flex items-center mt-1">
                                     @if($room->is_deposit_in == 'Y')
-                                        <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">Deposit Dibayar</span>
+                                        <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800 mr-2">Deposit Dibayar</span>
                                     @else
-                                        <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-gray-100 text-gray-800">Belum Dibayar</span>
+                                        <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-gray-100 text-gray-800 mr-2">Belum Dibayar</span>
                                     @endif
+                                    <form action="{{ route('admin.rooms.toggle-status', $room) }}" method="POST" class="inline-block">
+                                        @csrf
+                                        <input type="hidden" name="field" value="is_deposit_in">
+                                        <button type="submit" class="bg-blue-500 hover:bg-blue-600 text-white text-xs px-2 py-1 rounded">
+                                            {{ $room->is_deposit_in == 'Y' ? 'Batalkan' : 'Terima Deposit' }}
+                                        </button>
+                                    </form>
+                                </p>
+                            </div>
+                            <div>
+                                <h5 class="text-xs font-medium text-gray-500">Status Deposit Keluar</h5>
+                                <p class="text-sm flex items-center mt-1">
+                                    @if($room->is_deposit_out == 'Y')
+                                        <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800 mr-2">Deposit Dikembalikan</span>
+                                    @else
+                                        <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-gray-100 text-gray-800 mr-2">Belum Dikembalikan</span>
+                                    @endif
+                                    <form action="{{ route('admin.rooms.toggle-status', $room) }}" method="POST" class="inline-block">
+                                        @csrf
+                                        <input type="hidden" name="field" value="is_deposit_out">
+                                        <button type="submit" class="bg-blue-500 hover:bg-blue-600 text-white text-xs px-2 py-1 rounded">
+                                            {{ $room->is_deposit_out == 'Y' ? 'Batalkan' : 'Kembalikan Deposit' }}
+                                        </button>
+                                    </form>
                                 </p>
                             </div>
                         </div>

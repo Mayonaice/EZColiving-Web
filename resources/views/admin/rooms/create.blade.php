@@ -83,7 +83,12 @@
 
             <div>
                 <label for="room_image1" class="block text-sm font-medium text-gray-700">Foto Kamar 1</label>
-                <input type="file" name="room_image1" id="room_image1" class="mt-1 block w-full text-sm text-gray-900 border border-gray-300 rounded-md" accept="image/*">
+                <div class="mt-1">
+                    <div id="preview-image1" class="hidden mb-2">
+                        <img id="preview-img1" src="#" alt="Preview Image 1" class="h-32 object-cover rounded-md">
+                    </div>
+                    <input type="file" name="room_image1" id="room_image1" class="block w-full text-sm text-gray-900 border border-gray-300 rounded-md" accept="image/*" onchange="previewImage(this, 'preview-img1', 'preview-image1')">
+                </div>
                 @error('room_image1')
                     <p class="mt-1 text-sm text-red-600">{{ $message }}</p>
                 @enderror
@@ -91,7 +96,12 @@
 
             <div>
                 <label for="room_image2" class="block text-sm font-medium text-gray-700">Foto Kamar 2</label>
-                <input type="file" name="room_image2" id="room_image2" class="mt-1 block w-full text-sm text-gray-900 border border-gray-300 rounded-md" accept="image/*">
+                <div class="mt-1">
+                    <div id="preview-image2" class="hidden mb-2">
+                        <img id="preview-img2" src="#" alt="Preview Image 2" class="h-32 object-cover rounded-md">
+                    </div>
+                    <input type="file" name="room_image2" id="room_image2" class="block w-full text-sm text-gray-900 border border-gray-300 rounded-md" accept="image/*" onchange="previewImage(this, 'preview-img2', 'preview-image2')">
+                </div>
                 @error('room_image2')
                     <p class="mt-1 text-sm text-red-600">{{ $message }}</p>
                 @enderror
@@ -99,7 +109,12 @@
 
             <div>
                 <label for="room_image3" class="block text-sm font-medium text-gray-700">Foto Kamar 3</label>
-                <input type="file" name="room_image3" id="room_image3" class="mt-1 block w-full text-sm text-gray-900 border border-gray-300 rounded-md" accept="image/*">
+                <div class="mt-1">
+                    <div id="preview-image3" class="hidden mb-2">
+                        <img id="preview-img3" src="#" alt="Preview Image 3" class="h-32 object-cover rounded-md">
+                    </div>
+                    <input type="file" name="room_image3" id="room_image3" class="block w-full text-sm text-gray-900 border border-gray-300 rounded-md" accept="image/*" onchange="previewImage(this, 'preview-img3', 'preview-image3')">
+                </div>
                 @error('room_image3')
                     <p class="mt-1 text-sm text-red-600">{{ $message }}</p>
                 @enderror
@@ -107,7 +122,12 @@
 
             <div>
                 <label for="room_image4" class="block text-sm font-medium text-gray-700">Foto Kamar 4</label>
-                <input type="file" name="room_image4" id="room_image4" class="mt-1 block w-full text-sm text-gray-900 border border-gray-300 rounded-md" accept="image/*">
+                <div class="mt-1">
+                    <div id="preview-image4" class="hidden mb-2">
+                        <img id="preview-img4" src="#" alt="Preview Image 4" class="h-32 object-cover rounded-md">
+                    </div>
+                    <input type="file" name="room_image4" id="room_image4" class="block w-full text-sm text-gray-900 border border-gray-300 rounded-md" accept="image/*" onchange="previewImage(this, 'preview-img4', 'preview-image4')">
+                </div>
                 @error('room_image4')
                     <p class="mt-1 text-sm text-red-600">{{ $message }}</p>
                 @enderror
@@ -115,7 +135,12 @@
 
             <div class="sm:col-span-2">
                 <label for="room_image5" class="block text-sm font-medium text-gray-700">Foto Kamar 5</label>
-                <input type="file" name="room_image5" id="room_image5" class="mt-1 block w-full text-sm text-gray-900 border border-gray-300 rounded-md" accept="image/*">
+                <div class="mt-1">
+                    <div id="preview-image5" class="hidden mb-2">
+                        <img id="preview-img5" src="#" alt="Preview Image 5" class="h-32 object-cover rounded-md">
+                    </div>
+                    <input type="file" name="room_image5" id="room_image5" class="block w-full text-sm text-gray-900 border border-gray-300 rounded-md" accept="image/*" onchange="previewImage(this, 'preview-img5', 'preview-image5')">
+                </div>
                 <p class="mt-1 text-sm text-gray-500">Format: JPG, PNG, GIF (Maks. 2MB)</p>
                 @error('room_image5')
                     <p class="mt-1 text-sm text-red-600">{{ $message }}</p>
@@ -129,4 +154,26 @@
             </button>
         </div>
     </form>
+
+    @push('scripts')
+    <script>
+    function previewImage(input, previewId, containerId) {
+        const preview = document.getElementById(previewId);
+        const container = document.getElementById(containerId);
+        
+        if (input.files && input.files[0]) {
+            const reader = new FileReader();
+            
+            reader.onload = function(e) {
+                preview.src = e.target.result;
+                container.classList.remove('hidden');
+            }
+            
+            reader.readAsDataURL(input.files[0]);
+        } else {
+            container.classList.add('hidden');
+        }
+    }
+    </script>
+    @endpush
 @endsection 

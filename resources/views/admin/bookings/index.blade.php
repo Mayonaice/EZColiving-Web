@@ -1,10 +1,10 @@
-@extends('admin.layout')
+@extends('layouts.admin')
 
 @section('content')
 <div class="container mx-auto px-4 py-8">
     <div class="flex justify-between items-center mb-6">
         <h1 class="text-3xl font-bold">Daftar Pemesanan</h1>
-        <a href="{{ route('admin.dashboard') }}" class="bg-gray-500 hover:bg-gray-600 text-white px-4 py-2 rounded">
+        <a href="{{ route('admin.home') }}" class="bg-gray-500 hover:bg-gray-600 text-white px-4 py-2 rounded">
             Kembali ke Dashboard
         </a>
     </div>

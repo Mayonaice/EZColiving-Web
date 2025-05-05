@@ -17,6 +17,10 @@ use App\Http\Controllers\User\BookingHistoryController;
 use App\Http\Controllers\Admin\PaymentController;
 use App\Http\Controllers\Admin\BookingHistoryController as AdminBookingHistoryController;
 use App\Http\Controllers\Admin\PaymentController as AdminPaymentController;
+use App\Http\Controllers\Admin\ExpenseCategoryController;
+use App\Http\Controllers\Admin\ExpenseController;
+use App\Http\Controllers\Admin\ReportController;
+use App\Http\Controllers\Admin\DashboardController;
 
 // Redirect dari root ke userhome
 Route::get('/', function () {
@@ -41,15 +45,14 @@ Route::middleware('auth')->group(function () {
 Route::prefix('admin')->name('admin.')->group(function () {
     Route::middleware(['auth'])->group(function () {
         Route::middleware([\App\Http\Middleware\AdminMiddleware::class])->group(function () {
-            Route::get('home', [AdminController::class, 'home'])->name('home');
-            // Dashboard
-            Route::get('dashboard', [App\Http\Controllers\Admin\BookingHistoryController::class, 'dashboard'])->name('dashboard');
+            Route::get('home', [App\Http\Controllers\Admin\DashboardController::class, 'index'])->name('home');
             
             // Room routes
             Route::resource('rooms', RoomController::class);
             Route::post('rooms/{room}/reset-status', [RoomController::class, 'resetRoomStatus'])->name('rooms.reset-status');
             Route::get('rooms/{room}/edit-booking-info', [RoomController::class, 'editBookingInfo'])->name('rooms.edit-booking-info');
             Route::put('rooms/{room}/update-booking-info', [RoomController::class, 'updateBookingInfo'])->name('rooms.update-booking-info');
+            Route::post('rooms/{room}/toggle-status', [RoomController::class, 'toggleStatus'])->name('rooms.toggle-status');
             
             Route::resource('masterpayments', MasterPaymentController::class);
             Route::get('denah', [AdminController::class, 'denah'])->name('denah');
@@ -61,6 +64,11 @@ Route::prefix('admin')->name('admin.')->group(function () {
             // Booking history
             Route::get('/bookings', [App\Http\Controllers\Admin\BookingHistoryController::class, 'index'])->name('bookings.index');
             Route::get('/bookings/{id}', [App\Http\Controllers\Admin\BookingHistoryController::class, 'show'])->name('bookings.show');
+
+            // Finance Management Routes
+            Route::get('expenses/report', [ExpenseController::class, 'report'])->name('expenses.report');
+            Route::resource('expense-categories', ExpenseCategoryController::class);
+            Route::resource('expenses', ExpenseController::class);
         });
     });
     
@@ -69,6 +77,13 @@ Route::prefix('admin')->name('admin.')->group(function () {
         Route::get('/whatsapp', [App\Http\Controllers\Admin\SettingController::class, 'whatsapp'])->name('whatsapp');
         Route::post('/whatsapp', [App\Http\Controllers\Admin\SettingController::class, 'updateWhatsapp'])->name('whatsapp.update');
     });
+
+    // Finance routes
+    Route::resource('expense-categories', ExpenseCategoryController::class);
+    Route::resource('expenses', ExpenseController::class);
+    Route::get('reports', [ReportController::class, 'index'])->name('reports.index');
+    Route::get('reports/export', [ReportController::class, 'export'])->name('reports.export');
+    Route::get('reports/data', [ReportController::class, 'getData'])->name('reports.data');
 });
 
 // Routes untuk booking

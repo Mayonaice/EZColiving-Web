@@ -36,8 +36,13 @@
 
             <div>
                 <label for="payment_qrcode" class="block text-sm font-medium text-gray-700">QR Code Pembayaran</label>
-                <input type="file" name="payment_qrcode" id="payment_qrcode" class="mt-1 block w-full text-sm text-gray-900 border border-gray-300 rounded-md" accept="image/*">
-                <p class="mt-1 text-sm text-gray-500">Format: JPG, PNG, GIF (Maks. 2MB)</p>
+                <div class="mt-1">
+                    <div id="image-preview" class="hidden mb-3">
+                        <img id="preview-image" src="#" alt="Preview QR Code" class="w-40 h-40 object-contain border border-gray-200 rounded-md">
+                    </div>
+                    <input type="file" name="payment_qrcode" id="payment_qrcode" class="block w-full text-sm text-gray-900 border border-gray-300 rounded-md" accept="image/*" onchange="previewImage(this)">
+                    <p class="mt-1 text-sm text-gray-500">Format: JPG, PNG, GIF (Maks. 2MB)</p>
+                </div>
                 @error('payment_qrcode')
                     <p class="mt-1 text-sm text-red-600">{{ $message }}</p>
                 @enderror
@@ -64,4 +69,26 @@
             </button>
         </div>
     </form>
+
+    @push('scripts')
+    <script>
+    function previewImage(input) {
+        const preview = document.getElementById('preview-image');
+        const previewContainer = document.getElementById('image-preview');
+        
+        if (input.files && input.files[0]) {
+            const reader = new FileReader();
+            
+            reader.onload = function(e) {
+                preview.src = e.target.result;
+                previewContainer.classList.remove('hidden');
+            }
+            
+            reader.readAsDataURL(input.files[0]);
+        } else {
+            previewContainer.classList.add('hidden');
+        }
+    }
+    </script>
+    @endpush
 @endsection 

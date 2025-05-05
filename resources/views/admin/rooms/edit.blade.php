@@ -90,7 +90,11 @@
                         <img src="{{ asset('storage/rooms/' . $room->room_image1) }}" alt="Gambar Kamar 1" class="w-32 h-32 object-cover rounded-md mt-1">
                     </div>
                 @endif
-                <input type="file" name="room_image1" id="room_image1" class="mt-1 block w-full text-sm text-gray-900 border border-gray-300 rounded-md" accept="image/*">
+                <div id="preview-image1" class="hidden mb-2">
+                    <p class="text-sm text-gray-500">Gambar baru:</p>
+                    <img id="preview-img1" src="#" alt="Preview Image 1" class="w-32 h-32 object-cover rounded-md mt-1">
+                </div>
+                <input type="file" name="room_image1" id="room_image1" class="mt-1 block w-full text-sm text-gray-900 border border-gray-300 rounded-md" accept="image/*" onchange="previewImage(this, 'preview-img1', 'preview-image1')">
                 @error('room_image1')
                     <p class="mt-1 text-sm text-red-600">{{ $message }}</p>
                 @enderror
@@ -104,7 +108,11 @@
                         <img src="{{ asset('storage/rooms/' . $room->room_image2) }}" alt="Gambar Kamar 2" class="w-32 h-32 object-cover rounded-md mt-1">
                     </div>
                 @endif
-                <input type="file" name="room_image2" id="room_image2" class="mt-1 block w-full text-sm text-gray-900 border border-gray-300 rounded-md" accept="image/*">
+                <div id="preview-image2" class="hidden mb-2">
+                    <p class="text-sm text-gray-500">Gambar baru:</p>
+                    <img id="preview-img2" src="#" alt="Preview Image 2" class="w-32 h-32 object-cover rounded-md mt-1">
+                </div>
+                <input type="file" name="room_image2" id="room_image2" class="mt-1 block w-full text-sm text-gray-900 border border-gray-300 rounded-md" accept="image/*" onchange="previewImage(this, 'preview-img2', 'preview-image2')">
                 @error('room_image2')
                     <p class="mt-1 text-sm text-red-600">{{ $message }}</p>
                 @enderror
@@ -118,7 +126,11 @@
                         <img src="{{ asset('storage/rooms/' . $room->room_image3) }}" alt="Gambar Kamar 3" class="w-32 h-32 object-cover rounded-md mt-1">
                     </div>
                 @endif
-                <input type="file" name="room_image3" id="room_image3" class="mt-1 block w-full text-sm text-gray-900 border border-gray-300 rounded-md" accept="image/*">
+                <div id="preview-image3" class="hidden mb-2">
+                    <p class="text-sm text-gray-500">Gambar baru:</p>
+                    <img id="preview-img3" src="#" alt="Preview Image 3" class="w-32 h-32 object-cover rounded-md mt-1">
+                </div>
+                <input type="file" name="room_image3" id="room_image3" class="mt-1 block w-full text-sm text-gray-900 border border-gray-300 rounded-md" accept="image/*" onchange="previewImage(this, 'preview-img3', 'preview-image3')">
                 @error('room_image3')
                     <p class="mt-1 text-sm text-red-600">{{ $message }}</p>
                 @enderror
@@ -132,7 +144,11 @@
                         <img src="{{ asset('storage/rooms/' . $room->room_image4) }}" alt="Gambar Kamar 4" class="w-32 h-32 object-cover rounded-md mt-1">
                     </div>
                 @endif
-                <input type="file" name="room_image4" id="room_image4" class="mt-1 block w-full text-sm text-gray-900 border border-gray-300 rounded-md" accept="image/*">
+                <div id="preview-image4" class="hidden mb-2">
+                    <p class="text-sm text-gray-500">Gambar baru:</p>
+                    <img id="preview-img4" src="#" alt="Preview Image 4" class="w-32 h-32 object-cover rounded-md mt-1">
+                </div>
+                <input type="file" name="room_image4" id="room_image4" class="mt-1 block w-full text-sm text-gray-900 border border-gray-300 rounded-md" accept="image/*" onchange="previewImage(this, 'preview-img4', 'preview-image4')">
                 @error('room_image4')
                     <p class="mt-1 text-sm text-red-600">{{ $message }}</p>
                 @enderror
@@ -146,7 +162,11 @@
                         <img src="{{ asset('storage/rooms/' . $room->room_image5) }}" alt="Gambar Kamar 5" class="w-32 h-32 object-cover rounded-md mt-1">
                     </div>
                 @endif
-                <input type="file" name="room_image5" id="room_image5" class="mt-1 block w-full text-sm text-gray-900 border border-gray-300 rounded-md" accept="image/*">
+                <div id="preview-image5" class="hidden mb-2">
+                    <p class="text-sm text-gray-500">Gambar baru:</p>
+                    <img id="preview-img5" src="#" alt="Preview Image 5" class="w-32 h-32 object-cover rounded-md mt-1">
+                </div>
+                <input type="file" name="room_image5" id="room_image5" class="mt-1 block w-full text-sm text-gray-900 border border-gray-300 rounded-md" accept="image/*" onchange="previewImage(this, 'preview-img5', 'preview-image5')">
                 <p class="mt-1 text-sm text-gray-500">Format: JPG, PNG, GIF (Maks. 2MB)</p>
                 @error('room_image5')
                     <p class="mt-1 text-sm text-red-600">{{ $message }}</p>
@@ -160,4 +180,26 @@
             </button>
         </div>
     </form>
+
+    @push('scripts')
+    <script>
+    function previewImage(input, previewId, containerId) {
+        const preview = document.getElementById(previewId);
+        const container = document.getElementById(containerId);
+        
+        if (input.files && input.files[0]) {
+            const reader = new FileReader();
+            
+            reader.onload = function(e) {
+                preview.src = e.target.result;
+                container.classList.remove('hidden');
+            }
+            
+            reader.readAsDataURL(input.files[0]);
+        } else {
+            container.classList.add('hidden');
+        }
+    }
+    </script>
+    @endpush
 @endsection 

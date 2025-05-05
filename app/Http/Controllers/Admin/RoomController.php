@@ -210,6 +210,11 @@ class RoomController extends Controller
         $data = $request->all();
         $data['phone_booking'] = $request->phone_booking ?: '';
         
+        // Jika tipe pemesanan adalah bulanan, pastikan is_deposit_in diupdate
+        if ($request->rental_type === 'monthly') {
+            $data['is_deposit_in'] = 'Y'; // Otomatis set deposit masuk untuk sewa bulanan
+        }
+        
         // Update informasi kamar dengan data baru
         $room->update($data);
 
@@ -340,5 +345,59 @@ class RoomController extends Controller
             $booking = \App\Models\Booking::create($bookingData);
             return $booking;
         }
+    }
+
+    /**
+     * Toggle status fields (is_check_in, is_check_out, is_deposit_in, is_deposit_out)
+     */
+    public function toggleStatus(Request $request, Room $room)
+    {
+        $field = $request->field;
+        $allowedFields = ['is_check_in', 'is_check_out', 'is_deposit_in', 'is_deposit_out'];
+        
+        if (!in_array($field, $allowedFields)) {
+            return redirect()->back()->with('error', 'Field tidak valid');
+        }
+        
+        // Toggle nilai Y/N
+        $currentValue = $room->{$field};
+        $newValue = $currentValue === 'Y' ? 'N' : 'Y';
+        
+        $updates = [$field => $newValue];
+        
+        // Logika untuk update status terkait
+        if ($field === 'is_check_in') {
+            if ($newValue === 'Y') {
+                $updates['is_check_out'] = 'N'; // Reset check-out jika check-in
+            }
+        } elseif ($field === 'is_check_out') {
+            if ($newValue === 'Y') {
+                $updates['is_check_in'] = 'N'; // Reset check-in jika check-out
+            }
+        } elseif ($field === 'is_deposit_in') {
+            if ($newValue === 'Y') {
+                $updates['is_deposit_out'] = 'N'; // Reset deposit out jika deposit in
+            }
+        } elseif ($field === 'is_deposit_out') {
+            if ($newValue === 'Y') {
+                $updates['is_deposit_in'] = 'N'; // Reset deposit in jika deposit out
+            }
+        }
+        
+        $room->update($updates);
+        
+        $statusLabels = [
+            'is_check_in' => 'Status Check-in',
+            'is_check_out' => 'Status Check-out',
+            'is_deposit_in' => 'Status Deposit Masuk',
+            'is_deposit_out' => 'Status Deposit Keluar'
+        ];
+        
+        $valueLabels = [
+            'Y' => 'Ya',
+            'N' => 'Tidak'
+        ];
+        
+        return redirect()->back()->with('success', "{$statusLabels[$field]} berhasil diubah menjadi {$valueLabels[$newValue]}");
     }
 } 

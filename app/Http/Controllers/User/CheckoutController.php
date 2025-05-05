@@ -268,13 +268,23 @@ class CheckoutController extends Controller
                 'booking_date_out' => $request->check_out_date
             ]);
             
-            $room->update([
+            $roomData = [
                 'name_booking' => $guestUser->name,
                 'phone_booking' => $guestUser->phone,
                 'date_booking' => now(),
                 'date_booking_in' => $request->check_in_date,
-                'date_booking_out' => $request->check_out_date
-            ]);
+                'date_booking_out' => $request->check_out_date,
+                'is_check_in' => 'Y', // Set check-in otomatis saat checkout
+                'is_check_out' => 'N' // Reset check-out
+            ];
+            
+            // Jika tipe pemesanan adalah bulanan, update is_deposit_in
+            if ($request->rental_type === 'monthly') {
+                $roomData['is_deposit_in'] = 'Y'; // Set deposit masuk untuk sewa bulanan
+                $roomData['is_deposit_out'] = 'N'; // Reset deposit keluar
+            }
+            
+            $room->update($roomData);
             
             Log::info('Room data updated successfully', ['room_id' => $room->id]);
 
