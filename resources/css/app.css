@@ -1,0 +1,230 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&family=Source+Sans+3:ital,wght@0,200..900;1,200..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Onest:wght@100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Onest:wght@100..900&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Responsive Styles untuk tampilan kecil hingga 280px */
+@media screen and (max-width: 320px) {
+  /* Layout utama */
+  .h-screen.w-full.bg-white.relative.flex.overflow-hidden {
+    overflow-x: hidden;
+  }
+  
+  /* Side menu */
+  aside.h-full {
+    width: 8px !important;
+  }
+  
+  aside .group {
+    width: 8px !important;
+    height: 8px !important;
+  }
+  
+  aside svg {
+    width: 6px !important;
+    height: 6px !important;
+  }
+  
+  /* Main content margin */
+  .w-full.h-full.flex.flex-col.justify-between {
+    margin-left: 8px !important;
+  }
+  
+  /* Header adjustments */
+  nav.h-16 {
+    padding-left: 2px !important;
+    padding-right: 2px !important;
+  }
+  
+  nav .text-xl {
+    font-size: 0.9rem !important;
+  }
+  
+  /* Home Banner */
+  #top h1 {
+    font-size: 1.25rem !important;
+    margin-top: 80px !important;
+    padding: 0 5px !important;
+  }
+  
+  #top p {
+    font-size: 0.7rem !important;
+    padding: 0 5px !important;
+  }
+  
+  /* Buttons */
+  #top a.relative.inline-flex {
+    padding: 6px 8px !important;
+    font-size: 0.8rem !important;
+  }
+  
+  /* Advantages section */
+  #advantages h2 {
+    font-size: 1.2rem !important;
+  }
+  
+  #advantages p {
+    font-size: 0.8rem !important;
+  }
+  
+  /* Slider navigation buttons */
+  #advantages button.absolute {
+    width: 8px !important;
+    height: 8px !important;
+    left: 5px !important;
+    right: 5px !important;
+  }
+  
+  /* Cards layout */
+  #advantages .grid {
+    gap: 0.5rem !important;
+  }
+  
+  #advantages .p-9 {
+    padding: 0.75rem !important;
+  }
+  
+  #advantages h3 {
+    font-size: 1rem !important;
+    margin-top: 0.5rem !important;
+  }
+  
+  /* Footer */
+  .xsm\:grid-cols-2 {
+    grid-template-columns: 1fr !important;
+  }
+  
+  /* Fixed buttons */
+  .fixed.bottom-6.right-6 .w-12.h-12 {
+    width: 8px !important;
+    height: 8px !important;
+  }
+  
+  .fixed.bottom-6.right-6 svg {
+    width: 5px !important;
+    height: 5px !important;
+  }
+}
+
+/* Responsive untuk tablet kecil (321px - 480px) */
+@media screen and (min-width: 321px) and (max-width: 480px) {
+  /* Side menu */
+  aside.h-full {
+    width: 32px !important;
+  }
+  
+  aside .group {
+    width: 32px !important;
+    height: 32px !important;
+  }
+  
+  /* Main content margin */
+  .w-full.h-full.flex.flex-col.justify-between {
+    margin-left: 32px !important;
+  }
+  
+  /* Header adjustments */
+  nav.h-16 {
+    padding-left: 4px !important;
+    padding-right: 4px !important;
+  }
+  
+  /* Home Banner */
+  #top h1 {
+    font-size: 1.5rem !important;
+    margin-top: 100px !important;
+  }
+  
+  #top p {
+    font-size: 0.8rem !important;
+    padding: 0 8px !important;
+  }
+  
+  /* Advantages section */
+  #advantages h2 {
+    font-size: 1.5rem !important;
+  }
+  
+  /* Cards layout */
+  #advantages .p-9 {
+    padding: 1rem !important;
+  }
+}
+
+/* Utility classes tambahan untuk responsif */
+.text-xs-center {
+  text-align: center !important;
+}
+
+.w-xs-full {
+  width: 100% !important;
+}
+
+.px-xs-1 {
+  padding-left: 0.25rem !important;
+  padding-right: 0.25rem !important;
+}
+
+.mx-xs-1 {
+  margin-left: 0.25rem !important;
+  margin-right: 0.25rem !important;
+}
+
+/* Override untuk elemen yang mungkin terlalu besar */
+@media screen and (max-width: 320px) {
+  .size-\[42px\] {
+    width: 24px !important;
+    height: 24px !important;
+  }
+  
+  .size-8 {
+    width: 1rem !important;
+    height: 1rem !important;
+  }
+  
+  .size-6 {
+    width: 0.75rem !important;
+    height: 0.75rem !important;
+  }
+}
+
+/* Memperbaiki posisi tombol next pada slider */
+#advantages button.absolute[class*="right"] {
+    right: 3.5rem !important;
+    left: auto !important;
+}
+
+@media (max-width: 480px) {
+    #advantages button.absolute[class*="right"] {
+        right: 4px !important;
+        left: auto !important;
+    }
+}
+
+@media (max-width: 320px) {
+    #advantages button.absolute[class*="right"] {
+        right: 2px !important;
+        left: auto !important;
+    }
+}
+
+/* Animasi fade-in untuk halaman About Us */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.motion-safe\:animate-fadeIn {
+    animation: fadeIn 0.5s ease-in-out forwards;
+}

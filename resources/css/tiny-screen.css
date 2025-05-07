@@ -1,0 +1,178 @@
+/* CSS khusus untuk layar sangat kecil (280px - 320px) */
+
+/* Reset overflow-x untuk mencegah horizontal scrolling */
+html, body {
+    overflow-x: hidden !important;
+    max-width: 100% !important;
+}
+
+/* Utility classes */
+.xs-hidden {
+    display: none !important;
+}
+
+.xs-visible {
+    display: block !important;
+}
+
+.xs-text-xs {
+    font-size: 0.65rem !important;
+}
+
+.xs-text-sm {
+    font-size: 0.75rem !important;
+}
+
+.xs-p-0 {
+    padding: 0 !important;
+}
+
+.xs-px-1 {
+    padding-left: 0.25rem !important;
+    padding-right: 0.25rem !important;
+}
+
+.xs-m-0 {
+    margin: 0 !important;
+}
+
+.xs-w-full {
+    width: 100% !important;
+}
+
+/* Menyesuaikan sidebar pada layar kecil */
+@media (max-width: 320px) {
+    /* Sidebar */
+    aside.h-full {
+        width: 24px !important;
+    }
+    
+    aside .group {
+        width: 24px !important;
+        height: 24px !important;
+    }
+    
+    aside .group span.absolute {
+        display: none;
+    }
+    
+    /* Content layout */
+    .w-full.h-full.flex.flex-col.justify-between {
+        margin-left: 24px !important;
+    }
+    
+    /* Navbar */
+    nav.h-16 {
+        height: 3rem !important;
+        padding: 0 4px !important;
+    }
+    
+    nav .text-xl {
+        font-size: 0.8rem !important;
+    }
+    
+    nav .h-10.w-10 {
+        width: 2rem !important;
+        height: 2rem !important;
+    }
+    
+    /* Banner section */
+    #top h1 {
+        font-size: 1.2rem !important;
+        text-align: center !important;
+        padding: 0 8px !important;
+    }
+    
+    #top p {
+        font-size: 0.7rem !important;
+        text-align: center !important;
+        padding: 0 8px !important;
+    }
+    
+    /* Advantages section */
+    #advantages h2 {
+        font-size: 1.2rem !important;
+        text-align: center !important;
+    }
+    
+    #advantages .p-9 {
+        padding: 0.75rem !important;
+    }
+    
+    #advantages .size-\[42px\] {
+        width: 24px !important;
+        height: 24px !important;
+    }
+    
+    #advantages h3 {
+        font-size: 1rem !important;
+    }
+    
+    /* Slider navigation */
+    #advantages button.absolute.left-14 {
+        left: 4px !important;
+    }
+    
+    #advantages button.absolute.right-14 {
+        right: 4px !important;
+    }
+    
+    /* Footer */
+    .xsm\:grid-cols-2 {
+        grid-template-columns: 1fr !important;
+    }
+    
+    .xsm\:flex-row {
+        flex-direction: column !important;
+    }
+    
+    /* Navigation buttons */
+    .fixed.bottom-6.right-6 {
+        right: 0.5rem !important;
+        bottom: 0.5rem !important;
+    }
+    
+    .fixed.bottom-6.right-6 .w-12.h-12 {
+        width: 2rem !important;
+        height: 2rem !important;
+    }
+    
+    .fixed.bottom-6.right-6 svg {
+        width: 1rem !important;
+        height: 1rem !important;
+    }
+}
+
+/* Menyesuaikan untuk layar 321px - 375px */
+@media (min-width: 321px) and (max-width: 375px) {
+    aside.h-full {
+        width: 32px !important;
+    }
+    
+    .w-full.h-full.flex.flex-col.justify-between {
+        margin-left: 32px !important;
+    }
+    
+    #top h1 {
+        font-size: 1.5rem !important;
+    }
+    
+    #advantages button.absolute.left-14 {
+        left: 8px !important;
+    }
+    
+    #advantages button.absolute.right-14 {
+        right: 8px !important;
+    }
+}
+
+/* Menyesuaikan untuk layar 376px - 480px */
+@media (min-width: 376px) and (max-width: 480px) {
+    aside.h-full {
+        width: 36px !important;
+    }
+    
+    .w-full.h-full.flex.flex-col.justify-between {
+        margin-left: 36px !important;
+    }
+} 

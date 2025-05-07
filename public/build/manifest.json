@@ -1,0 +1,30 @@
+{
+  "resources/css/app.css": {
+    "file": "assets/app-Bsat7O48.css",
+    "src": "resources/css/app.css",
+    "isEntry": true
+  },
+  "resources/css/tiny-screen.css": {
+    "file": "assets/tiny-screen-Dui_53v4.css",
+    "src": "resources/css/tiny-screen.css",
+    "isEntry": true
+  },
+  "resources/js/app.js": {
+    "file": "assets/app-DQNOlDuK.js",
+    "name": "app",
+    "src": "resources/js/app.js",
+    "isEntry": true
+  },
+  "resources/js/responsive-helpers.js": {
+    "file": "assets/responsive-helpers-Ce7JwIFL.js",
+    "name": "responsive-helpers",
+    "src": "resources/js/responsive-helpers.js",
+    "isEntry": true
+  },
+  "resources/js/tiny-screen-slider.js": {
+    "file": "assets/tiny-screen-slider-cXbL1wvF.js",
+    "name": "tiny-screen-slider",
+    "src": "resources/js/tiny-screen-slider.js",
+    "isEntry": true
+  }
+}
