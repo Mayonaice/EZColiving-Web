@@ -83,7 +83,7 @@
 
                 <div class="xsm:mx-[0px] xsm:pr-14 xsm:pl-12 xl:mx-[480px] xl:px-[0px] flex justify-center text-center">
                     <p
-                        class="xsm:text-[12px] xsm:font-sans xsm:font-[80] xl:font-poppins mt-4 text-white lg:text-[20px] lg:font-extralight">
+                        class="xsm:text-[12px] xsm:font-sans xsm:font-[80] xl:font-poppins mt-4 text-white lg:text-[18px] lg:font-extralight">
                         Ez Coliving adalah tempat yang sangat
                         nyaman sebagai tempat tinggal sementara anda, EZ Coliving menawarkan banyak kelebihan yang
                         kenyamanan

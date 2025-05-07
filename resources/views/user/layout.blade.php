@@ -7,12 +7,10 @@
         content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
     <title>Ez Coliving</title>
     @vite(['resources/css/app.css', 'resources/css/tiny-screen.css', 'resources/js/app.js', 'resources/js/responsive-helpers.js', 'resources/js/tiny-screen-slider.js'])
-
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <style>
         /* Style untuk mendukung responsif layar kecil */
-
         @media (max-width: 320px) {
-
             html,
             body {
                 overflow-x: hidden;
@@ -33,10 +31,14 @@
                 margin-right: 0.25rem !important;
             }
         }
+
+        [x-cloak] {
+            display: none !important;
+        }
     </style>
 </head>
 
-<body>
+<body x-data="{ isLoginOpen: false, isRegisterOpen: false }">
     <div class="h-screen w-full bg-white relative flex overflow-hidden">
 
         <aside
@@ -105,16 +107,14 @@
                 </div>
 
                 <div class="flex flex-shrink-0 items-center">
-                    <a href="{{ route('login') }}">
-                        <div
-                            class="h-10 w-10 flex justify-center items-center rounded-full cursor-pointer bg-gray-200/40 border-2 border-gray-300 text-gray-700 hover:duration-300 hover:ease-linear hover:text-white hover:bg-green-700">
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                                stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
-                                <path stroke-linecap="round" stroke-linejoin="round"
-                                    d="M17.982 18.725A7.488 7.488 0 0 0 12 15.75a7.488 7.488 0 0 0-5.982 2.975m11.963 0a9 9 0 1 0-11.963 0m11.963 0A8.966 8.966 0 0 1 12 21a8.966 8.966 0 0 1-5.982-2.275M15 9.75a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
-                            </svg>
-                        </div>
-                    </a>
+                    <button @click="isLoginOpen = true"
+                        class="h-10 w-10 flex justify-center items-center rounded-full cursor-pointer bg-gray-200/40 border-2 border-gray-300 text-gray-700 hover:duration-300 hover:ease-linear hover:text-white hover:bg-green-700">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                            stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                d="M17.982 18.725A7.488 7.488 0 0 0 12 15.75a7.488 7.488 0 0 0-5.982 2.975m11.963 0a9 9 0 1 0-11.963 0m11.963 0A8.966 8.966 0 0 1 12 21a8.966 8.966 0 0 1-5.982-2.275M15 9.75a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
+                        </svg>
+                    </button>
                 </div>
             </nav>
 
@@ -233,6 +233,239 @@
         </div>
     </div>
     
+    <!-- Login Modal -->
+    <div x-cloak x-show="isLoginOpen" class="fixed inset-0 z-[1001] overflow-y-auto" 
+        x-transition:enter="transition ease-out duration-300"
+        x-transition:enter-start="opacity-0" 
+        x-transition:enter-end="opacity-100"
+        x-transition:leave="transition ease-in duration-200" 
+        x-transition:leave-start="opacity-100"
+        x-transition:leave-end="opacity-0">
+        <div class="flex min-h-screen items-center justify-center px-4 pt-4 pb-20 text-center sm:block sm:p-0">
+            <div class="fixed inset-0 transition-opacity" aria-hidden="true">
+                <div class="absolute inset-0 bg-gray-900 bg-opacity-85 backdrop-blur-sm"></div>
+            </div>
+            <div @click.away="isLoginOpen = false"
+                class="relative inline-block transform overflow-hidden rounded-2xl bg-white text-left align-bottom shadow-2xl transition-all sm:my-8 sm:w-full sm:max-w-md sm:align-middle">
+                <div class="absolute right-4 top-4">
+                    <button @click="isLoginOpen = false" class="text-gray-400 hover:text-gray-500">
+                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                        </svg>
+                    </button>
+                </div>
+                <div class="bg-white px-8 pt-8 pb-6">
+                    <div class="text-center mb-8">
+                        <h3 class="text-2xl font-bold text-gray-900 font-raleway">Selamat Datang Kembali Admin EZ Coliving</h3>
+                        <p class="mt-2 text-sm text-gray-500">Silakan masuk ke akun admin Anda</p>
+                    </div>
+                    <form method="POST" action="{{ route('login') }}" class="space-y-6">
+                        @csrf
+                        <!-- Name -->
+                        <div>
+                            <label for="name" class="block text-sm font-medium text-gray-700">Nama</label>
+                            <div class="relative mt-1">
+                                <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                                    <i class="fas fa-user text-green-500"></i>
+                                </div>
+                                <input id="name" type="text" name="name" value="{{ old('name') }}" required autofocus
+                                    class="block w-full pl-10 pr-3 py-3 border-gray-300 rounded-xl shadow-sm focus:ring-2 focus:ring-green-500 focus:border-green-500 sm:text-sm transition duration-150 ease-in-out"
+                                    placeholder="Masukkan nama Anda">
+                            </div>
+                            @error('name')
+                                <p class="mt-2 text-sm text-red-600">{{ $message }}</p>
+                            @enderror
+                        </div>
+
+                        <!-- Password -->
+                        <div>
+                            <label for="password" class="block text-sm font-medium text-gray-700">Password</label>
+                            <div class="relative mt-1">
+                                <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                                    <i class="fas fa-lock text-green-500"></i>
+                                </div>
+                                <input id="password" type="password" name="password" required
+                                    class="block w-full pl-10 pr-10 py-3 border-gray-300 rounded-xl shadow-sm focus:ring-2 focus:ring-green-500 focus:border-green-500 sm:text-sm transition duration-150 ease-in-out"
+                                    placeholder="••••••••">
+                                <div class="absolute inset-y-0 right-0 pr-3 flex items-center">
+                                    <i id="password-icon"
+                                        class="fas fa-eye text-gray-400 cursor-pointer hover:text-gray-600 transition-colors duration-200"
+                                        onclick="togglePasswordVisibility('password')"></i>
+                                </div>
+                            </div>
+                            @error('password')
+                                <p class="mt-2 text-sm text-red-600">{{ $message }}</p>
+                            @enderror
+                        </div>
+
+                        <div>
+                            <button type="submit"
+                                class="w-full flex justify-center py-3 px-4 border border-transparent rounded-xl shadow-sm text-sm font-medium text-white bg-gradient-to-r from-green-600 to-green-700 hover:from-green-700 hover:to-green-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500 transition duration-150 ease-in-out transform hover:scale-[1.02]">
+                                Masuk
+                            </button>
+                        </div>
+
+                        <div class="text-center">
+                            <p class="text-sm text-gray-500">
+                                Belum punya akun?
+                                <button type="button" @click="isLoginOpen = false; isRegisterOpen = true"
+                                    class="font-medium text-green-600 hover:text-green-700 transition-colors duration-200">
+                                    Daftar sekarang
+                                </button>
+                            </p>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Register Modal -->
+    <div x-cloak x-show="isRegisterOpen" class="fixed inset-0 z-[1001] overflow-y-auto"
+        x-transition:enter="transition ease-out duration-300" 
+        x-transition:enter-start="opacity-0"
+        x-transition:enter-end="opacity-100" 
+        x-transition:leave="transition ease-in duration-200"
+        x-transition:leave-start="opacity-100" 
+        x-transition:leave-end="opacity-0">
+        <div class="flex min-h-screen items-center justify-center px-4 pt-4 pb-20 text-center sm:block sm:p-0">
+            <div class="fixed inset-0 transition-opacity" aria-hidden="true">
+                <div class="absolute inset-0 bg-gray-900 bg-opacity-85 backdrop-blur-sm"></div>
+            </div>
+            <div @click.away="isRegisterOpen = false"
+                class="relative inline-block transform overflow-hidden rounded-2xl bg-white text-left align-bottom shadow-2xl transition-all sm:my-8 sm:w-full sm:max-w-md sm:align-middle">
+                <div class="absolute right-4 top-4">
+                    <button @click="isRegisterOpen = false" class="text-gray-400 hover:text-gray-500">
+                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                        </svg>
+                    </button>
+                </div>
+                <div class="bg-white px-8 pt-8 pb-6">
+                    <div class="text-center mb-8">
+                        <h3 class="text-2xl font-bold text-gray-900 font-raleway">Buat Akun Admin Baru</h3>
+                        <p class="mt-2 text-sm text-gray-500">Ingin membuat akun admin untuk mengurus administrasi? Hubungi admin nya terlebih dahulu yaa untuk kode rahasianya!</p>
+                    </div>
+                    <form method="POST" action="{{ route('register') }}" class="space-y-6">
+                        @csrf
+                        <!-- Name -->
+                        <div>
+                            <label for="reg-name" class="block text-sm font-medium text-gray-700">Nama</label>
+                            <div class="relative mt-1">
+                                <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                                    <i class="fas fa-user text-green-500"></i>
+                                </div>
+                                <input id="reg-name" type="text" name="name" value="{{ old('name') }}" required autofocus
+                                    class="block w-full pl-10 pr-3 py-3 border-gray-300 rounded-xl shadow-sm focus:ring-2 focus:ring-green-500 focus:border-green-500 sm:text-sm transition duration-150 ease-in-out"
+                                    placeholder="Masukkan nama Anda">
+                            </div>
+                            @error('name')
+                                <p class="mt-2 text-sm text-red-600">{{ $message }}</p>
+                            @enderror
+                        </div>
+
+                        <!-- Secret Code -->
+                        <div>
+                            <label for="secret_code" class="block text-sm font-medium text-gray-700">Kode Rahasia</label>
+                            <div class="relative mt-1">
+                                <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                                    <i class="fas fa-key text-green-500"></i>
+                                </div>
+                                <input id="secret_code" type="password" name="secret_code" required
+                                    class="block w-full pl-10 pr-10 py-3 border-gray-300 rounded-xl shadow-sm focus:ring-2 focus:ring-green-500 focus:border-green-500 sm:text-sm transition duration-150 ease-in-out"
+                                    placeholder="••••••••">
+                                <div class="absolute inset-y-0 right-0 pr-3 flex items-center">
+                                    <i id="secret-code-icon"
+                                        class="fas fa-eye text-gray-400 cursor-pointer hover:text-gray-600 transition-colors duration-200"
+                                        onclick="togglePasswordVisibility('secret_code')"></i>
+                                </div>
+                            </div>
+                            @error('secret_code')
+                                <p class="mt-2 text-sm text-red-600">{{ $message }}</p>
+                            @enderror
+                        </div>
+
+                        <!-- Password -->
+                        <div>
+                            <label for="reg-password" class="block text-sm font-medium text-gray-700">Password</label>
+                            <div class="relative mt-1">
+                                <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                                    <i class="fas fa-lock text-green-500"></i>
+                                </div>
+                                <input id="reg-password" type="password" name="password" required
+                                    class="block w-full pl-10 pr-10 py-3 border-gray-300 rounded-xl shadow-sm focus:ring-2 focus:ring-green-500 focus:border-green-500 sm:text-sm transition duration-150 ease-in-out"
+                                    placeholder="••••••••">
+                                <div class="absolute inset-y-0 right-0 pr-3 flex items-center">
+                                    <i id="reg-password-icon"
+                                        class="fas fa-eye text-gray-400 cursor-pointer hover:text-gray-600 transition-colors duration-200"
+                                        onclick="togglePasswordVisibility('reg-password')"></i>
+                                </div>
+                            </div>
+                            @error('password')
+                                <p class="mt-2 text-sm text-red-600">{{ $message }}</p>
+                            @enderror
+                        </div>
+
+                        <!-- Confirm Password -->
+                        <div>
+                            <label for="password_confirmation" class="block text-sm font-medium text-gray-700">Konfirmasi Password</label>
+                            <div class="relative mt-1">
+                                <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                                    <i class="fas fa-lock text-green-500"></i>
+                                </div>
+                                <input id="password_confirmation" type="password" name="password_confirmation" required
+                                    class="block w-full pl-10 pr-10 py-3 border-gray-300 rounded-xl shadow-sm focus:ring-2 focus:ring-green-500 focus:border-green-500 sm:text-sm transition duration-150 ease-in-out"
+                                    placeholder="••••••••">
+                                <div class="absolute inset-y-0 right-0 pr-3 flex items-center">
+                                    <i id="password-confirmation-icon"
+                                        class="fas fa-eye text-gray-400 cursor-pointer hover:text-gray-600 transition-colors duration-200"
+                                        onclick="togglePasswordVisibility('password_confirmation')"></i>
+                                </div>
+                            </div>
+                            @error('password_confirmation')
+                                <p class="mt-2 text-sm text-red-600">{{ $message }}</p>
+                            @enderror
+                        </div>
+
+                        <div>
+                            <button type="submit"
+                                class="w-full flex justify-center py-3 px-4 border border-transparent rounded-xl shadow-sm text-sm font-medium text-white bg-gradient-to-r from-green-600 to-green-700 hover:from-green-700 hover:to-green-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500 transition duration-150 ease-in-out transform hover:scale-[1.02]">
+                                Daftar
+                            </button>
+                        </div>
+
+                        <div class="text-center">
+                            <p class="text-sm text-gray-500">
+                                Sudah punya akun?
+                                <button type="button" @click="isRegisterOpen = false; isLoginOpen = true"
+                                    class="font-medium text-green-600 hover:text-green-700 transition-colors duration-200">
+                                    Masuk sekarang
+                                </button>
+                            </p>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function togglePasswordVisibility(inputId) {
+            const passwordInput = document.getElementById(inputId);
+            const passwordIcon = document.getElementById(inputId + '-icon');
+
+            if (passwordInput.type === 'password') {
+                passwordInput.type = 'text';
+                passwordIcon.classList.remove('fa-eye');
+                passwordIcon.classList.add('fa-eye-slash');
+            } else {
+                passwordInput.type = 'password';
+                passwordIcon.classList.remove('fa-eye-slash');
+                passwordIcon.classList.add('fa-eye');
+            }
+        }
+    </script>
+
     @stack('scripts')
 </body>
 
