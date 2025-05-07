@@ -120,7 +120,7 @@
                             <span class="px-2 py-1 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">
                                 Dikonfirmasi
                             </span>
-                        @elseif($booking->payment->payment_status == 'Rejected')
+                        @elseif($booking->payment->payment_status == 'Failed')
                             <span class="px-2 py-1 inline-flex text-xs leading-5 font-semibold rounded-full bg-red-100 text-red-800">
                                 Ditolak
                             </span>

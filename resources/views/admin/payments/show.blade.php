@@ -95,23 +95,39 @@
 
                     @if($payment->payment_status === 'Pending')
                         <div class="flex justify-end space-x-4">
-                            <form action="{{ route('admin.payments.reject', $payment->id) }}" method="POST" class="inline">
-                                @csrf
-                                <button type="submit" 
-                                        class="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md text-white bg-red-600 hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500"
-                                        onclick="return confirm('Apakah Anda yakin ingin menolak pembayaran ini?')">
-                                    Tolak Pembayaran
-                                </button>
-                            </form>
-                            <form action="{{ route('admin.payments.confirm', $payment->id) }}" method="POST" class="inline">
-                                @csrf
-                                <button type="submit" 
-                                        class="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md text-white bg-green-600 hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500"
-                                        onclick="return confirm('Apakah Anda yakin ingin mengkonfirmasi pembayaran ini?')">
-                                    Konfirmasi Pembayaran
-                                </button>
-                            </form>
+                            <button type="button" 
+                                    onclick="openModal('reject-payment-{{ $payment->id }}')"
+                                    class="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md text-white bg-red-600 hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500">
+                                Tolak Pembayaran
+                            </button>
+                            <button type="button"
+                                    onclick="openModal('confirm-payment-{{ $payment->id }}')"
+                                    class="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md text-white bg-green-600 hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500">
+                                Konfirmasi Pembayaran
+                            </button>
                         </div>
+
+                        <x-confirmation-modal id="reject-payment-{{ $payment->id }}" 
+                                             title="Tolak Pembayaran" 
+                                             message="Apakah Anda yakin ingin menolak pembayaran ini?">
+                            <form id="form-reject-payment-{{ $payment->id }}" 
+                                  action="{{ route('admin.payments.reject', $payment->id) }}" 
+                                  method="POST" 
+                                  x-ref="form">
+                                @csrf
+                            </form>
+                        </x-confirmation-modal>
+
+                        <x-confirmation-modal id="confirm-payment-{{ $payment->id }}"
+                                             title="Konfirmasi Pembayaran"
+                                             message="Apakah Anda yakin ingin mengkonfirmasi pembayaran ini?">
+                            <form id="form-confirm-payment-{{ $payment->id }}" 
+                                  action="{{ route('admin.payments.confirm', $payment->id) }}" 
+                                  method="POST"
+                                  x-ref="form">
+                                @csrf
+                            </form>
+                        </x-confirmation-modal>
                     @endif
                 @else
                     <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative" role="alert">

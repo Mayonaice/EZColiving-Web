@@ -23,13 +23,11 @@
                 <a href="{{ route('admin.rooms.edit', $room) }}" class="bg-yellow-500 hover:bg-yellow-600 text-white px-3 py-1 h-[32px] rounded-md">
                     Edit
                 </a>
-                <form action="{{ route('admin.rooms.destroy', $room) }}" method="POST" class="inline" onsubmit="return confirm('Apakah Anda yakin ingin menghapus kamar ini?');">
-                    @csrf
-                    @method('DELETE')
-                    <button type="submit" class="bg-red-500 hover:bg-red-600 text-white px-3 py-1 rounded-md">
-                        Hapus
-                    </button>
-                </form>
+                <button type="button" 
+                        onclick="openModal('delete-room-{{ $room->id }}')"
+                        class="bg-red-500 hover:bg-red-600 text-white px-3 py-1 rounded-md">
+                    Hapus
+                </button>
             </div>
         </div>
         <div class="border-t border-gray-200">
@@ -241,4 +239,13 @@
             </div>
         </div>
     </div>
+
+    <x-confirmation-modal id="delete-room-{{ $room->id }}"
+                         title="Hapus Kamar"
+                         message="Apakah Anda yakin ingin menghapus kamar ini? Tindakan ini tidak dapat dibatalkan.">
+        <form id="form-delete-room-{{ $room->id }}" action="{{ route('admin.rooms.destroy', $room) }}" method="POST">
+            @csrf
+            @method('DELETE')
+        </form>
+    </x-confirmation-modal>
 @endsection 

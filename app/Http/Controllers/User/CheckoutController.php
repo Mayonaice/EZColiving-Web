@@ -67,12 +67,12 @@ class CheckoutController extends Controller
         
         if ($request->rental_type === 'monthly') {
             $calculatedAmount = $room->room_price * $rentalDuration;
+            // Tambahkan deposit hanya untuk sewa bulanan
+            $calculatedAmount += $room->deposit_price;
         } else {
             $calculatedAmount = $room->daily_price * $rentalDuration;
+            // Tidak ada deposit untuk sewa harian
         }
-        
-        // Tambahkan deposit
-        $calculatedAmount += $room->deposit_price;
         
         // Verifikasi total_amount - tambahkan toleransi untuk pembulatan
         if (abs($calculatedAmount - $request->total_amount) > 100) {  // Lebih toleran

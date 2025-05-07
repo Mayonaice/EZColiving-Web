@@ -102,13 +102,22 @@
                         </td>
                         <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
                             <a href="{{ route('admin.expenses.edit', $expense) }}" class="text-green-600 hover:text-green-900 mr-3">Edit</a>
-                            <form action="{{ route('admin.expenses.destroy', $expense) }}" method="POST" class="inline-block">
-                                @csrf
-                                @method('DELETE')
-                                <button type="submit" class="text-red-600 hover:text-red-900" onclick="return confirm('Apakah Anda yakin ingin menghapus pengeluaran ini?')">
-                                    Hapus
-                                </button>
-                            </form>
+                            <button type="button" 
+                                    onclick="openModal('delete-expense-{{ $expense->id }}')"
+                                    class="text-red-600 hover:text-red-900">
+                                Hapus
+                            </button>
+
+                            <x-confirmation-modal id="delete-expense-{{ $expense->id }}"
+                                                title="Hapus Pengeluaran"
+                                                message="Apakah Anda yakin ingin menghapus data pengeluaran ini?
+                                                        
+Tindakan ini tidak dapat dibatalkan dan akan menghapus seluruh data terkait pengeluaran tersebut.">
+                                <form id="form-delete-expense-{{ $expense->id }}" action="{{ route('admin.expenses.destroy', $expense) }}" method="POST">
+                                    @csrf
+                                    @method('DELETE')
+                                </form>
+                            </x-confirmation-modal>
                         </td>
                     </tr>
                 @empty

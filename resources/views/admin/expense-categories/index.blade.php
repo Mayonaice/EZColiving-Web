@@ -34,13 +34,22 @@
                         </td>
                         <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
                             <a href="{{ route('admin.expense-categories.edit', $category) }}" class="text-green-600 hover:text-green-900 mr-3">Edit</a>
-                            <form action="{{ route('admin.expense-categories.destroy', $category) }}" method="POST" class="inline-block">
-                                @csrf
-                                @method('DELETE')
-                                <button type="submit" class="text-red-600 hover:text-red-900" onclick="return confirm('Apakah Anda yakin ingin menghapus kategori ini?')">
-                                    Hapus
-                                </button>
-                            </form>
+                            <button type="button" 
+                                    onclick="openModal('delete-category-{{ $category->id }}')"
+                                    class="text-red-600 hover:text-red-900">
+                                Hapus
+                            </button>
+
+                            <x-confirmation-modal id="delete-category-{{ $category->id }}"
+                                                title="Hapus Kategori"
+                                                message="Apakah Anda yakin ingin menghapus kategori ini?
+                                                        
+Perhatian: Semua data pengeluaran yang terkait dengan kategori ini juga akan dihapus secara permanen.">
+                                <form id="form-delete-category-{{ $category->id }}" action="{{ route('admin.expense-categories.destroy', $category) }}" method="POST">
+                                    @csrf
+                                    @method('DELETE')
+                                </form>
+                            </x-confirmation-modal>
                         </td>
                     </tr>
                 @empty

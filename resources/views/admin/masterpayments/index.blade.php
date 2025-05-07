@@ -82,16 +82,25 @@
                                 <a href="{{ route('admin.masterpayments.edit', $masterpayment) }}" class="text-yellow-600 hover:text-yellow-900">
                                     Edit
                                 </a>
-                                <form action="{{ route('admin.masterpayments.destroy', $masterpayment) }}" method="POST" class="inline" onsubmit="return confirm('Apakah Anda yakin ingin menghapus metode pembayaran ini?');">
-                                    @csrf
-                                    @method('DELETE')
-                                    <button type="submit" class="text-red-600 hover:text-red-900">
-                                        Hapus
-                                    </button>
-                                </form>
+                                <button type="button" 
+                                        onclick="openModal('delete-payment-{{ $masterpayment->id }}')"
+                                        class="text-red-600 hover:text-red-900">
+                                    Hapus
+                                </button>
                             </div>
                         </td>
                     </tr>
+
+                    <x-confirmation-modal id="delete-payment-{{ $masterpayment->id }}"
+                                        title="Hapus Metode Pembayaran"
+                                        message="Apakah Anda yakin ingin menghapus metode pembayaran ini?
+                                                
+Tindakan ini tidak dapat dibatalkan dan akan menghapus semua data terkait metode pembayaran tersebut.">
+                        <form id="form-delete-payment-{{ $masterpayment->id }}" action="{{ route('admin.masterpayments.destroy', $masterpayment) }}" method="POST">
+                            @csrf
+                            @method('DELETE')
+                        </form>
+                    </x-confirmation-modal>
                 @empty
                     <tr>
                         <td colspan="6" class="px-6 py-4 whitespace-nowrap text-center">

@@ -87,7 +87,7 @@ class PaymentController extends Controller
             DB::beginTransaction();
             
             $payment = Payment::whereHas('booking')->findOrFail($id);
-            $payment->update(['payment_status' => 'Rejected']);
+            $payment->update(['payment_status' => 'Failed']);
             
             // Update status booking menjadi Rejected
             if ($payment->booking) {

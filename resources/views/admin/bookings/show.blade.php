@@ -1,4 +1,4 @@
-@extends('admin.layout')
+@extends('layouts.admin')
 
 @section('content')
 <div class="container mx-auto px-4 py-8">
@@ -41,27 +41,55 @@
             <div>
                 <span class="text-gray-600">Status Pembayaran:</span>
                 @if($booking->payment->payment_status == 'Pending')
-                    <span class="ml-2 px-3 py-1 text-sm rounded-full bg-yellow-100 text-yellow-800">Menunggu Konfirmasi</span>
+                    <span class="px-2 py-1 inline-flex text-xs leading-5 font-semibold rounded-full bg-yellow-100 text-yellow-800">
+                        Menunggu Konfirmasi
+                    </span>
                 @elseif($booking->payment->payment_status == 'Confirmed')
-                    <span class="ml-2 px-3 py-1 text-sm rounded-full bg-green-100 text-green-800">Dikonfirmasi</span>
-                @elseif($booking->payment->payment_status == 'Rejected')
-                    <span class="ml-2 px-3 py-1 text-sm rounded-full bg-red-100 text-red-800">Ditolak</span>
+                    <span class="px-2 py-1 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">
+                        Dikonfirmasi
+                    </span>
+                @elseif($booking->payment->payment_status == 'Failed')
+                    <span class="px-2 py-1 inline-flex text-xs leading-5 font-semibold rounded-full bg-red-100 text-red-800">
+                        Ditolak
+                    </span>
                 @endif
             </div>
             <div class="mt-2 md:mt-0">
                 @if($booking->payment->payment_status == 'Pending' && $booking->payment->payment_image)
                     <div class="flex space-x-2">
-                        <a href="{{ route('admin.payments.confirm', $booking->payment->id) }}" 
-                           class="bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded"
-                           onclick="return confirm('Konfirmasi pembayaran ini?')">
+                        <button type="button"
+                            onclick="openModal('confirm-payment-{{ $booking->payment->id }}')"
+                            class="bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded">
                             Konfirmasi Pembayaran
-                        </a>
-                        <a href="{{ route('admin.payments.reject', $booking->payment->id) }}" 
-                           class="bg-red-500 hover:bg-red-600 text-white px-4 py-2 rounded"
-                           onclick="return confirm('Tolak pembayaran ini?')">
+                        </button>
+                        <button type="button"
+                            onclick="openModal('reject-payment-{{ $booking->payment->id }}')"
+                            class="bg-red-500 hover:bg-red-600 text-white px-4 py-2 rounded">
                             Tolak Pembayaran
-                        </a>
+                        </button>
                     </div>
+
+                    <x-confirmation-modal id="confirm-payment-{{ $booking->payment->id }}"
+                                        title="Konfirmasi Pembayaran"
+                                        message="Apakah Anda yakin ingin mengkonfirmasi pembayaran ini?">
+                        <form id="form-confirm-payment-{{ $booking->payment->id }}" 
+                              action="{{ route('admin.payments.confirm', $booking->payment->id) }}" 
+                              method="POST"
+                              x-ref="form">
+                            @csrf
+                        </form>
+                    </x-confirmation-modal>
+
+                    <x-confirmation-modal id="reject-payment-{{ $booking->payment->id }}"
+                                        title="Tolak Pembayaran"
+                                        message="Apakah Anda yakin ingin menolak pembayaran ini?">
+                        <form id="form-reject-payment-{{ $booking->payment->id }}" 
+                              action="{{ route('admin.payments.reject', $booking->payment->id) }}" 
+                              method="POST"
+                              x-ref="form">
+                            @csrf
+                        </form>
+                    </x-confirmation-modal>
                 @endif
             </div>
         </div>
@@ -169,13 +197,6 @@
                 @else
                 <div class="pt-4">
                     <p class="text-red-500 text-sm">Belum ada bukti pembayaran</p>
-                </div>
-                @endif
-                
-                @if(isset($booking->payment->masterPayment) && $booking->payment->masterPayment->payment_qrcode)
-                <div class="pt-4">
-                    <p class="text-gray-600 text-sm mb-2">QR Code Pembayaran</p>
-                    <img src="{{ asset($booking->payment->masterPayment->payment_qrcode) }}" alt="QR Code Pembayaran" class="h-48 object-contain rounded-md border border-gray-200">
                 </div>
                 @endif
             </div>
