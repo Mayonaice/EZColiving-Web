@@ -22,6 +22,10 @@ use App\Http\Controllers\Admin\ExpenseController;
 use App\Http\Controllers\Admin\ReportController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\AdminAIController;
+use App\Http\Controllers\Admin\DamageCategoryController;
+use App\Http\Controllers\Admin\RoomDamageController;
+use App\Http\Controllers\User\RoomDamageController as UserRoomDamageController;
+use App\Http\Controllers\User\DamageController;
 
 // Redirect dari root ke userhome
 Route::get('/', function () {
@@ -54,6 +58,16 @@ Route::prefix('admin')->name('admin.')->group(function () {
             Route::get('rooms/{room}/edit-booking-info', [RoomController::class, 'editBookingInfo'])->name('rooms.edit-booking-info');
             Route::put('rooms/{room}/update-booking-info', [RoomController::class, 'updateBookingInfo'])->name('rooms.update-booking-info');
             Route::post('rooms/{room}/toggle-status', [RoomController::class, 'toggleStatus'])->name('rooms.toggle-status');
+            Route::get('rooms/{room}/checkout-damage', [RoomController::class, 'checkoutWithDamage'])->name('rooms.checkout-damage');
+            Route::post('rooms/{room}/checkout-damage', [RoomController::class, 'processCheckoutWithDamage'])->name('rooms.process-checkout-damage');
+            
+            // Damage category routes
+            Route::resource('damage-categories', DamageCategoryController::class);
+            
+            // Room damage routes
+            Route::get('room-damages/pending-payments', [RoomDamageController::class, 'pendingPayments'])->name('room-damages.pending-payments');
+            Route::post('room-damages/{id}/confirm-payment', [RoomDamageController::class, 'confirmPayment'])->name('room-damages.confirm-payment');
+            Route::resource('room-damages', RoomDamageController::class);
             
             Route::resource('masterpayments', MasterPaymentController::class);
             Route::get('denah', [AdminController::class, 'denah'])->name('denah');
@@ -178,6 +192,11 @@ Route::middleware(['web', CheckGuestIp::class])->group(function () {
     Route::get('/checkout/payment/{bookingId}', [CheckoutController::class, 'payment'])->name('user.checkout.payment');
     Route::post('/checkout/upload-payment/{bookingId}', [CheckoutController::class, 'uploadPayment'])->name('user.checkout.upload-payment');
     Route::get('/checkout/success/{bookingId}', [CheckoutController::class, 'success'])->name('user.checkout.success');
+    
+    // Room damage routes
+    Route::get('/damages', [UserRoomDamageController::class, 'index'])->name('damages.index');
+    Route::get('/damages/{id}', [UserRoomDamageController::class, 'show'])->name('damages.show');
+    Route::post('/damages/{id}/upload-payment', [UserRoomDamageController::class, 'uploadPayment'])->name('damages.upload-payment');
 });
 
 // User routes
@@ -194,6 +213,11 @@ Route::prefix('user')->name('user.')->group(function () {
     // Booking history routes
     Route::get('/bookings', [BookingHistoryController::class, 'index'])->name('bookings.history');
     Route::get('/bookings/{booking}', [BookingHistoryController::class, 'show'])->name('bookings.show');
+    
+    // Room damage routes
+    Route::get('/damages', [UserRoomDamageController::class, 'index'])->name('damages.index');
+    Route::get('/damages/{id}', [UserRoomDamageController::class, 'show'])->name('damages.show');
+    Route::post('/damages/{id}/upload-payment', [UserRoomDamageController::class, 'uploadPayment'])->name('damages.upload-payment');
 });
 
 // Untuk debugging WhatsApp setting

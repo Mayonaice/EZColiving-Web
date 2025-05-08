@@ -31,4 +31,9 @@ class GuestUser extends Model
     {
         return $this->hasMany(Booking::class);
     }
+
+    public function roomDamages()
+    {
+        return $this->hasMany(RoomDamage::class);
+    }
 } 

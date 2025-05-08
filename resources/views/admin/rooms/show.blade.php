@@ -223,6 +223,18 @@
                                 </p>
                             </div>
                         </div>
+                        
+                        <div class="mt-4 pt-4 border-t border-blue-200">
+                            <h5 class="text-xs font-medium text-gray-500">Opsi Checkout</h5>
+                            <div class="mt-2 flex space-x-2">
+                                <a href="{{ route('admin.rooms.checkout-damage', $room) }}" class="bg-yellow-500 hover:bg-yellow-600 text-white px-2 py-1 text-xs rounded">
+                                    <i class="fas fa-exclamation-triangle mr-1"></i> Checkout dengan Kerusakan
+                                </a>
+                            </div>
+                            <p class="text-xs text-gray-500 mt-1">
+                                <i class="fas fa-info-circle"></i> Gunakan opsi ini jika terdapat kerusakan pada kamar yang perlu dibayar oleh penghuni.
+                            </p>
+                        </div>
                     </div>
                     @else
                     <div class="mt-6 p-4 bg-gray-50 rounded-lg">

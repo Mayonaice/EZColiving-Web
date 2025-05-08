@@ -400,4 +400,70 @@ class RoomController extends Controller
         
         return redirect()->back()->with('success', "{$statusLabels[$field]} berhasil diubah menjadi {$valueLabels[$newValue]}");
     }
+
+    /**
+     * Menampilkan form untuk checkout dengan kerusakan kamar
+     */
+    public function checkoutWithDamage(Room $room)
+    {
+        // Pastikan kamar sedang dalam status Booked
+        if ($room->room_status !== 'Booked') {
+            return redirect()->route('admin.rooms.show', $room)
+                ->with('error', 'Kamar harus dalam status Booked untuk melakukan checkout dengan kerusakan.');
+        }
+
+        // Ambil data guest user yang sedang menempati kamar
+        $guestUser = \App\Models\GuestUser::where('name', $room->name_booking)
+            ->where('phone', $room->phone_booking)
+            ->first();
+
+        if (!$guestUser) {
+            return redirect()->route('admin.rooms.show', $room)
+                ->with('error', 'Data pengguna kamar tidak ditemukan.');
+        }
+
+        $categories = \App\Models\DamageCategory::all();
+        return view('admin.rooms.checkout-damage', compact('room', 'guestUser', 'categories'));
+    }
+
+    /**
+     * Proses checkout dengan kerusakan kamar
+     */
+    public function processCheckoutWithDamage(Request $request, Room $room)
+    {
+        $request->validate([
+            'damage_category_id' => 'required|exists:damage_categories,id',
+            'description' => 'required|string',
+            'damage_cost' => 'required|numeric|min:0',
+        ]);
+
+        // Ambil data guest user yang sedang menempati kamar
+        $guestUser = \App\Models\GuestUser::where('name', $room->name_booking)
+            ->where('phone', $room->phone_booking)
+            ->first();
+
+        if (!$guestUser) {
+            return redirect()->route('admin.rooms.show', $room)
+                ->with('error', 'Data pengguna kamar tidak ditemukan.');
+        }
+
+        // Buat data kerusakan kamar
+        \App\Models\RoomDamage::create([
+            'room_id' => $room->id,
+            'damage_category_id' => $request->damage_category_id,
+            'guest_user_id' => $guestUser->id,
+            'description' => $request->description,
+            'damage_cost' => $request->damage_cost,
+            'payment_status' => 'Unpaid',
+        ]);
+
+        // Update status kamar menjadi Maintenance
+        $room->update([
+            'room_status' => 'Maintenance',
+            'is_check_out' => 'Y',
+        ]);
+
+        return redirect()->route('admin.rooms.show', $room)
+            ->with('success', 'Checkout dengan kerusakan berhasil. Kamar sekarang dalam status Maintenance.');
+    }
 } 

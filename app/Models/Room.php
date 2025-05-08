@@ -59,4 +59,14 @@ class Room extends Model
     {
         return $this->hasMany(Booking::class);
     }
+
+    /**
+     * Define relationship with RoomDamage model.
+     * 
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function damages()
+    {
+        return $this->hasMany(RoomDamage::class);
+    }
 } 

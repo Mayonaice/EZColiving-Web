@@ -150,6 +150,15 @@
                                     <a href="{{ route('admin.expense-categories.index') }}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-green-50 hover:text-green-700 {{ request()->routeIs('admin.expense-categories.*') ? 'bg-green-50 text-green-700' : '' }}">
                                         Kategori Pengeluaran
                                     </a>
+                                    <a href="{{ route('admin.damage-categories.index') }}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-green-50 hover:text-green-700 {{ request()->routeIs('admin.damage-categories.*') ? 'bg-green-50 text-green-700' : '' }}">
+                                        Kategori Kerusakan
+                                    </a>
+                                    <a href="{{ route('admin.room-damages.index') }}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-green-50 hover:text-green-700 {{ request()->routeIs('admin.room-damages.*') ? 'bg-green-50 text-green-700' : '' }}">
+                                        Kerusakan Kamar
+                                    </a>
+                                    <a href="{{ route('admin.room-damages.pending-payments') }}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-green-50 hover:text-green-700 {{ request()->routeIs('admin.room-damages.pending-payments') ? 'bg-green-50 text-green-700' : '' }}">
+                                        Konfirmasi Pembayaran Kerusakan
+                                    </a>
                                     <a href="{{ route('admin.reports.index') }}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-green-50 hover:text-green-700 {{ request()->routeIs('admin.reports.*') ? 'bg-green-50 text-green-700' : '' }}">
                                         Laporan
                                     </a>
@@ -228,6 +237,15 @@
                         </a>
                         <a href="{{ route('admin.expense-categories.index') }}" class="block pl-6 pr-4 py-2 text-sm text-gray-600 hover:bg-gray-50 hover:text-gray-900">
                             Kategori Pengeluaran
+                        </a>
+                        <a href="{{ route('admin.damage-categories.index') }}" class="block pl-6 pr-4 py-2 text-sm text-gray-600 hover:bg-gray-50 hover:text-gray-900">
+                            Kategori Kerusakan
+                        </a>
+                        <a href="{{ route('admin.room-damages.index') }}" class="block pl-6 pr-4 py-2 text-sm text-gray-600 hover:bg-gray-50 hover:text-gray-900">
+                            Kerusakan Kamar
+                        </a>
+                        <a href="{{ route('admin.room-damages.pending-payments') }}" class="block pl-6 pr-4 py-2 text-sm text-gray-600 hover:bg-gray-50 hover:text-gray-900">
+                            Konfirmasi Pembayaran Kerusakan
                         </a>
                         <a href="{{ route('admin.reports.index') }}" class="block pl-6 pr-4 py-2 text-sm text-gray-600 hover:bg-gray-50 hover:text-gray-900">
                             Laporan

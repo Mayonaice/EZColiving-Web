@@ -29,7 +29,9 @@ class CheckGuestIp
             Log::info('Checking guest user access', [
                 'device_name' => $deviceName,
                 'device_info' => $deviceInfo,
-                'route' => $request->route()->getName()
+                'route' => $request->route()->getName(),
+                'session_id' => $request->session()->getId(),
+                'session_device_name' => $request->session()->get('device_name')
             ]);
             
             $guestUser = GuestUser::where('device_name', $deviceName)->first();
@@ -40,6 +42,15 @@ class CheckGuestIp
                     'device_info' => $deviceInfo
                 ]);
                 return redirect()->route('userhome')->with('error', 'Maaf, Anda tidak memiliki akses untuk melihat kamar.');
+            }
+            
+            // Simpan device_name ke session jika belum ada
+            if (!$request->session()->has('device_name')) {
+                $request->session()->put('device_name', $deviceName);
+                Log::info('Storing device_name to session', [
+                    'device_name' => $deviceName,
+                    'session_id' => $request->session()->getId()
+                ]);
             }
             
             Log::info('Guest user found', [
