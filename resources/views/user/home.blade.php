@@ -4,6 +4,8 @@
 
     <head>
         @vite(['resources/css/app.css', 'resources/js/app.js'])
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" />
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
         <style>
             .tooltip {
                 opacity: 0;
@@ -21,12 +23,151 @@
                 max-width: 100%;
                 overflow-x: hidden;
             }
+
+            /* Loading Animation */
+            .loader-wrapper {
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background: #ffffff;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                z-index: 9999;
+                transition: opacity 0.5s;
+            }
+
+            .loader {
+                width: 80px;
+                height: 80px;
+                border: 5px solid #f3f3f3;
+                border-top: 5px solid #16a34a;
+                border-radius: 50%;
+                animation: spin 1s linear infinite;
+            }
+
+            @keyframes spin {
+                0% { transform: rotate(0deg); }
+                100% { transform: rotate(360deg); }
+            }
+
+            /* Card Hover Effects */
+            .advantage-card {
+                transition: all 0.3s ease;
+                opacity: 1 !important;
+                transform: none !important;
+            }
+
+            .advantage-card:hover {
+                transform: translateY(-10px) !important;
+                box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+            }
+
+            /* Carousel Enhancement */
+            .carousel-image {
+                transition: transform 0.5s ease;
+            }
+
+            .carousel-image:hover {
+                transform: scale(1.05);
+            }
+
+            /* FAQ Enhancement */
+            .faq-item {
+                transition: all 0.3s ease;
+                opacity: 1 !important;
+                transform: none !important;
+            }
+
+            .faq-item:hover {
+                transform: translateX(10px) !important;
+            }
+
+            /* Scroll Progress Bar */
+            .scroll-progress {
+                position: fixed;
+                top: 0;
+                left: 0;
+                height: 4px;
+                background: linear-gradient(to right, #16a34a, #22c55e);
+                z-index: 9999;
+                transition: width 0.3s ease;
+            }
+
+            /* Button Animation */
+            .animated-button {
+                position: relative;
+                overflow: hidden;
+            }
+
+            .animated-button::after {
+                content: '';
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                width: 0;
+                height: 0;
+                background: rgba(255, 255, 255, 0.2);
+                border-radius: 50%;
+                transform: translate(-50%, -50%);
+                transition: width 0.6s, height 0.6s;
+            }
+
+            .animated-button:hover::after {
+                width: 300px;
+                height: 300px;
+            }
+
+            /* Navigation Button Enhancement */
+            .nav-button {
+                transition: all 0.3s ease;
+                opacity: 1 !important;
+                transform: none !important;
+            }
+
+            .nav-button:hover {
+                transform: scale(1.1) !important;
+                box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1);
+            }
+
+            /* Fade In Animation for Initial Load */
+            .fade-in {
+                animation: fadeIn 0.5s ease-in;
+            }
+
+            @keyframes fadeIn {
+                from {
+                    opacity: 0;
+                    transform: translateY(20px);
+                }
+                to {
+                    opacity: 1;
+                    transform: translateY(0);
+                }
+            }
+
+            /* Ensure AOS elements are visible by default */
+            [data-aos] {
+                opacity: 1 !important;
+                transform: none !important;
+                transition: all 0.5s ease !important;
+            }
         </style>
         <script src="{{ asset('js/user-landing-page.js') }}"></script>
     </head>
 
-    <div class="fixed bottom-6 right-6 flex flex-col space-y-4 z-30">
-        <a href="#top" class="group" data-turbolinks="false">
+    <!-- Loading Screen -->
+    <div class="loader-wrapper">
+        <div class="loader"></div>
+    </div>
+
+    <!-- Scroll Progress Bar -->
+    <div class="scroll-progress" style="width: 0%"></div>
+
+    <div class="fixed bottom-6 right-6 flex flex-col space-y-4 z-30 fade-in">
+        <a href="#top" class="group nav-button" data-turbolinks="false">
             <div class="relative flex items-center">
                 <span
                     class="tooltip absolute right-14 bg-gray-800 text-white text-sm rounded-lg px-3 py-1 whitespace-nowrap">Home</span>
@@ -71,17 +212,17 @@
         </a>
     </div>
 
-    <div id="top" class="">
+    <div id="top" class="fade-in">
         <div style="background-image: url('/banner/ezco-banner.png')" class="bg-cover bg-center border-r-0 w-full h-screen">
             <div class="pt-16">
 
-                <div class="flex justify-center">
+                <div class="flex justify-center" data-aos="fade-down" data-aos-delay="300">
                     <h1
                         class="xsm:text-3xl xsm:font-semibold xsm:pr-0 font-raleway mt-[120px] text-white xl:p-0 xl:text-7xl xl:font-bold">
                         Selamat Datang di EZ Coliving</h1>
                 </div>
 
-                <div class="xsm:mx-[0px] xsm:pr-14 xsm:pl-12 xl:mx-[480px] xl:px-[0px] flex justify-center text-center">
+                <div class="xsm:mx-[0px] xsm:pr-14 xsm:pl-12 xl:mx-[480px] xl:px-[0px] flex justify-center text-center" data-aos="fade-up" data-aos-delay="500">
                     <p
                         class="xsm:text-[12px] xsm:font-sans xsm:font-[80] xl:font-poppins mt-4 text-white lg:text-[18px] lg:font-extralight">
                         Ez Coliving adalah tempat yang sangat
@@ -90,9 +231,9 @@
                         untuk anda. memiliki pelayanan yang diatas rata rata kost pada umumnya, kami menunggu anda.</p>
                 </div>
 
-                <div class="flex justify-center xsm:pr-2 xl:pr-24 mt-6 xl:mx-[480px] text-center">
+                <div class="flex justify-center xsm:pr-2 xl:pr-24 mt-6 xl:mx-[480px] text-center" data-aos="fade-up" data-aos-delay="700">
                     <a href="#advantages"
-                        class="relative inline-flex items-center justify-center p-8 px-10 py-4 overflow-hidden font-medium text-teal-700 transition duration-300 ease-out rounded-full shadow-xl group hover:ring-1 hover:ring-emerald-500">
+                        class="animated-button relative inline-flex items-center justify-center p-8 px-10 py-4 overflow-hidden font-medium text-teal-700 transition duration-300 ease-out rounded-full shadow-xl group hover:ring-1 hover:ring-emerald-500">
                         <span
                             class="absolute inset-0 w-full h-full bg-gradient-to-br from-teal-700 via-emerald-600 to-green-700"></span>
                         <span
@@ -129,11 +270,11 @@
                 <template x-for="(image, idx) in images" :key="idx">
                     <figure class="h-[420px] w-full flex-shrink-0 flex justify-center items-center"
                         x-show="currentIndex === idx + 1" x-transition:enter="transition transform duration-300"
-                        x-transition:enter-start="opacity-0" x-transition:enter-end="opacity-100"
-                        x-transition:leave="transition transform duration-300" x-transition:leave-start="opacity-100"
-                        x-transition:leave-end="opacity-0">
+                        x-transition:enter-start="opacity-0 scale-95" x-transition:enter-end="opacity-100 scale-100"
+                        x-transition:leave="transition transform duration-300" x-transition:leave-start="opacity-100 scale-100"
+                        x-transition:leave-end="opacity-0 scale-95">
                         <img :src="image" alt="Image"
-                            class="absolute inset-0 z-10 h-full w-full object-cover opacity-70" />
+                            class="absolute inset-0 z-10 h-full w-full object-cover opacity-70 carousel-image" />
                         <figcaption
                             class="absolute inset-x-0 bottom-1 z-20 w-96 mx-auto p-4 font-light text-sm text-center tracking-widest leading-snug bg-gray-300 bg-opacity-25">
                             Lorem ipsum, dolor sit amet consectetur adipisicing elit.
@@ -161,13 +302,12 @@
 
             <div
                 class="grid max-w-4xl lg:max-w-6xl grid-cols-1 mx-auto mt-8 text-center gap-y-4 xsm:gap-x-8 xsm:grid-cols-1 lg:grid-cols-3 xsm:mt-12 lg:mt-20 xsm:text-left">
-                <div class="relative">
+                <div class="relative" data-aos="fade-right" data-aos-delay="300">
                     <div class="absolute -inset-1">
-                        <div
-                            class="w-full h-full rotate-180 opacity-30 blur-lg filter bg-gradient-to-r from-yellow-200 via-pink-500 to-white">
+                        <div class="w-full h-full rotate-180 opacity-30 blur-lg filter bg-gradient-to-r from-yellow-200 via-pink-500 to-white">
                         </div>
                     </div>
-                    <div class="relative overflow-hidden bg-white shadow-md rounded-xl h-full">
+                    <div class="relative overflow-hidden bg-white shadow-md rounded-xl h-full advantage-card">
                         <div class="p-9"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                                 stroke-width="1.5" stroke="black" class="size-[42px]">
                                 <path stroke-linecap="round" stroke-linejoin="round"
@@ -180,7 +320,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="overflow-hidden bg-white shadow-md rounded-xl">
+                <div class="overflow-hidden bg-white shadow-md rounded-xl advantage-card" data-aos="fade-up" data-aos-delay="400">
                     <div class="p-9"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                             stroke-width="1.5" stroke="black" class="size-[42px]">
                             <path stroke-linecap="round" stroke-linejoin="round"
@@ -192,13 +332,12 @@
                         </p>
                     </div>
                 </div>
-                <div class="relative">
+                <div class="relative" data-aos="fade-left" data-aos-delay="500">
                     <div class="absolute -inset-1">
-                        <div
-                            class="w-full h-full rotate-180 opacity-30 blur-lg filter bg-gradient-to-r from-yellow-200 via-pink-500 to-white">
+                        <div class="w-full h-full rotate-180 opacity-30 blur-lg filter bg-gradient-to-r from-yellow-200 via-pink-500 to-white">
                         </div>
                     </div>
-                    <div class="relative overflow-hidden bg-white shadow-md rounded-xl h-full">
+                    <div class="relative overflow-hidden bg-white shadow-md rounded-xl h-full advantage-card">
                         <div class="p-9"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                                 stroke-width="1.5" stroke="black" class="size-[42px]">
                                 <path stroke-linecap="round" stroke-linejoin="round"
@@ -210,7 +349,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="overflow-hidden bg-white shadow-md rounded-xl">
+                <div class="overflow-hidden bg-white shadow-md rounded-xl advantage-card" data-aos="fade-up" data-aos-delay="600">
                     <div class="p-9"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                             stroke-width="1.5" stroke="black" class="size-[42px]">
                             <path stroke-linecap="round" stroke-linejoin="round"
@@ -222,27 +361,18 @@
                             voluptatibus voluptas reprehenderit.</p>
                     </div>
                 </div>
-                <div class="relative">
-                    <div class="absolute -inset-1">
-                        <div
-                            class="w-full h-full rotate-180 opacity-30 blur-lg filter bg-gradient-to-r from-yellow-200 via-pink-500 to-white">
-                        </div>
-                    </div>
-                    <div class="relative overflow-hidden bg-white shadow-md rounded-xl h-full">
-                        <div class="p-9"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                                stroke-width="1.5" stroke="black" class="size-[42px]">
-                                <path stroke-linecap="round" stroke-linejoin="round"
-                                    d="M11.42 15.17 17.25 21A2.652 2.652 0 0 0 21 17.25l-5.877-5.877M11.42 15.17l2.496-3.03c.317-.384.74-.626 1.208-.766M11.42 15.17l-4.655 5.653a2.548 2.548 0 1 1-3.586-3.586l6.837-5.63m5.108-.233c.55-.164 1.163-.188 1.743-.14a4.5 4.5 0 0 0 4.486-6.336l-3.276 3.277a3.004 3.004 0 0 1-2.25-2.25l3.276-3.276a4.5 4.5 0 0 0-6.336 4.486c.091 1.076-.071 2.264-.904 2.95l-.102.085m-1.745 1.437L5.909 7.5H4.5L2.25 3.75l1.5-1.5L7.5 4.5v1.409l4.26 4.26m-1.745 1.437 1.745-1.437m6.615 8.206L15.75 15.75M4.867 19.125h.008v.008h-.008v-.008Z" />
-                            </svg>
-
-                            <h3 class="mt-6 text-2xl font-raleway font-bold text-gray-900 xsm:mt-10">Tes 5
-                            </h3>
-                            <p class="mt-6 text-base text-gray-600">Lorem ipsum dolor sit amet consectetur adipisicing
-                                elit. Nemo veniam sequi doloribus est magni placeat repudiandae quibusdam laborum esse.</p>
-                        </div>
+                <div class="overflow-hidden bg-white shadow-md rounded-xl advantage-card" data-aos="fade-up" data-aos-delay="800">
+                    <div class="p-9"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                            stroke-width="1.5" stroke="black" class="size-[42px]">
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                d="M11.42 15.17 17.25 21A2.652 2.652 0 0 0 21 17.25l-5.877-5.877M11.42 15.17l2.496-3.03c.317-.384.74-.626 1.208-.766M11.42 15.17l-4.655 5.653a2.548 2.548 0 1 1-3.586-3.586l6.837-5.63m5.108-.233c.55-.164 1.163-.188 1.743-.14a4.5 4.5 0 0 0 4.486-6.336l-3.276 3.277a3.004 3.004 0 0 1-2.25-2.25l3.276-3.276a4.5 4.5 0 0 0-6.336 4.486c.091 1.076-.071 2.264-.904 2.95l-.102.085m-1.745 1.437L5.909 7.5H4.5L2.25 3.75l1.5-1.5L7.5 4.5v1.409l4.26 4.26m-1.745 1.437 1.745-1.437m6.615 8.206L15.75 15.75M4.867 19.125h.008v.008h-.008v-.008Z" />
+                        </svg>
+                        <h3 class="mt-6 text-2xl font-raleway font-bold text-gray-900 xsm:mt-10">Tes 5</h3>
+                        <p class="mt-6 text-base text-gray-600">Lorem ipsum dolor sit amet consectetur adipisicing
+                            elit. Nemo veniam sequi doloribus est magni placeat repudiandae quibusdam laborum esse.</p>
                     </div>
                 </div>
-                <div class="overflow-hidden bg-white shadow-md rounded-xl">
+                <div class="overflow-hidden bg-white shadow-md rounded-xl advantage-card" data-aos="fade-up" data-aos-delay="1000">
                     <div class="p-9"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                             stroke-width="1.5" stroke="black" class="size-[42px]">
                             <path stroke-linecap="round" stroke-linejoin="round"
@@ -261,10 +391,10 @@
 
     <main id="faq" class="p-5 bg-light-blue">
         <div class="flex justify-center items-start my-2">
-            <div class="w-full xsm:w-10/12 md:w-1/2 my-1">
+            <div class="w-full xsm:w-10/12 md:w-1/2 my-1" data-aos="fade-up">
                 <h2 class="text-xl font-raleway font-semibold text-vnet-blue mb-2">FAQ - Pertanyaan Umum</h2>
                 <ul class="flex flex-col">
-                    <li class="bg-white my-2 shadow-lg" x-data="accordion(1)">
+                    <li class="bg-white my-2 shadow-lg faq-item" x-data="accordion(1)">
                         <h2 @click="handleClick()"
                             class="flex flex-row justify-between items-center font-raleway font-semibold p-3 cursor-pointer">
                             <span>Tes 1</span>
@@ -358,6 +488,41 @@
         </div>
     </main>
     <script>
+        // Loading Screen
+        window.addEventListener('load', () => {
+            const loader = document.querySelector('.loader-wrapper');
+            loader.style.opacity = '0';
+            setTimeout(() => {
+                loader.style.display = 'none';
+            }, 500);
+
+            // Initialize AOS with custom settings
+            AOS.init({
+                duration: 1000,
+                once: true,
+                offset: 100,
+                disable: 'mobile', // Disable on mobile devices
+                startEvent: 'load', // Start animations after everything is loaded
+                mirror: false,
+                anchorPlacement: 'top-bottom'
+            });
+        });
+
+        // Scroll Progress
+        window.addEventListener('scroll', () => {
+            const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+            const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            const scrolled = (winScroll / height) * 100;
+            document.querySelector('.scroll-progress').style.width = scrolled + '%';
+        });
+
+        // Ensure all elements are visible after page load
+        window.addEventListener('DOMContentLoaded', (event) => {
+            document.querySelectorAll('[data-aos]').forEach(element => {
+                element.classList.add('fade-in');
+            });
+        });
+
         document.addEventListener('alpine:init', () => {
             Alpine.data('slider', () => ({
                 currentIndex: 1,
