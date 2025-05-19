@@ -166,15 +166,15 @@
     <!-- Scroll Progress Bar -->
     <div class="scroll-progress" style="width: 0%"></div>
 
-    <div class="fixed bottom-6 right-6 flex flex-col space-y-4 z-30 fade-in">
+    <div class="fixed bottom-6 right-6 flex flex-col space-y-2 xl:space-y-4 z-30 fade-in">
         <a href="#top" class="group nav-button" data-turbolinks="false">
             <div class="relative flex items-center">
                 <span
                     class="tooltip absolute right-14 bg-gray-800 text-white text-sm rounded-lg px-3 py-1 whitespace-nowrap">Home</span>
                 <div
-                    class="w-12 h-12 bg-green-600 rounded-full flex items-center justify-center shadow-lg hover:bg-green-700 transition">
+                    class="w-8 h-8 xl:w-12 xl:h-12 bg-green-600 rounded-full flex items-center justify-center shadow-lg hover:bg-green-700 transition">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="white"
-                        class="w-7 h-7">
+                        class="w-4 h-4 xl:w-8 xl:h-8">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M3 12l9-9m0 0l9 9m-9-9v18" />
                     </svg>
                 </div>
@@ -185,9 +185,9 @@
                 <span
                     class="tooltip absolute right-14 bg-gray-800 text-white text-sm rounded-lg px-3 py-1 whitespace-nowrap">Advantages</span>
                 <div
-                    class="w-12 h-12 bg-green-600 rounded-full flex items-center justify-center shadow-lg hover:bg-green-700 transition">
+                    class="w-8 h-8 xl:w-12 xl:h-12 bg-green-600 rounded-full flex items-center justify-center shadow-lg hover:bg-green-700 transition">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                        stroke="white" class="size-8">
+                        stroke="white" class="size-4 xl:size-8">
                         <path stroke-linecap="round" stroke-linejoin="round"
                             d="M11.48 3.499a.562.562 0 0 1 1.04 0l2.125 5.111a.563.563 0 0 0 .475.345l5.518.442c.499.04.701.663.321.988l-4.204 3.602a.563.563 0 0 0-.182.557l1.285 5.385a.562.562 0 0 1-.84.61l-4.725-2.885a.562.562 0 0 0-.586 0L6.982 20.54a.562.562 0 0 1-.84-.61l1.285-5.386a.562.562 0 0 0-.182-.557l-4.204-3.602a.562.562 0 0 1 .321-.988l5.518-.442a.563.563 0 0 0 .475-.345L11.48 3.5Z" />
                     </svg>
@@ -200,9 +200,9 @@
                 <span
                     class="tooltip absolute right-14 bg-gray-800 text-white text-sm rounded-lg px-3 py-1 whitespace-nowrap">FAQ</span>
                 <div
-                    class="w-12 h-12 bg-green-600 rounded-full flex items-center justify-center shadow-lg hover:bg-green-700 transition">
+                    class="w-8 h-8 xl:w-12 xl:h-12 bg-green-600 rounded-full flex items-center justify-center shadow-lg hover:bg-green-700 transition">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                        stroke="white" class="size-8">
+                        stroke="white" class="size-4 xl:size-8">
                         <path stroke-linecap="round" stroke-linejoin="round"
                             d="M9.879 7.519c1.171-1.025 3.071-1.025 4.242 0 1.172 1.025 1.172 2.687 0 3.712-.203.179-.43.326-.67.442-.745.361-1.45.999-1.45 1.827v.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Zm-9 5.25h.008v.008H12v-.008Z" />
                     </svg>
@@ -218,7 +218,7 @@
 
                 <div class="flex justify-center" data-aos="fade-down" data-aos-delay="300">
                     <h1
-                        class="xsm:text-3xl xsm:font-semibold xsm:pr-0 font-raleway mt-[120px] text-white xl:p-0 xl:text-7xl xl:font-bold">
+                        class="xsm:text-3xl xsm:font-semibold xsm:pr-0 font-raleway xsm:ms-12 xsm:me-4 xl:me-0 xl:ms-0 mt-[120px] text-white xl:p-0 xl:text-7xl xl:font-bold">
                         Selamat Datang di EZ Coliving</h1>
                 </div>
 
